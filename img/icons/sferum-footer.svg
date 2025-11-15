@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="40.000538"
+   height="40.000011"
+   viewBox="0 0 40.000538 40.000011"
+   fill="none"
+   version="1.1"
+   id="svg34"
+   sodipodi:docname="sferum-footer.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     id="namedview36"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="14.033333"
+     inkscape:cx="17.933479"
+     inkscape:cy="17.149631"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg34" />
+  <path
+     d="m 34.964587,10.650788 c -0.9975,-0.9967005 -2.2969,-1.5956005 -3.7907,-1.8247005 -0.2291,-1.4939 -0.828,-2.7932 -1.824599,-3.7907 -6.713901,-6.71385 -17.6002,-6.71385 -24.3139005,0 -6.71385,6.7137005 -6.71385,17.5999005 0,24.3137995 0.9975,0.997501 2.2968,1.5955 3.7907,1.8256 0.2292,1.4938 0.828,2.793101 1.8247005,3.7898 6.7137,6.713901 17.6001,6.713901 24.3138,0 6.7146,-6.713799 6.7146,-17.5992 -10e-7,-24.313799 z"
+     fill="url(#paint0_linear_2_11391)"
+     id="path4"
+     style="fill:#ffffff" />
+  <path
+     d="m 15.688388,15.688388 c 5.0117,-5.0118 11.0904,-7.5379005 15.4864,-6.8624005 -0.2292,-1.4938 -0.828,-2.7931 -1.8247,-3.7906 -3.9319,-3.932 -12.5625,-1.6771 -19.2763,5.0375005 -6.7138005,6.713799 -8.9695005,15.344399 -5.0376005,19.276299 0.9975,0.997501 2.2968,1.5955 3.7907,1.8255 -0.6771,-4.3959 1.8497005,-10.4746 6.8615005,-15.486299 z"
+     fill="url(#paint1_radial_2_11391)"
+     id="path6"
+     style="fill:#515cb0;fill-opacity:1" />
+  <defs
+     id="defs32">
+    <linearGradient
+       id="paint0_linear_2_11391"
+       x1="17.4622"
+       y1="40.971199"
+       x2="42.2696"
+       y2="19.2647"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0000C9"
+         id="stop8" />
+      <stop
+         offset="0.1277"
+         stop-color="#2006C9"
+         id="stop10" />
+      <stop
+         offset="0.3216"
+         stop-color="#4A0EC8"
+         id="stop12" />
+      <stop
+         offset="0.5106"
+         stop-color="#6B14C8"
+         id="stop14" />
+      <stop
+         offset="0.6905"
+         stop-color="#8318C7"
+         id="stop16" />
+      <stop
+         offset="0.8578"
+         stop-color="#911BC7"
+         id="stop18" />
+      <stop
+         offset="1"
+         stop-color="#961CC7"
+         id="stop20" />
+    </linearGradient>
+    <radialGradient
+       id="paint1_radial_2_11391"
+       cx="0"
+       cy="0"
+       r="1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-9.5751793,-11.836184,17.457483,-14.122671,34.4247,34.7631)">
+      <stop
+         stop-color="#0B25CE"
+         id="stop23" />
+      <stop
+         offset="0.4859"
+         stop-color="#2C93DB"
+         id="stop25" />
+      <stop
+         offset="0.8379"
+         stop-color="#42DCE4"
+         id="stop27" />
+      <stop
+         offset="1"
+         stop-color="#4BF9E8"
+         id="stop29" />
+    </radialGradient>
+  </defs>
+</svg>
