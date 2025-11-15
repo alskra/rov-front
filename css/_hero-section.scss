@@ -1,0 +1,118 @@
+@layer components.hero-section {
+  .hero-section {
+    background-color: #515cb0;
+    color: #fff;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .hero-internal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .hero-text {
+    max-width: 500px;
+    margin: 0;
+    text-align: left;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  .hero-text-internal {
+    flex: 2;
+    max-width: 60%;
+  }
+
+  .hero-date-internal {
+    font-size: 1.2rem;
+    color: #515cb0;
+    margin-bottom: 5px;
+  }
+
+  .hero-title-internal {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #171d38;
+  }
+
+  .hero-subtitle-internal {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #171d38;
+  }
+
+  .hero-links-internal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-link-internal {
+    padding: 5px 10px;
+    border: 1px solid #515cb0;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #515cb0;
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+      background: #515cb0;
+      color: #fff;
+    }
+
+    &.active {
+      background-color: #515cb0;
+      color: #fff;
+    }
+  }
+
+  .hero-image {
+    img {
+      max-width: 80%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  .internal-h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #171d38;
+  }
+
+  .internal-image {
+    flex: 1;
+    max-width: 35%;
+    height: auto;
+    align-self: flex-start;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+}

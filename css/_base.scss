@@ -1,0 +1,39 @@
+@layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "PT Root UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #171d38;
+  }
+
+  h2 {
+    margin-block: 30px;
+    font-size: 32px;
+    color: #171d38;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    background: #eeeeee;
+    margin-block: 10px 20px;
+  }
+}

@@ -1,0 +1,9 @@
+@layer components.filter-section {
+  .filter-section {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+}

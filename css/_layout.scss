@@ -1,0 +1,19 @@
+@use "vars" as *;
+
+@layer layout {
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 calc((1400px - 1356px) / 2);
+    margin: 0 auto;
+  }
+
+  .flex {
+    &.justify-between {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+}

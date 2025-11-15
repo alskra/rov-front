@@ -1,0 +1,30 @@
+@layer components.breadcrumbs {
+  .breadcrumbs {
+    margin: 30px auto;
+    font-size: 0.9rem;
+
+    ul {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+    }
+
+    li {
+      &::after {
+        content: "/";
+        margin: 0 5px;
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+    }
+
+    a {
+      color: #515cb0;
+      text-decoration: none;
+    }
+  }
+}
