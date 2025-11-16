@@ -322,6 +322,15 @@
       flex-basis: calc((100% - 25rem) / 2);
     }
   }
+  @media (width < 768px) {
+    .card .date-overlay {
+      font-size: 18rem;
+      line-height: 13rem;
+    }
+    .card :is(h2, h3) {
+      font-size: 18rem;
+    }
+  }
 }
 @layer components.filter-section {
   .filter-section {
