@@ -27,19 +27,12 @@
     &.justify-between {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 20rem;
-    }
-
-    @media (width < $bp-lg) {
-      &.justify-between {
-        gap: 20rem;
-      }
+      gap: 25rem;
     }
 
     @media (width < $bp-md) {
       &.justify-between {
-        gap: 0;
+        gap: 40rem;
       }
     }
   }

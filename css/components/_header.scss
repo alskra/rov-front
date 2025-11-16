@@ -10,7 +10,7 @@
   }
 
   .header {
-    @include blue-shadow;
+    @include shadow-blue;
 
     & {
       position: sticky;

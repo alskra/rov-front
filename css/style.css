@@ -115,17 +115,11 @@
   .flex.justify-between {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 20rem;
-  }
-  @media (width < 1025px) {
-    .flex.justify-between {
-      gap: 20rem;
-    }
+    gap: 25rem;
   }
   @media (width < 768px) {
     .flex.justify-between {
-      gap: 0;
+      gap: 40rem;
     }
   }
 }
@@ -292,68 +286,37 @@
 }
 @layer components.card {
   .card {
-    background: #fff;
-    border: none;
-    border-radius: 8rem;
-    width: calc(24% - 10rem);
+    filter: drop-shadow(6rem 6rem 30rem rgba(99, 186, 255, 0.15));
     display: flex;
     flex-direction: column;
-    text-align: left;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
-    transition: box-shadow 200ms ease-in-out;
-    cursor: pointer;
-  }
-  .card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2rem;
-    width: 0;
-    background-color: #515cb0;
-    transition: width 0.3s ease-in-out;
-  }
-  .card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 10rem;
-  }
-  .card h3 {
-    margin: 0 10rem 10rem;
-    font-size: 16rem;
-    font-weight: bold;
-    color: #171d38;
+    flex-basis: calc((100% - 75rem) / 4);
+    margin-top: 36rem;
+    border-radius: 14rem;
+    background: #fff;
   }
   .card .date-overlay {
-    position: absolute;
-    top: 10rem;
-    left: 10rem;
-    background: linear-gradient(135deg, rgba(81, 92, 176, 0.9), rgba(120, 144, 236, 0.9));
+    width: max-content;
+    padding: 12rem 20rem 42rem;
+    margin: -36rem 0 -32rem;
+    font-size: 20rem;
+    font-weight: 500;
+    line-height: 14rem;
     color: #fff;
-    padding: 5rem 10rem;
-    border-radius: 5rem;
-    font-size: 0.9em;
+    border-radius: 12rem 12rem 0 0;
+    background: #63baff;
   }
-  .card:hover {
-    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+  .card img {
+    aspect-ratio: 320/193;
+    margin-bottom: 8rem;
+    object-fit: cover;
+    border-radius: inherit;
   }
-  .card:hover::after {
-    width: 100%;
-  }
-  @media (width < 1025px) {
-    .card {
-      width: calc(48% - 10rem);
-      margin-bottom: 15rem;
-    }
-  }
-  @media (width < 768px) {
-    .card {
-      width: 100%;
-      margin-bottom: 15rem;
-    }
+  .card :is(h2, h3) {
+    padding: 12rem 12rem 20rem;
+    flex: 1;
+    font-size: 20rem;
+    font-weight: 400;
+    border-radius: 0 0 12rem 12rem;
   }
 }
 @layer components.filter-section {
@@ -388,6 +351,12 @@
     --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
     --padding-x: 20rem;
     padding: var(--padding-y) var(--padding-x);
+    font-size: 20rem;
+    font-weight: 500;
+    line-height: var(--line-height);
+    color: #63baff;
+    border: 1px solid #63baff;
+    border-radius: 12rem;
   }
 }
 @layer components.breadcrumbs {
