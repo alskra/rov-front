@@ -2,6 +2,8 @@
 
 @layer base {
   :root {
+    --body-color: #{$black};
+
     font-size: calc(1px / 16px * 1rem);
 
     @media (width < $bp-2xl) {
@@ -9,10 +11,6 @@
     }
 
     @media (width < $bp-lg) {
-      font-size: calc(1px / $bp-md * 100vw);
-    }
-
-    @media (width < $bp-md) {
       font-size: 1px;
     }
   }
