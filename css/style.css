@@ -5,6 +5,7 @@
 @layer helpers {}
 @layer base {
   :root {
+    --base-transition: 0.3s ease-in-out;
     --body-color: #000;
     font-size: 0.0625rem;
   }
@@ -621,6 +622,9 @@
       border-radius: 8rem;
     }
   }
+  .hero-internal {
+    margin-bottom: 76rem;
+  }
   .hero-date-internal {
     font-size: 19rem;
     color: #515cb0;
@@ -646,24 +650,46 @@
     flex-wrap: wrap;
     gap: 20rem;
   }
+  @media (width < 768px) {
+    .hero-links-internal {
+      flex-direction: column;
+    }
+  }
   .hero-link-internal {
-    height: 42rem;
-    padding: 4rem 20rem;
+    --height: 42rem;
+    --line-height: 1.25;
+    --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
+    --padding-x: 20rem;
+    padding: var(--padding-y) var(--padding-x);
+    max-width: 100%;
+    font-size: 20rem;
+    font-weight: 500;
+    line-height: var(--line-height);
     color: #63baff;
-    border: 1px solid currentColor;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: 1px solid #63baff;
     border-radius: 32rem;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
+    transition: var(--base-transition);
+    transition-property: color, background-color;
   }
   @media (hover: hover) {
     .hero-link-internal:hover {
-      background: #515cb0;
       color: #fff;
+      background-color: #63baff;
     }
   }
   .hero-link-internal.active {
-    background-color: #515cb0;
     color: #fff;
+    background-color: #63baff;
+  }
+  @media (width < 768px) {
+    .hero-link-internal {
+      --height: 33rem;
+      margin: 0 auto;
+      font-size: 18rem;
+    }
   }
   .internal-h2 {
     margin-top: 15rem;

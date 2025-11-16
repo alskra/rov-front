@@ -254,6 +254,7 @@
   }
 
   .hero-internal {
+    margin-bottom: 76rem;
   }
 
   .hero-text-internal {
@@ -285,27 +286,49 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20rem;
+
+    @include media-down($bp-md) {
+      flex-direction: column;
+    }
   }
 
   .hero-link-internal {
-    height: 42rem;
-    padding: 4rem 20rem;
+    --height: 42rem;
+    --line-height: 1.25;
+    --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
+    --padding-x: 20rem;
+
+    padding: var(--padding-y) var(--padding-x);
+    max-width: 100%;
+    font-size: 20rem;
+    font-weight: 500;
+    line-height: var(--line-height);
     color: $blue;
-    border: 1px solid currentColor;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: 1px solid $blue;
     border-radius: 32rem;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
+    transition: var(--base-transition);
+    transition-property: color, background-color;
 
     @include media-hover {
       &:hover {
-        background: #515cb0;
-        color: #fff;
+        color: $white;
+        background-color: $blue;
       }
     }
 
     &.active {
-      background-color: #515cb0;
-      color: #fff;
+      color: $white;
+      background-color: $blue;
+    }
+
+    @include media-down($bp-md) {
+      --height: 33rem;
+
+      margin: 0 auto;
+      font-size: 18rem;
     }
   }
 
