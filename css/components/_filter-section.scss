@@ -2,19 +2,44 @@
 
 @layer components.filter-section {
   .filter-section {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 44rem;
+    margin-bottom: 160rem;
 
-    &.is-active {
-      display: block;
+    &:not(.is-active) {
+      display: none;
     }
 
     @media (width < $bp-lg) {
-      &.is-active {
-        .flex.justify-between {
-          display: flex;
-          flex-direction: column-reverse;
-        }
+      .flex.justify-between {
+        display: flex;
+        flex-direction: column-reverse;
       }
     }
+  }
+
+  .filter-section-header {
+    display: flex;
+    gap: 24rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .filter-section-title {
+    &:where(img) {
+      display: block;
+      height: 97rem;
+    }
+  }
+
+  .filter-section-year {
+    --height: 42rem;
+    --line-height: 1.25;
+    --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
+    --padding-x: 20rem;
+
+    padding: var(--padding-y) var(--padding-x);
+
   }
 }

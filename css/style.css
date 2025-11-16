@@ -358,16 +358,36 @@
 }
 @layer components.filter-section {
   .filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 44rem;
+    margin-bottom: 160rem;
+  }
+  .filter-section:not(.is-active) {
     display: none;
   }
-  .filter-section.is-active {
-    display: block;
-  }
   @media (width < 1025px) {
-    .filter-section.is-active .flex.justify-between {
+    .filter-section .flex.justify-between {
       display: flex;
       flex-direction: column-reverse;
     }
+  }
+  .filter-section-header {
+    display: flex;
+    gap: 24rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .filter-section-title:where(img) {
+    display: block;
+    height: 97rem;
+  }
+  .filter-section-year {
+    --height: 42rem;
+    --line-height: 1.25;
+    --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
+    --padding-x: 20rem;
+    padding: var(--padding-y) var(--padding-x);
   }
 }
 @layer components.breadcrumbs {
@@ -653,6 +673,7 @@
   @media (width < 768px) {
     .hero-links-internal {
       flex-direction: column;
+      align-content: center;
     }
   }
   .hero-link-internal {
@@ -666,6 +687,7 @@
     font-weight: 500;
     line-height: var(--line-height);
     color: #63baff;
+    text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -687,7 +709,6 @@
   @media (width < 768px) {
     .hero-link-internal {
       --height: 33rem;
-      margin: 0 auto;
       font-size: 18rem;
     }
   }
