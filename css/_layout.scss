@@ -13,13 +13,13 @@
 
   .container {
     width: 100%;
-    max-width: 1400px;
-    padding: 0 24px;
+    max-width: 1400rem;
+    padding: 0 24rem;
     margin: 0 auto;
 
     @media (width < $bp-md) {
-      padding-right: 16px;
-      padding-left: 16px;
+      padding-right: 16rem;
+      padding-left: 16rem;
     }
   }
 
@@ -28,12 +28,12 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      gap: 20px;
+      gap: 20rem;
     }
 
     @media (width < $bp-lg) {
       &.justify-between {
-        gap: 20px;
+        gap: 20rem;
       }
     }
 

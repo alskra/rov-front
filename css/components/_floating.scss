@@ -3,23 +3,23 @@
 @layer components.floating {
   .floating-envelope {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
+    bottom: 20rem;
+    right: 20rem;
+    width: 60rem;
+    height: 60rem;
     background: #515cb0;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, background 0.3s;
     text-decoration: none;
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 24rem;
+      height: 24rem;
     }
 
     &:hover {
@@ -30,16 +30,16 @@
 
   .floating-sferum {
     position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
+    bottom: 90rem;
+    right: 20rem;
+    width: 60rem;
+    height: 60rem;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, background 0.3s;
     text-decoration: none;
 
@@ -51,16 +51,16 @@
 
   .floating-sferum-main {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
+    bottom: 20rem;
+    right: 20rem;
+    width: 60rem;
+    height: 60rem;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, background 0.3s;
     text-decoration: none;
 

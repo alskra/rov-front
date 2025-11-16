@@ -3,13 +3,13 @@
 @layer components.social-icons {
   .social-icons {
     display: flex;
-    gap: 20px;
+    gap: 20rem;
     margin: 0;
 
     a {
       img {
-        width: 28px;
-        height: 28px;
+        width: 28rem;
+        height: 28rem;
         margin-left: 0;
         transition: opacity 0.3s ease;
       }

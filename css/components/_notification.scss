@@ -8,10 +8,10 @@
     transform: translate(-50%, -50%);
     background: linear-gradient(90deg, #6a80f5, #515cb0);
     color: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    font-size: 1.2rem;
+    padding: 20rem 40rem;
+    border-radius: 10rem;
+    box-shadow: 0 8rem 12rem rgba(0, 0, 0, 0.2);
+    font-size: 19rem;
     font-weight: bold;
     z-index: 1000;
     text-align: center;
@@ -20,14 +20,14 @@
 
     @media (width < $bp-lg) {
       width: 90%;
-      padding: 15px 20px;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 15rem 20rem;
+      font-size: 16rem;
+      border-radius: 8rem;
     }
 
     @media (width < $bp-md) {
       width: 95%;
-      font-size: 0.9rem;
+      font-size: 14rem;
     }
   }
 }

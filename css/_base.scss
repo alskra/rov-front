@@ -16,20 +16,20 @@
   body {
     margin: 0;
     font-family: "PT Root UI", Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 16rem;
     line-height: 1.5;
-    color: #171d38;
+    color: $black;
   }
 
   h2 {
-    margin-block: 30px;
-    font-size: 2rem;
+    margin-block: 30rem;
+    font-size: 32rem;
     color: #171d38;
   }
 
   h3 {
     @media (width < $bp-md) {
-      font-size: 0.9rem;
+      font-size: 14rem;
     }
   }
 
@@ -42,6 +42,6 @@
     height: 1px;
     border: none;
     background: #eeeeee;
-    margin-block: 10px 20px;
+    margin-block: 10rem 20rem;
   }
 }

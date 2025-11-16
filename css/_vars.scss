@@ -21,32 +21,32 @@ $bp-xs: 320px;
 $bp-sm: 576px;
 $bp-md: 768px;
 $bp-lg: 1025px;
-$bp-xl: 1280px;
+$bp-xl: 1200px;
 $bp-2xl: 1400px;
 $bp-3xl: 1920px;
 $bp-4xl: 2560px;
 
 // Effect styles
 @mixin red-shadow {
-  filter: drop-shadow(6px 6px 30px rgba($red, 0.15));
+  filter: drop-shadow(6rem 6rem 30rem rgba($red, 0.15));
 }
 
 @mixin yellow-shadow {
-  filter: drop-shadow(6px 6px 30px rgba($yellow, 0.15));
+  filter: drop-shadow(6rem 6rem 30rem rgba($yellow, 0.15));
 }
 
 @mixin green-shadow {
-  filter: drop-shadow(6px 6px 30px rgba($green, 0.15));
+  filter: drop-shadow(6rem 6rem 30rem rgba($green, 0.15));
 }
 
 @mixin pink-shadow {
-  filter: drop-shadow(6px 6px 30px rgba($pink, 0.15));
+  filter: drop-shadow(6rem 6rem 30rem rgba($pink, 0.15));
 }
 
 @mixin blue-shadow {
-  filter: drop-shadow(6px 6px 30px rgba($blue, 0.15));
+  filter: drop-shadow(6rem 6rem 30rem rgba($blue, 0.15));
 }
 
 @mixin orange-shadow {
-  filter: drop-shadow(6px 6px 30px rgba($orange, 0.15));
+  filter: drop-shadow(6rem 6rem 30rem rgba($orange, 0.15));
 }

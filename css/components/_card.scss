@@ -4,14 +4,14 @@
   .card {
     background: #fff;
     border: none;
-    border-radius: 8px;
-    width: calc(24% - 10px);
+    border-radius: 8rem;
+    width: calc(24% - 10rem);
     display: flex;
     flex-direction: column;
     text-align: left;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
     transition: box-shadow 200ms ease-in-out;
     cursor: pointer;
 
@@ -20,7 +20,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 2px;
+      height: 2rem;
       width: 0;
       background-color: #515cb0;
       transition: width 0.3s ease-in-out;
@@ -30,29 +30,29 @@
       width: 100%;
       height: auto;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 10rem;
     }
 
     h3 {
-      margin: 0 10px 10px;
-      font-size: 1rem;
+      margin: 0 10rem 10rem;
+      font-size: 16rem;
       font-weight: bold;
       color: #171d38;
     }
 
     .date-overlay {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 10rem;
+      left: 10rem;
       background: linear-gradient(135deg, rgba(81, 92, 176, 0.9), rgba(120, 144, 236, 0.9));
       color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 5rem 10rem;
+      border-radius: 5rem;
       font-size: 0.9em;
     }
 
     &:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
 
       &::after {
         width: 100%;
@@ -60,13 +60,13 @@
     }
 
     @media (width < $bp-lg) {
-      width: calc(48% - 10px);
-      margin-bottom: 15px;
+      width: calc(48% - 10rem);
+      margin-bottom: 15rem;
     }
 
     @media (width < $bp-md) {
       width: 100%;
-      margin-bottom: 15px;
+      margin-bottom: 15rem;
     }
   }
 }

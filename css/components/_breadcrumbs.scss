@@ -2,19 +2,19 @@
 
 @layer components.breadcrumbs {
   .breadcrumbs {
-    margin: 30px auto;
-    font-size: 0.9rem;
+    margin: 30rem auto;
+    font-size: 14rem;
 
     ul {
       display: flex;
-      gap: 10px;
+      gap: 10rem;
       list-style: none;
     }
 
     li {
       &::after {
         content: "/";
-        margin: 0 5px;
+        margin: 0 5rem;
       }
 
       &:last-child {
