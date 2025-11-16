@@ -5,7 +5,10 @@
     display: flex;
     flex-direction: column;
     gap: 44rem;
-    margin-bottom: 160rem;
+
+    & + & {
+      margin-top: 160rem;
+    }
 
     &:not(.is-active) {
       display: none;
