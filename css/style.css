@@ -201,14 +201,15 @@
 }
 @layer components.footer {
   .footer {
-    background-color: #515cb0;
-    color: #fff;
-    padding: 40rem 0 20rem;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 50rem 0;
     margin-top: 80rem;
+    color: #fff;
+    border-radius: 14rem 14rem 0 0;
+    background: #63baff;
   }
   .footer a img {
     max-width: 150rem;
