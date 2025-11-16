@@ -1,4 +1,4 @@
-@use "mixins/visually-hidden" as *;
+@use "mixins" as *;
 
 @layer helpers {
   .visually-hidden {
