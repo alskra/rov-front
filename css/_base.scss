@@ -28,7 +28,7 @@
   }
 
   h3 {
-    @media (width < $bp-sm) {
+    @media (width < $bp-md) {
       font-size: 0.9rem;
     }
   }

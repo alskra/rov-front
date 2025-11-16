@@ -32,7 +32,7 @@
       }
     }
 
-    @media (width < $bp-sm) {
+    @media (width < $bp-md) {
       &.justify-between {
         gap: 0;
       }

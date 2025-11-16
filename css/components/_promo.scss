@@ -5,7 +5,7 @@
     padding: 40px 0;
     text-align: center;
 
-    @media (width < $bp-sm) {
+    @media (width < $bp-md) {
       padding: 25px 0;
     }
   }

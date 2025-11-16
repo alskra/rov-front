@@ -54,7 +54,7 @@
     font-size: 2rem;
     color: #171d38;
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     h3 {
       font-size: 0.9rem;
     }
@@ -96,7 +96,7 @@
       gap: 20px;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .flex.justify-between {
       gap: 0;
     }
@@ -159,7 +159,7 @@
       text-align: left;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .footer {
       flex-direction: column;
       align-items: flex-start;
@@ -178,7 +178,7 @@
   .footer-info p {
     margin-bottom: 10px;
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .footer-info {
       margin-bottom: 20px;
       margin-left: 0;
@@ -200,7 +200,7 @@
       margin-top: 20px;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .footer-logos {
       display: flex;
       justify-content: flex-start;
@@ -269,7 +269,7 @@
       margin-bottom: 15px;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .card {
       width: 100%;
       margin-bottom: 15px;
@@ -337,7 +337,7 @@
       align-items: flex-start;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .hero-section {
       padding: 20px 8px;
     }
@@ -376,7 +376,7 @@
       font-size: 2.5rem;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .hero-text {
       text-align: left;
     }
@@ -408,7 +408,7 @@
     margin-bottom: 15px;
     color: #171d38;
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .hero-title-internal {
       font-size: 1.8rem;
     }
@@ -455,7 +455,7 @@
       height: auto;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .hero-image img {
       max-width: 80%;
       max-height: 250px;
@@ -468,7 +468,7 @@
     font-size: 1.8rem;
     color: #171d38;
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .internal-h2 {
       font-size: 1.4rem;
     }
@@ -628,7 +628,7 @@
       border-radius: 8px;
     }
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .notification {
       width: 95%;
       font-size: 0.9rem;
@@ -720,7 +720,7 @@
     padding: 40px 0;
     text-align: center;
   }
-  @media (width < 480px) {
+  @media (width < 768px) {
     .promo-banner {
       padding: 25px 0;
     }
