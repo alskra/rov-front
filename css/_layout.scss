@@ -24,16 +24,11 @@
   }
 
   .flex {
-    &.justify-between {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25rem;
-    }
+    display: flex;
+    flex-wrap: wrap;
 
-    @media (width < $bp-md) {
-      &.justify-between {
-        gap: 40rem;
-      }
+    &.justify-between {
+      justify-content: space-between;
     }
   }
 }

@@ -112,15 +112,12 @@
       padding-left: 16rem;
     }
   }
-  .flex.justify-between {
+  .flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 25rem;
   }
-  @media (width < 768px) {
-    .flex.justify-between {
-      gap: 40rem;
-    }
+  .flex.justify-between {
+    justify-content: space-between;
   }
 }
 @layer helpers {
@@ -306,6 +303,7 @@
     background: #63baff;
   }
   .card img {
+    width: 100%;
     aspect-ratio: 320/193;
     margin-bottom: 8rem;
     object-fit: cover;
@@ -318,12 +316,21 @@
     font-weight: 400;
     border-radius: 0 0 12rem 12rem;
   }
+  @media (width < 1025px) {
+    .card {
+      flex-basis: calc((100% - 25rem) / 2);
+    }
+  }
 }
 @layer components.filter-section {
   .filter-section {
     display: flex;
     flex-direction: column;
-    gap: 44rem;
+    gap: 30rem;
+  }
+  .filter-section .flex.justify-between {
+    gap: 25rem;
+    justify-content: flex-start;
   }
   .filter-section + .filter-section {
     margin-top: 160rem;
@@ -331,27 +338,42 @@
   .filter-section:not(.is-active) {
     display: none;
   }
-  @media (width < 1025px) {
+  @media (768px <= width < 1025px) {
+    .filter-section {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
+  }
+  @media (width < 768px) {
     .filter-section .flex.justify-between {
-      display: flex;
       flex-direction: column-reverse;
+      gap: 40rem;
+    }
+    .filter-section + .filter-section {
+      margin-top: 100rem;
     }
   }
   .filter-section-header {
     display: flex;
     gap: 24rem;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
   }
   .filter-section-title:where(img) {
     display: block;
     height: 97rem;
   }
+  @media (width < 768px) {
+    .filter-section-title:where(img) {
+      height: 76rem;
+    }
+  }
   .filter-section-year {
     --height: 42rem;
     --line-height: 1.25;
     --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
     --padding-x: 20rem;
+    flex: none;
     padding: var(--padding-y) var(--padding-x);
     font-size: 20rem;
     font-weight: 500;
@@ -359,6 +381,14 @@
     color: #63baff;
     border: 1px solid #63baff;
     border-radius: 12rem;
+  }
+  @media (width < 768px) {
+    .filter-section-year {
+      --height: 31rem;
+      --padding-x: 16rem;
+      font-size: 16rem;
+      border-radius: 8rem;
+    }
   }
 }
 @layer components.breadcrumbs {
@@ -615,6 +645,12 @@
   }
   .hero-internal {
     margin-bottom: 76rem;
+  }
+  @media (768px <= width < 1025px) {
+    .hero-internal {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
   }
   .hero-date-internal {
     font-size: 19rem;

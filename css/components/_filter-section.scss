@@ -1,10 +1,16 @@
 @use "../vars" as *;
+@use "../mixins" as *;
 
 @layer components.filter-section {
   .filter-section {
     display: flex;
     flex-direction: column;
-    gap: 44rem;
+    gap: 30rem;
+
+    .flex.justify-between {
+      gap: 25rem;
+      justify-content: flex-start;
+    }
 
     & + & {
       margin-top: 160rem;
@@ -14,10 +20,19 @@
       display: none;
     }
 
-    @media (width < $bp-lg) {
+    @include media-between($bp-md, $bp-lg) {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
+
+    @include media-down($bp-md) {
       .flex.justify-between {
-        display: flex;
         flex-direction: column-reverse;
+        gap: 40rem;
+      }
+
+      & + & {
+        margin-top: 100rem;
       }
     }
   }
@@ -25,7 +40,7 @@
   .filter-section-header {
     display: flex;
     gap: 24rem;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -33,6 +48,12 @@
     &:where(img) {
       display: block;
       height: 97rem;
+    }
+
+    @include media-down($bp-md) {
+      &:where(img) {
+        height: 76rem;
+      }
     }
   }
 
@@ -42,6 +63,7 @@
     --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
     --padding-x: 20rem;
 
+    flex: none;
     padding: var(--padding-y) var(--padding-x);
     font-size: 20rem;
     font-weight: 500;
@@ -49,5 +71,13 @@
     color: $blue;
     border: 1px solid $blue;
     border-radius: 12rem;
+
+    @include media-down($bp-md) {
+      --height: 31rem;
+      --padding-x: 16rem;
+
+      font-size: 16rem;
+      border-radius: 8rem;
+    }
   }
 }

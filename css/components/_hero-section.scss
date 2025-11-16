@@ -255,6 +255,11 @@
 
   .hero-internal {
     margin-bottom: 76rem;
+
+    @include media-between($bp-md, $bp-lg) {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
   }
 
   .hero-text-internal {
