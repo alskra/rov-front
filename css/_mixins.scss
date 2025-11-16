@@ -1,3 +1,33 @@
+@mixin media-up($bp) {
+  @media (width >= $bp) {
+    @content;
+  }
+}
+
+@mixin media-down($bp) {
+  @media (width < $bp) {
+    @content;
+  }
+}
+
+@mixin media-between($bp-start, $bp-end) {
+  @media ($bp-start <= width < $bp-end) {
+    @content;
+  }
+}
+
+@mixin media-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin media-not-hover {
+  @media (hover: none) {
+    @content;
+  }
+}
+
 @mixin nfc {
   #{if(&, "&", "")}:where(:not(:first-child)) {
     @content;

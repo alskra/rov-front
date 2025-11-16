@@ -254,24 +254,9 @@
   }
 
   .hero-internal {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20rem;
-    margin-bottom: 30rem;
-
-    @media (width < $bp-lg) {
-      flex-direction: column-reverse;
-    }
   }
 
   .hero-text-internal {
-    flex: 2;
-    max-width: 60%;
-
-    @media (width < $bp-lg) {
-      max-width: 100%;
-    }
   }
 
   .hero-date-internal {
@@ -299,20 +284,23 @@
   .hero-links-internal {
     display: flex;
     flex-wrap: wrap;
-    gap: 10rem;
+    gap: 20rem;
   }
 
   .hero-link-internal {
-    padding: 5rem 10rem;
-    border: 1px solid #515cb0;
-    border-radius: 10rem;
+    height: 42rem;
+    padding: 4rem 20rem;
+    color: $blue;
+    border: 1px solid currentColor;
+    border-radius: 32rem;
     text-decoration: none;
-    color: #515cb0;
     transition: background 0.3s, color 0.3s;
 
-    &:hover {
-      background: #515cb0;
-      color: #fff;
+    @include media-hover {
+      &:hover {
+        background: #515cb0;
+        color: #fff;
+      }
     }
 
     &.active {
