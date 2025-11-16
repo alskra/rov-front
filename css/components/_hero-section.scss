@@ -1,34 +1,86 @@
 @use "../vars" as *;
+@use "../mixins" as *;
 
 @layer components.hero-section {
   .hero-section {
-    background-color: #515cb0;
-    color: #fff;
-    min-height: 400rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    margin: 24rem 0 128rem;
+  }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
+  .hero-section-body {
+    position: relative;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: 720fr 536fr;
+    row-gap: 42rem;
+    padding: 50rem;
+    color: $white;
+    border-radius: 14rem;
+    background: $blue;
 
     @media (width < $bp-lg) {
-      padding: 30rem 15rem;
-
-      .container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
 
     @media (width < $bp-md) {
-      padding: 20rem 8rem;
+      gap: 20rem;
+      padding: 35rem 16rem 50rem;
     }
+  }
+
+  .hero-decor {
+    pointer-events: none;
+
+    img {
+      position: absolute;
+      z-index: -1;
+
+      &:nth-child(1) {
+        top: -44rem;
+        right: -25rem;
+        width: 229rem;
+      }
+
+      &:nth-child(2) {
+        top: 130rem;
+        right: 156rem;
+        width: 124rem;
+      }
+
+      &:nth-child(3) {
+        top: 27rem;
+        right: 285rem;
+        width: 162rem;
+      }
+    }
+  }
+
+  .hero-title {
+    grid-column: 1 / -1;
+    max-width: 50%;
+
+    &:where(img) {
+      height: 117rem;
+    }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 32rem;
+    padding: 50rem;
+    border-radius: 10rem 0 0 10rem;
+    background: $white;
+
+    p {
+      @include nlc {
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  .hero-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0 10rem 10rem 0;
   }
 
   .hero-internal {
@@ -40,45 +92,6 @@
 
     @media (width < $bp-lg) {
       flex-direction: column-reverse;
-    }
-  }
-
-  .hero-text {
-    max-width: 500rem;
-    margin: 0;
-    text-align: left;
-
-    h1 {
-      font-size: 48rem;
-      line-height: 1.2;
-      margin-bottom: 20rem;
-    }
-
-    p {
-      margin-bottom: 15rem;
-    }
-
-    @media (width < $bp-lg) {
-      text-align: left;
-      margin-top: 20rem;
-
-      h1 {
-        font-size: 40rem;
-      }
-    }
-
-    @media (width < $bp-md) {
-      text-align: left;
-
-      h1 {
-        font-size: 28rem;
-      }
-    }
-
-    @media (width <= $bp-xs) {
-      h1 {
-        font-size: 26rem;
-      }
     }
   }
 
@@ -135,33 +148,6 @@
     &.active {
       background-color: #515cb0;
       color: #fff;
-    }
-  }
-
-  .hero-image {
-    img {
-      max-width: 80%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    @media (width < $bp-lg) {
-      text-align: center;
-      margin: 0 auto;
-
-      img {
-        max-width: 70%;
-        max-height: 300rem;
-        height: auto;
-      }
-    }
-
-    @media (width < $bp-md) {
-      img {
-        max-width: 80%;
-        max-height: 250rem;
-        height: auto;
-      }
     }
   }
 

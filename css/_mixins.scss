@@ -1,4 +1,14 @@
-// stylelint-disable declaration-no-important
+@mixin nfc {
+  #{if(&, "&", "")}:where(:not(:first-child)) {
+    @content;
+  }
+}
+
+@mixin nlc {
+  #{if(&, "&", "")}:where(:not(:last-child)) {
+    @content;
+  }
+}
 
 // Hide content visually while keeping it accessible to assistive technologies
 //
