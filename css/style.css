@@ -2,6 +2,7 @@
 @layer layout {}
 @layer components {}
 @layer pages {}
+@layer helpers {}
 @layer base {}
 @font-face {
   font-family: "PT Root UI";
@@ -82,8 +83,14 @@
   .container {
     width: 100%;
     max-width: 1400px;
-    padding: 0 22px;
+    padding: 0 24px;
     margin: 0 auto;
+  }
+  @media (width < 768px) {
+    .container {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
   }
   .flex.justify-between {
     display: flex;
@@ -102,20 +109,57 @@
     }
   }
 }
+@layer helpers {
+  .visually-hidden {
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip: rect(0, 0, 0, 0) !important;
+  }
+  .visually-hidden:not(caption) {
+    position: absolute !important;
+  }
+  .visually-hidden-focusable:not(:focus, :focus-within) {
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip: rect(0, 0, 0, 0) !important;
+  }
+  .visually-hidden-focusable:not(:focus, :focus-within):not(caption) {
+    position: absolute !important;
+  }
+}
 @layer components.header {
+  :root {
+    --header-height: 92px;
+  }
+  @media (width < 768px) {
+    :root {
+      --header-height: 74px;
+    }
+  }
   .header {
     filter: drop-shadow(6px 6px 30px rgba(99, 186, 255, 0.15));
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 92px;
-    padding: 24px 0;
+    height: var(--header-height);
+    padding: 12px 0;
     background-color: #fff;
   }
   .header .container {
     display: flex;
     gap: 24px;
     align-items: center;
+    height: 100%;
   }
   .header .logo:nth-child(1) {
     width: 52px;
@@ -126,6 +170,20 @@
   .header .logo:nth-child(3) {
     width: 143px;
     margin-left: auto;
+  }
+  @media (width < 768px) {
+    .header .container {
+      gap: 14px;
+    }
+    .header .logo:nth-child(1) {
+      width: 30px;
+    }
+    .header .logo:nth-child(2) {
+      width: 25px;
+    }
+    .header .logo:nth-child(3) {
+      width: 83px;
+    }
   }
 }
 @layer components.footer {

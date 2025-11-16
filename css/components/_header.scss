@@ -1,20 +1,29 @@
 @use "../vars" as *;
 
 @layer components.header {
+  :root {
+    --header-height: 92px;
+
+    @media (width < $bp-md) {
+      --header-height: 74px;
+    }
+  }
+
   .header {
     @include blue-shadow;
 
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 92px;
-    padding: 24px 0;
+    height: var(--header-height);
+    padding: 12px 0;
     background-color: $white;
 
     .container {
       display: flex;
       gap: 24px;
       align-items: center;
+      height: 100%;
     }
 
     .logo {
@@ -29,6 +38,26 @@
       &:nth-child(3) {
         width: 143px;
         margin-left: auto;
+      }
+    }
+
+    @media (width < $bp-md) {
+      .container {
+        gap: 14px;
+      }
+
+      .logo {
+        &:nth-child(1) {
+          width: 30px;
+        }
+
+        &:nth-child(2) {
+          width: 25px;
+        }
+
+        &:nth-child(3) {
+          width: 83px;
+        }
       }
     }
   }

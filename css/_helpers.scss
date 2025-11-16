@@ -1,0 +1,11 @@
+@use "mixins/visually-hidden" as *;
+
+@layer helpers {
+  .visually-hidden {
+    @include visually-hidden;
+  }
+
+  .visually-hidden-focusable {
+    @include visually-hidden-focusable;
+  }
+}

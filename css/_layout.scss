@@ -14,8 +14,13 @@
   .container {
     width: 100%;
     max-width: 1400px;
-    padding: 0 calc((1400px - 1356px) / 2);
+    padding: 0 24px;
     margin: 0 auto;
+
+    @media (width < $bp-md) {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
   }
 
   .flex {
