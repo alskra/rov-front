@@ -1,6 +1,16 @@
 @use "vars" as *;
 
 @layer layout {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
+  main {
+    flex: 1;
+  }
+
   .container {
     width: 100%;
     max-width: 1400px;
@@ -14,6 +24,18 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 20px;
+    }
+
+    @media (width < $bp-lg) {
+      &.justify-between {
+        gap: 20px;
+      }
+    }
+
+    @media (width < $bp-sm) {
+      &.justify-between {
+        gap: 0;
+      }
     }
   }
 }

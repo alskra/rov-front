@@ -1,3 +1,5 @@
+@use "vars" as *;
+
 @layer base {
   *,
   ::before,
@@ -14,15 +16,21 @@
   body {
     margin: 0;
     font-family: "PT Root UI", Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.5;
     color: #171d38;
   }
 
   h2 {
     margin-block: 30px;
-    font-size: 32px;
+    font-size: 2rem;
     color: #171d38;
+  }
+
+  h3 {
+    @media (width < $bp-sm) {
+      font-size: 0.9rem;
+    }
   }
 
   a {

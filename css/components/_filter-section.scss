@@ -1,0 +1,20 @@
+@use "../vars" as *;
+
+@layer components.filter-section {
+  .filter-section {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+
+    @media (width < $bp-lg) {
+      &.is-active {
+        .flex.justify-between {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
+}

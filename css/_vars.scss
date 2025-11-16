@@ -1,3 +1,21 @@
+// Color styles
+$black: #000;
+$white: #fff;
+$red: #ff553e;
+$pink: #ff94cc;
+$orange: #ff883e;
+$blue: #63baff;
+$green: #93e479;
+$yellow: #ffcc5b;
+
+$yellow-dark: #fbb159; // back of folder
+$pink-dark: #f6666c;   // back of folder
+$green-dark: #66c847;  // back of folder
+$red-dark: #f4462f;    // back of folder
+$blue-dark: #48a9f3;   // back of folder
+$orange-dark: #f07428; // back of folder
+
+// Layout styles
 $bp-xs: 320px;
 $bp-sm: 480px;
 $bp-md: 768px;
@@ -6,3 +24,28 @@ $bp-xl: 1280px;
 $bp-2xl: 1400px;
 $bp-3xl: 1920px;
 $bp-4xl: 2560px;
+
+// Effect styles
+@mixin red-shadow {
+  filter: drop-shadow(6px 6px 30px rgba($red, 0.15));
+}
+
+@mixin yellow-shadow {
+  filter: drop-shadow(6px 6px 30px rgba($yellow, 0.15));
+}
+
+@mixin green-shadow {
+  filter: drop-shadow(6px 6px 30px rgba($green, 0.15));
+}
+
+@mixin pink-shadow {
+  filter: drop-shadow(6px 6px 30px rgba($pink, 0.15));
+}
+
+@mixin blue-shadow {
+  filter: drop-shadow(6px 6px 30px rgba($blue, 0.15));
+}
+
+@mixin orange-shadow {
+  filter: drop-shadow(6px 6px 30px rgba($orange, 0.15));
+}

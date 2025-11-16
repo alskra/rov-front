@@ -1,0 +1,23 @@
+@use "../vars" as *;
+
+@layer components.promo {
+  .promo-banner {
+    padding: 40px 0;
+    text-align: center;
+
+    @media (width < $bp-sm) {
+      padding: 25px 0;
+    }
+  }
+
+  .promo-link {
+    display: inline-block;
+  }
+
+  .promo-img {
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    display: block;
+  }
+}
