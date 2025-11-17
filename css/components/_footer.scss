@@ -49,6 +49,7 @@
 
     > * {
       flex: none;
+      max-width: 100%;
 
       &:nth-child(1) {
         width: 62rem;
@@ -73,6 +74,20 @@
 
     @include media-down($bp-md) {
       justify-content: center;
+
+      > * {
+        &:nth-child(1) {
+          width: 58rem;
+        }
+
+        &:nth-child(2) {
+          width: 150rem;
+        }
+
+        &:nth-child(3) {
+          width: 165rem;
+        }
+      }
     }
   }
 }

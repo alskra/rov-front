@@ -245,6 +245,7 @@
   }
   .footer-logos > * {
     flex: none;
+    max-width: 100%;
   }
   .footer-logos > *:nth-child(1) {
     width: 62rem;
@@ -263,6 +264,15 @@
   @media (width < 768px) {
     .footer-logos {
       justify-content: center;
+    }
+    .footer-logos > *:nth-child(1) {
+      width: 58rem;
+    }
+    .footer-logos > *:nth-child(2) {
+      width: 150rem;
+    }
+    .footer-logos > *:nth-child(3) {
+      width: 165rem;
     }
   }
 }
