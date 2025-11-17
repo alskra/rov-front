@@ -424,11 +424,14 @@
 
   .internal-image {
     img {
+      @include shadow-blue;
+
       display: block;
       width: 100%;
       min-height: 100%;
       aspect-ratio: 746 / 450;
       object-fit: contain;
+      border-radius: 14rem;
     }
 
     @include media-down($bp-lg) {

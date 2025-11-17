@@ -860,11 +860,13 @@
     }
   }
   .internal-image img {
+    box-shadow: 6rem 6rem 30rem rgba(99, 186, 255, 0.15);
     display: block;
     width: 100%;
     min-height: 100%;
     aspect-ratio: 746/450;
     object-fit: contain;
+    border-radius: 14rem;
   }
   @media (width < 1025px) {
     .internal-image {
