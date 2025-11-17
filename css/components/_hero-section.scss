@@ -285,14 +285,25 @@
     }
 
     @include media-down($bp-md) {
+      &:not(:has(.hero-title-internal)) {
+        .hero-links-internal {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(160rem, 1fr));
+        }
+
+        .hero-link-internal {
+          --padding-x: 12rem;
+
+          font-size: 16rem;
+        }
+      }
+
       &:has(.hero-title-internal) {
         padding-top: 51rem;
         margin-bottom: 86rem;
 
         .hero-links-internal {
-          flex-direction: row;
           gap: 8rem;
-          align-content: initial;
         }
       }
     }
@@ -366,8 +377,7 @@
     gap: 20rem;
 
     @include media-down($bp-md) {
-      flex-direction: column;
-      align-content: center;
+      gap: 8rem;
     }
   }
 

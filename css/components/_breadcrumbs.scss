@@ -51,6 +51,12 @@
 
     a {
       color: $blue;
+
+      @include media-hover {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     span {
