@@ -204,6 +204,7 @@
     padding: 50rem 0;
     margin-top: 80rem;
     font-size: 16rem;
+    font-weight: 500;
     line-height: 1.25;
     color: #fff;
     border-radius: 14rem 14rem 0 0;
@@ -385,24 +386,64 @@
 }
 @layer components.breadcrumbs {
   .breadcrumbs {
-    margin: 30rem auto;
-    font-size: 14rem;
+    position: sticky;
+    top: calc(var(--header-height, 92rem) - 25rem);
+    padding-top: 50rem;
+    padding-bottom: 25rem;
+    margin-bottom: 25px;
+    font-size: 20rem;
+    line-height: 1.25;
+    color: #9a9a9a;
+    background: #fff;
   }
   .breadcrumbs ul {
     display: flex;
-    gap: 10rem;
+    gap: 16rem;
     list-style: none;
   }
-  .breadcrumbs li::after {
-    content: "/";
-    margin: 0 5rem;
+  .breadcrumbs li {
+    display: flex;
+    gap: inherit;
   }
-  .breadcrumbs li:last-child::after {
+  .breadcrumbs li:first-child {
+    min-width: min-content;
+  }
+  .breadcrumbs li:first-child a {
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+  }
+  .breadcrumbs li:first-child a::before {
     content: "";
+    flex: none;
+    width: 18rem;
+    aspect-ratio: 18/8;
+    background: currentColor;
+    mask: url("../img/arrow-left.svg") 50%/12rem no-repeat;
+  }
+  .breadcrumbs li:not(:last-child)::after {
+    content: "/";
+    flex: none;
   }
   .breadcrumbs a {
-    color: #515cb0;
-    text-decoration: none;
+    color: #63baff;
+  }
+  .breadcrumbs span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  @media (width < 768px) {
+    .breadcrumbs {
+      top: var(--header-height, 74rem);
+      padding-top: 20rem;
+      padding-bottom: 20rem;
+      margin-bottom: 20rem;
+      font-size: 16rem;
+    }
+    .breadcrumbs ul {
+      gap: 6rem;
+    }
   }
 }
 @layer components.hero-section {
