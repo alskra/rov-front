@@ -4,10 +4,11 @@
 @layer components.breadcrumbs {
   .breadcrumbs {
     position: sticky;
-    top: calc(var(--header-height, 92rem) - 25rem);
+    top: calc(var(--header-height, 92rem) - 30rem);
+    z-index: 99;
     padding-top: 50rem;
-    padding-bottom: 25rem;
-    margin-bottom: 25px;
+    padding-bottom: 20rem;
+    margin-bottom: 30px;
     font-size: 20rem;
     line-height: 1.25;
     color: $gray;
@@ -24,7 +25,7 @@
       gap: inherit;
 
       &:first-child {
-        min-width: min-content;
+        min-width: max-content;
 
         a {
           display: flex;
@@ -61,7 +62,6 @@
     @include media-down($bp-md) {
       top: var(--header-height, 74rem);
       padding-top: 20rem;
-      padding-bottom: 20rem;
       margin-bottom: 20rem;
       font-size: 16rem;
 

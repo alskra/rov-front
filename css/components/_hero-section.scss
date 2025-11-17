@@ -256,35 +256,107 @@
   .hero-internal {
     margin-bottom: 76rem;
 
+    &:has(.hero-title-internal) {
+      display: grid;
+      grid-template-columns: 535fr 736fr;
+      gap: 75rem;
+      margin-bottom: 158rem;
+
+      .hero-links-internal {
+        gap: 10rem;
+      }
+    }
+
     @include media-between($bp-md, $bp-lg) {
-      padding-right: 72rem;
-      padding-left: 72rem;
+      &:not(:has(.hero-title-internal)) {
+        padding-right: 72rem;
+        padding-left: 72rem;
+      }
+    }
+
+    @include media-down($bp-lg) {
+      &:has(.hero-title-internal) {
+        position: relative;
+        grid-template-columns: none;
+        gap: 32rem;
+        padding-top: 58rem;
+        margin-bottom: 100rem;
+      }
+    }
+
+    @include media-down($bp-md) {
+      &:has(.hero-title-internal) {
+        padding-top: 51rem;
+
+        .hero-links-internal {
+          flex-direction: row;
+          gap: 8rem;
+          align-content: initial;
+        }
+      }
     }
   }
 
   .hero-text-internal {
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-date-internal {
-    font-size: 19rem;
-    color: #515cb0;
-    margin-bottom: 5rem;
+    --height: 38rem;
+    --line-height: 1.25;
+    --padding-y: calc((var(--height) - var(--line-height) * 1em) / 2);
+    --padding-x: 20rem;
+
+    width: max-content;
+    padding: var(--padding-y) var(--padding-x);
+    margin-bottom: 20rem;
+    font-size: 20rem;
+    line-height: var(--line-height);
+    color: $white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 12rem;
+    background: $blue;
+
+    @include media-down($bp-lg) {
+      position: absolute;
+      top: 0;
+    }
+
+    @media (width < $bp-md) {
+      --height: 31rem;
+
+      font-size: 16rem;
+    }
   }
 
   .hero-title-internal {
-    font-size: 40rem;
-    margin-bottom: 15rem;
-    color: #171d38;
+    margin-bottom: 50rem;
+    font-size: 32rem;
+    line-height: 1.25;
+
+    @media (width < $bp-lg) {
+      font-size: 24rem;
+    }
 
     @media (width < $bp-md) {
-      font-size: 28rem;
+      margin-bottom: 28rem;
+      font-size: 18rem;
     }
   }
 
   .hero-subtitle-internal {
-    font-size: 16rem;
-    margin-bottom: 10rem;
-    color: #171d38;
+    margin-top: auto;
+    margin-bottom: 20rem;
+    font-size: 20rem;
+    line-height: 1.25;
+    color: $gray;
+
+    @media (width < $bp-md) {
+      font-size: 16rem;
+    }
   }
 
   .hero-links-internal {
@@ -350,20 +422,16 @@
   }
 
   .internal-image {
-    flex: 1;
-    max-width: 35%;
-    height: auto;
-    align-self: flex-start;
-
     img {
+      display: block;
       width: 100%;
-      height: auto;
-      border-radius: 10rem;
+      min-height: 100%;
+      aspect-ratio: 746 / 450;
+      object-fit: contain;
     }
 
-    @media (width < $bp-lg) {
-      max-width: 100%;
-      margin-top: 20rem;
+    @include media-down($bp-lg) {
+      grid-row: 1;
     }
   }
 }
