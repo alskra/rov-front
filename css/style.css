@@ -92,6 +92,9 @@
   }
 }
 @layer layout {
+  html {
+    scroll-padding-top: calc(var(--header-height) + 65rem);
+  }
   body {
     display: flex;
     flex-direction: column;
@@ -240,22 +243,22 @@
     align-items: center;
     justify-content: flex-end;
   }
-  .footer-logos a {
+  .footer-logos > * {
     flex: none;
+  }
+  .footer-logos > *:nth-child(1) {
+    width: 62rem;
+  }
+  .footer-logos > *:nth-child(2) {
+    width: 158rem;
+  }
+  .footer-logos > *:nth-child(3) {
+    width: 174rem;
+    filter: brightness(0) invert(1);
   }
   .footer-logos a img {
     display: block;
     width: 100%;
-  }
-  .footer-logos a:nth-child(1) {
-    width: 62rem;
-  }
-  .footer-logos a:nth-child(2) {
-    width: 158rem;
-  }
-  .footer-logos a:nth-child(3) {
-    width: 174rem;
-    filter: brightness(0) invert(1);
   }
   @media (width < 768px) {
     .footer-logos {
@@ -266,12 +269,22 @@
 @layer components.card {
   .card {
     box-shadow: 6rem 6rem 30rem rgba(99, 186, 255, 0.15);
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-basis: calc((100% - 75rem) / 4);
     margin-top: 36rem;
     border-radius: 14rem;
     background: #fff;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: var(--base-transition);
+    transition-property: box-shadow;
   }
   .card .date-overlay {
     width: max-content;
@@ -298,6 +311,11 @@
     font-weight: 400;
     border-radius: 0 0 12rem 12rem;
   }
+  @media (hover: hover) {
+    .card:hover::before {
+      box-shadow: 0 -1px #63baff inset;
+    }
+  }
   @media (width < 1025px) {
     .card {
       flex-basis: calc((100% - 25rem) / 2);
@@ -323,7 +341,7 @@
     gap: 25rem;
     justify-content: flex-start;
   }
-  .filter-section + .filter-section {
+  .filter-section.is-active + .filter-section.is-active {
     margin-top: 160rem;
   }
   .filter-section:not(.is-active) {
@@ -340,7 +358,7 @@
       flex-direction: column-reverse;
       gap: 40rem;
     }
-    .filter-section + .filter-section {
+    .filter-section.is-active + .filter-section.is-active {
       margin-top: 100rem;
     }
   }

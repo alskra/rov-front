@@ -12,7 +12,7 @@
       justify-content: flex-start;
     }
 
-    & + & {
+    &.is-active + &.is-active {
       margin-top: 160rem;
     }
 
@@ -31,7 +31,7 @@
         gap: 40rem;
       }
 
-      & + & {
+      &.is-active + &.is-active {
         margin-top: 100rem;
       }
     }

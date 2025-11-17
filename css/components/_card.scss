@@ -5,12 +5,23 @@
   .card {
     @include shadow-blue;
 
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-basis: calc((100% - 25rem * 3) / 4);
     margin-top: 36rem;
     border-radius: 14rem;
     background: $white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      transition: var(--base-transition);
+      transition-property: box-shadow;
+    }
 
     .date-overlay {
       width: max-content;
@@ -38,6 +49,14 @@
       font-size: 20rem;
       font-weight: 400;
       border-radius: 0 0 12rem 12rem;
+    }
+
+    @include media-hover {
+      &:hover {
+        &::before {
+          box-shadow: 0 -1px $blue inset;
+        }
+      }
     }
 
     @include media-down($bp-lg) {

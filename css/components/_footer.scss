@@ -47,13 +47,8 @@
     align-items: center;
     justify-content: flex-end;
 
-    a {
+    > * {
       flex: none;
-
-      img {
-        display: block;
-        width: 100%;
-      }
 
       &:nth-child(1) {
         width: 62rem;
@@ -66,6 +61,13 @@
       &:nth-child(3) {
         width: 174rem;
         filter: brightness(0) invert(1);
+      }
+    }
+
+    a {
+      img {
+        display: block;
+        width: 100%;
       }
     }
 

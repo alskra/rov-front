@@ -1,6 +1,10 @@
 @use "vars" as *;
 
 @layer layout {
+  html {
+    scroll-padding-top: calc(var(--header-height) + 65rem);
+  }
+
   body {
     display: flex;
     flex-direction: column;
