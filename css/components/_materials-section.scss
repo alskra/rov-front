@@ -69,71 +69,99 @@
 
     @include media-down($bp-md) {
       grid-template-columns: none;
-      gap: 32rem;
+      gap: 82rem;
       padding-top: 86rem;
       padding-right: 16rem;
       padding-left: 16rem;
-      margin-top: -66rem;
+      margin-top: -54rem;
     }
   }
 
   .materials-column {
+    display: flex;
+    flex-direction: column;
+    gap: 32rem;
+
+    &:not(:has(.material-item)) {
+      display: none;
+    }
   }
 
   .material-column-header {
-    display: flex;
-    justify-content: flex-start;
   }
 
   .material-icon {
-    background: #515cb0;
-    width: 50rem;
-    height: 50rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-bottom: 25rem;
+    width: 46rem;
+    aspect-ratio: 46 / 50;
 
     img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-      height: auto;
-      transform: scale(0.8);
+    @include media-down($bp-md) {
+      margin: 0 auto;
     }
   }
 
   .material-item {
-    margin-bottom: 20rem;
+    > strong {
+      display: block;
+      font-size: 20rem;
+      line-height: 1.25;
+      font-weight: 400;
 
-    p {
-      font-size: 16rem;
-      color: #555;
+      @include nlc {
+        margin-bottom: 10rem;
+      }
     }
 
-    strong {
-      font-size: 19rem;
-      color: #171d38;
+    p {
+      line-height: calc(30 / 2 / 16);
+      color: $gray;
+
+      @include nlc {
+        margin-bottom: 10rem;
+      }
+    }
+
+    @include media-down($bp-md) {
+      > strong {
+        font-size: 18rem;
+      }
     }
   }
 
   .material-link {
     display: inline-flex;
-    align-items: center;
     gap: 10rem;
+    align-items: center;
+    font-size: 20rem;
+    line-height: 1.25;
+    color: $blue;
     text-decoration: none;
-    color: #515cb0;
-    font-size: 16rem;
-    transition: color 0.3s, background 0.3s;
-    margin-top: 10rem;
+    text-transform: lowercase;
+    transition: var(--base-transition);
+    transition-property: color, background-color;
 
     img {
-      width: 16rem;
-      height: 16rem;
+      flex: none;
+      width: 18rem;
+      height: 18rem;
+      object-fit: contain;
+    }
+
+    & + & {
+      margin-left: 16rem;
     }
 
     &:hover {
       text-decoration: underline;
-      color: #5965c1;
+    }
+
+    @include media-down($bp-md) {
+      font-size: 18rem;
     }
   }
 
@@ -144,7 +172,6 @@
       position: relative;
       z-index: 1;
       padding-top: 20rem;
-      padding-bottom: 12rem;
       text-align: center;
     }
   }

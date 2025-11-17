@@ -907,59 +907,84 @@
   @media (width < 768px) {
     .materials-content {
       grid-template-columns: none;
-      gap: 32rem;
+      gap: 82rem;
       padding-top: 86rem;
       padding-right: 16rem;
       padding-left: 16rem;
-      margin-top: -66rem;
+      margin-top: -54rem;
     }
   }
-  .material-column-header {
+  .materials-column {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    gap: 32rem;
+  }
+  .materials-column:not(:has(.material-item)) {
+    display: none;
   }
   .material-icon {
-    background: #515cb0;
-    width: 50rem;
-    height: 50rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-bottom: 25rem;
+    width: 46rem;
+    aspect-ratio: 46/50;
   }
   .material-icon img {
-    height: auto;
-    transform: scale(0.8);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
-  .material-item {
-    margin-bottom: 20rem;
+  @media (width < 768px) {
+    .material-icon {
+      margin: 0 auto;
+    }
+  }
+  .material-item > strong {
+    display: block;
+    font-size: 20rem;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+  .material-item > strong:where(:not(:last-child)) {
+    margin-bottom: 10rem;
   }
   .material-item p {
-    font-size: 16rem;
-    color: #555;
+    line-height: 0.9375;
+    color: #9a9a9a;
   }
-  .material-item strong {
-    font-size: 19rem;
-    color: #171d38;
+  .material-item p:where(:not(:last-child)) {
+    margin-bottom: 10rem;
+  }
+  @media (width < 768px) {
+    .material-item > strong {
+      font-size: 18rem;
+    }
   }
   .material-link {
     display: inline-flex;
-    align-items: center;
     gap: 10rem;
+    align-items: center;
+    font-size: 20rem;
+    line-height: 1.25;
+    color: #63baff;
     text-decoration: none;
-    color: #515cb0;
-    font-size: 16rem;
-    transition: color 0.3s, background 0.3s;
-    margin-top: 10rem;
+    text-transform: lowercase;
+    transition: var(--base-transition);
+    transition-property: color, background-color;
   }
   .material-link img {
-    width: 16rem;
-    height: 16rem;
+    flex: none;
+    width: 18rem;
+    height: 18rem;
+    object-fit: contain;
+  }
+  .material-link + .material-link {
+    margin-left: 16rem;
   }
   .material-link:hover {
     text-decoration: underline;
-    color: #5965c1;
+  }
+  @media (width < 768px) {
+    .material-link {
+      font-size: 18rem;
+    }
   }
   .materials-download {
     flex: none;
@@ -969,7 +994,6 @@
       position: relative;
       z-index: 1;
       padding-top: 20rem;
-      padding-bottom: 12rem;
       text-align: center;
     }
   }
