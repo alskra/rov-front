@@ -706,6 +706,7 @@
   @media (width < 768px) {
     .hero-internal:has(.hero-title-internal) {
       padding-top: 51rem;
+      margin-bottom: 86rem;
     }
     .hero-internal:has(.hero-title-internal) .hero-links-internal {
       flex-direction: row;
