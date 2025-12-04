@@ -32,7 +32,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       border-radius: 12rem;
-      background: $blue;
+      color: #383838;
     }
 
     @include media-down($bp-md) {

@@ -303,9 +303,10 @@
     font-size: 20rem;
     font-weight: 500;
     line-height: 14rem;
-    color: #fff;
+    color: #63baff;
     border-radius: 12rem 12rem 0 0;
-    background: #63baff;
+    background: transparent;
+    border: 1px solid currentColor;
   }
   .card img {
     width: 100%;
@@ -909,7 +910,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     border-radius: 12rem;
-    background: #63baff;
+    color: #383838;
   }
   @media (width < 768px) {
     .materials-header {
