@@ -2,7 +2,7 @@
 
 @layer layout {
   html {
-    scroll-padding-top: calc(var(--header-height) + 65rem);
+    scroll-padding-top: min(var(--header-height) + 65rem, 92px + 65px);
   }
 
   body {

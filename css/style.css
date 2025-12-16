@@ -7,7 +7,7 @@
   :root {
     --base-transition: 0.3s ease-in-out;
     --body-color: #000;
-    font-size: 1px;
+    font-size: 0.0625rem;
   }
   @media (width < 1400px) {
     :root {
@@ -93,7 +93,7 @@
 }
 @layer layout {
   html {
-    scroll-padding-top: calc(var(--header-height) + 65rem);
+    scroll-padding-top: min(var(--header-height) + 65rem, 157px);
   }
   body {
     display: flex;
