@@ -95,6 +95,11 @@
   html {
     scroll-padding-top: min(var(--header-height) + 65rem, 157px);
   }
+  @media (width < 768px) {
+    html {
+      scroll-padding-top: min(var(--header-height) + 60rem, 134px);
+    }
+  }
   body {
     display: flex;
     flex-direction: column;
