@@ -7,7 +7,7 @@
   :root {
     --base-transition: 0.3s ease-in-out;
     --body-color: #000;
-    font-size: 0.0625rem;
+    font-size: 1px;
   }
   @media (width < 1400px) {
     :root {
