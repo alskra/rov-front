@@ -3,8 +3,6 @@
 
 @layer components.card {
   .card {
-    @include shadow-blue;
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -28,19 +26,19 @@
       padding: 12rem 20rem 42rem;
       margin: -36rem 0 -32rem;
       font-size: 20rem;
-      font-weight: 500;
       line-height: 14rem;
-      color: $blue;
+      color: $white;
       border-radius: 12rem 12rem 0 0;
-      background: transparent;
-      border: 1px solid currentColor;
+      background: $blue;
     }
 
     img {
+      @include shadow-default;
+
       width: 100%;
       aspect-ratio: 320 / 193;
       margin-bottom: 8rem;
-      object-fit: contain;
+      object-fit: cover;
       border-radius: inherit;
     }
 

@@ -9,6 +9,8 @@ $orange: #ff883e;
 $blue: #63baff;
 $green: #93e479;
 $yellow: #ffcc5b;
+$mine-shaft: #383838;
+$wild-sand: #f5f5f5;
 
 $yellow-dark: #fbb159; // back of folder
 $pink-dark: #f6666c;   // back of folder
@@ -20,14 +22,18 @@ $orange-dark: #f07428; // back of folder
 // Layout styles
 $bp-xs: 320px;
 $bp-sm: 576px;
-$bp-md: 768px;
+$bp-md: 768px; // tablet
 $bp-lg: 1025px;
 $bp-xl: 1200px;
-$bp-2xl: 1400px;
+$bp-2xl: 1400px; // default
 $bp-3xl: 1920px;
 $bp-4xl: 2560px;
 
 // Effect styles
+@mixin shadow-default {
+  box-shadow: 0 1rem 13.8rem rgba(#B6B6B6, 0.25);
+}
+
 @mixin shadow-red {
   box-shadow: 6rem 6rem 30rem rgba($red, 0.15);
 }

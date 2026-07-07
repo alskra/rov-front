@@ -4,7 +4,8 @@
   :root {
     --base-transition: 0.3s ease-in-out;
 
-    --body-color: #{$black};
+    --body-color: #{$mine-shaft};
+    --body-bg: #{$wild-sand};
 
     font-size: calc(1px / 16px * 1rem);
 
