@@ -255,22 +255,19 @@
   }
 
   .hero-date-internal {
-    --height: 38rem;
-    --line-height: 1.25;
+    --height: auto;
+    --line-height: var(--base-line-height);
     --padding-y: calc((var(--height) - var(--line-height) * 1em) / 2);
-    --padding-x: 20rem;
+    --padding-x: 0;
 
     width: max-content;
     padding: var(--padding-y) var(--padding-x);
-    margin-bottom: 20rem;
+    margin-bottom: 32rem;
     font-size: 20rem;
     line-height: var(--line-height);
-    color: $white;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border-radius: 12rem;
-    background: $blue;
 
     @include media-down($bp-lg) {
       position: absolute;
@@ -278,8 +275,6 @@
     }
 
     @media (width < $bp-md) {
-      --height: 31rem;
-
       font-size: 16rem;
     }
   }
@@ -287,7 +282,8 @@
   .hero-title-internal {
     margin-bottom: 50rem;
     font-size: 32rem;
-    line-height: 1.25;
+    font-weight: 400;
+    line-height: calc(38 / 32);
 
     @media (width < $bp-lg) {
       font-size: 24rem;
@@ -304,7 +300,6 @@
     margin-bottom: 20rem;
     font-size: 20rem;
     line-height: 1.25;
-    color: $gray;
 
     @media (width < $bp-md) {
       font-size: 16rem;
@@ -374,7 +369,7 @@
 
   .internal-image {
     img {
-      @include shadow-blue;
+      @include shadow-default;
 
       display: block;
       width: 100%;

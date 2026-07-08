@@ -25,14 +25,14 @@
       margin-top: 0;
       margin-bottom: -36rem;
       font-size: 20rem;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 14rem;
       color: $white;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       border-radius: 12rem;
-      color: #383838;
+      background: $blue;
     }
 
     @include media-down($bp-md) {
@@ -50,7 +50,7 @@
   }
 
   .materials-content {
-    @include shadow-blue;
+    @include shadow-default;
 
     position: relative;
     display: grid;
@@ -118,6 +118,7 @@
     }
 
     p {
+      font-size: 16rem;
       line-height: calc(30 / 2 / 16);
       color: $gray;
 

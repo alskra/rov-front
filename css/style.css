@@ -394,7 +394,7 @@
 @layer components.breadcrumbs {
   .breadcrumbs {
     position: sticky;
-    top: calc(var(--header-height, 92rem) - 30rem);
+    top: calc(var(--header-height) - 30rem);
     z-index: 99;
     padding-top: 50rem;
     padding-bottom: 20rem;
@@ -402,7 +402,7 @@
     font-size: 20rem;
     line-height: 1.25;
     color: #9a9a9a;
-    background: #fff;
+    background: var(--base-bg);
   }
   .breadcrumbs ul {
     display: flex;
@@ -448,7 +448,7 @@
   }
   @media (width < 768px) {
     .breadcrumbs {
-      top: var(--header-height, 74rem);
+      top: var(--header-height);
       padding-top: 20rem;
       margin-bottom: 20rem;
       font-size: 16rem;
@@ -679,21 +679,18 @@
     flex-direction: column;
   }
   .hero-date-internal {
-    --height: 38rem;
-    --line-height: 1.25;
+    --height: auto;
+    --line-height: var(--base-line-height);
     --padding-y: calc((var(--height) - var(--line-height) * 1em) / 2);
-    --padding-x: 20rem;
+    --padding-x: 0;
     width: max-content;
     padding: var(--padding-y) var(--padding-x);
-    margin-bottom: 20rem;
+    margin-bottom: 32rem;
     font-size: 20rem;
     line-height: var(--line-height);
-    color: #fff;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border-radius: 12rem;
-    background: #63baff;
   }
   @media (width < 1025px) {
     .hero-date-internal {
@@ -703,14 +700,14 @@
   }
   @media (width < 768px) {
     .hero-date-internal {
-      --height: 31rem;
       font-size: 16rem;
     }
   }
   .hero-title-internal {
     margin-bottom: 50rem;
     font-size: 32rem;
-    line-height: 1.25;
+    font-weight: 400;
+    line-height: 1.1875;
   }
   @media (width < 1025px) {
     .hero-title-internal {
@@ -728,7 +725,6 @@
     margin-bottom: 20rem;
     font-size: 20rem;
     line-height: 1.25;
-    color: #9a9a9a;
   }
   @media (width < 768px) {
     .hero-subtitle-internal {
@@ -792,7 +788,7 @@
     }
   }
   .internal-image img {
-    box-shadow: 6rem 6rem 30rem rgba(99, 186, 255, 0.15);
+    box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
     display: block;
     width: 100%;
     min-height: 100%;
@@ -826,14 +822,14 @@
     margin-top: 0;
     margin-bottom: -36rem;
     font-size: 20rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 14rem;
     color: #fff;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     border-radius: 12rem;
-    color: #383838;
+    background: #63baff;
   }
   @media (width < 768px) {
     .materials-header {
@@ -849,7 +845,7 @@
     }
   }
   .materials-content {
-    box-shadow: 6rem 6rem 30rem rgba(99, 186, 255, 0.15);
+    box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -908,6 +904,7 @@
     margin-bottom: 10rem;
   }
   .material-item p {
+    font-size: 16rem;
     line-height: 0.9375;
     color: #9a9a9a;
   }
