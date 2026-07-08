@@ -3,117 +3,106 @@
 
 @layer components.hero-section {
   .hero-section {
+    position: relative;
     margin: 60rem 0 80rem;
-    background: url("../img/flag.svg") 50% 0 / max(100%, 1512rem) no-repeat;
 
-    @media (width < $bp-md) {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      aspect-ratio: 1512 / 478;
+      background: url("../img/flag.svg") 50% / contain no-repeat;
+      transform: translateY(-50%);
+    }
+
+    @media (width < $bp-lg) {
       margin-top: 26rem;
       margin-bottom: 26rem;
+
+      &::before {
+        top: 0;
+        transform: none;
+      }
     }
   }
 
   .hero-section-body {
     @include shadow-default;
 
-    position: relative;
-    z-index: 0;
     display: grid;
+    grid-template-areas:
+      "header links"
+      "main links";
     grid-template-columns: 620rem 457rem;
-    grid-template-rows: auto auto;
     justify-content: space-between;
-    gap: 30rem 0;
+    gap: 30rem 24rem;
     padding: 60rem;
     border-radius: 14rem;
     background: $white;
 
-    @media (width < $bp-md) {
+    @media (width < $bp-lg) {
+      grid-template-areas:
+        "header"
+        "main"
+        "links";
+      grid-template-columns: none;
     }
   }
 
   .hero-section-header {
+    grid-area: header;
   }
 
   .hero-section-title {
-    &:where(img) {
-      display: block;
-      height: 117rem;
-      max-width: 100%;
-    }
-
-    @media (width < $bp-lg) {
-      &:where(img) {
-        height: 115rem;
-      }
-    }
-
-    @media (width < $bp-md) {
-      &:where(img) {
-        width: 100%;
-        height: auto;
-        max-width: 387rem;
-        margin-inline: auto;
-      }
-    }
+    width: min(387rem, 100%);
+    aspect-ratio: 387 / 117;
+    max-width: 100%;
+    font-size: 0;
+    line-height: 0;
+    background: $red;
+    mask: url("../img/hero-title.svg") 50% / contain no-repeat;
   }
 
   .hero-section-main {
-    grid-column: 1;
+    grid-area: main;
   }
 
   .hero-section-text {
-    font-size: 24rem;
-    line-height: calc(26 / 24);
-
     p {
       @include nlc {
         margin-bottom: 1em;
       }
     }
 
-    @media (width < $bp-md) {
+    @media (width < $bp-lg) {
       font-size: 18rem;
-      line-height: calc(167 / 8 / 18);
     }
   }
 
   .hero-section-text-info {
     margin-top: 60rem;
     font-size: 20rem;
-    line-height: calc(19 / 20);
+    line-height: calc(24 / 20);
     color: #7F7F7F;
 
     p {
       @include nlc {
-        margin-bottom: 10rem;
+        margin-bottom: 0.5em;
       }
     }
 
     @media (width < $bp-lg) {
-      //margin-top: 24rem;
-    }
-
-    @media (width < $bp-md) {
-      font-size: 16rem;
-      line-height: calc(49 / 3 / 16);
+      font-size: 14rem;
     }
   }
 
   .hero-section-links {
-    position: relative;
-    grid-row: 1 / span 2;
-    grid-column: 2;
-
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    grid-area: links;
 
     @media (width < $bp-lg) {
-    }
-
-    @media (width < $bp-md) {
     }
   }
 
@@ -156,6 +145,7 @@
     }
   }
 
+  // `hero-internal`
   .hero-internal {
     margin-bottom: 76rem;
 
@@ -323,6 +313,7 @@
     }
   }
 
+  // `internal`
   .internal-h2 {
     margin-top: 15rem;
     margin-bottom: 15rem;

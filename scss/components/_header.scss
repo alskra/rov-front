@@ -3,10 +3,6 @@
 @layer components.header {
   :root {
     --header-height: 72rem;
-
-    @media (width < $bp-md) {
-      --header-height: 74rem;
-    }
   }
 
   .header {
@@ -17,7 +13,7 @@
     z-index: 100;
     height: var(--header-height);
     padding: 12rem 0;
-    background-color: var(--body-bg);
+    background: var(--base-bg);
 
     .container {
       display: flex;

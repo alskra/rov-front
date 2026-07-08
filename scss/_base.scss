@@ -19,11 +19,11 @@
   body {
     margin: 0;
     font-family: "PT Root UI", Arial, sans-serif;
-    font-size: 16rem;
-    line-height: 1.5;
-    color: var(--body-color);
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    color: var(--base-color);
     overflow: clip;
-    background: var(--body-bg);
+    background: var(--base-bg);
   }
 
   h2 {

@@ -5,10 +5,12 @@
 @layer helpers {}
 @layer base {
   :root {
-    --base-transition: 0.3s ease-in-out;
-    --body-color: #383838;
-    --body-bg: #f5f5f5;
-    font-size: 0.0625rem;
+    --base-font-size: 24rem;
+    --base-line-height: 1.2083333333;
+    --base-color: #383838;
+    --base-bg: #f5f5f5;
+    --base-transition: 0.2s ease-in-out;
+    font-size: 1px;
   }
   @media (width < 1400px) {
     :root {
@@ -66,11 +68,11 @@
   body {
     margin: 0;
     font-family: "PT Root UI", Arial, sans-serif;
-    font-size: 16rem;
-    line-height: 1.5;
-    color: var(--body-color);
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    color: var(--base-color);
     overflow: clip;
-    background: var(--body-bg);
+    background: var(--base-bg);
   }
   h2 {
     margin-block: 30rem;
@@ -99,7 +101,7 @@
   }
   @media (width < 768px) {
     html {
-      scroll-padding-top: min(var(--header-height) + 60rem, 134px);
+      scroll-padding-top: min(var(--header-height) + 60rem, 132px);
     }
   }
   body {
@@ -162,11 +164,6 @@
   :root {
     --header-height: 72rem;
   }
-  @media (width < 768px) {
-    :root {
-      --header-height: 74rem;
-    }
-  }
   .header {
     box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
     position: sticky;
@@ -174,7 +171,7 @@
     z-index: 100;
     height: var(--header-height);
     padding: 12rem 0;
-    background-color: var(--body-bg);
+    background: var(--base-bg);
   }
   .header .container {
     display: flex;
@@ -463,87 +460,86 @@
 }
 @layer components.hero-section {
   .hero-section {
+    position: relative;
     margin: 60rem 0 80rem;
-    background: url("../img/flag.svg") 50% 0/max(100%, 1512rem) no-repeat;
   }
-  @media (width < 768px) {
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    aspect-ratio: 1512/478;
+    background: url("../img/flag.svg") 50%/contain no-repeat;
+    transform: translateY(-50%);
+  }
+  @media (width < 1025px) {
     .hero-section {
       margin-top: 26rem;
       margin-bottom: 26rem;
     }
+    .hero-section::before {
+      top: 0;
+      transform: none;
+    }
   }
   .hero-section-body {
     box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
-    position: relative;
-    z-index: 0;
     display: grid;
+    grid-template-areas: "header links" "main links";
     grid-template-columns: 620rem 457rem;
-    grid-template-rows: auto auto;
     justify-content: space-between;
-    gap: 30rem 0;
+    gap: 30rem 24rem;
     padding: 60rem;
     border-radius: 14rem;
     background: #fff;
   }
-  .hero-section-title:where(img) {
-    display: block;
-    height: 117rem;
-    max-width: 100%;
-  }
   @media (width < 1025px) {
-    .hero-section-title:where(img) {
-      height: 115rem;
+    .hero-section-body {
+      grid-template-areas: "header" "main" "links";
+      grid-template-columns: none;
     }
   }
-  @media (width < 768px) {
-    .hero-section-title:where(img) {
-      width: 100%;
-      height: auto;
-      max-width: 387rem;
-      margin-inline: auto;
-    }
+  .hero-section-header {
+    grid-area: header;
+  }
+  .hero-section-title {
+    width: min(387rem, 100%);
+    aspect-ratio: 387/117;
+    max-width: 100%;
+    font-size: 0;
+    line-height: 0;
+    background: #ff553e;
+    mask: url("../img/hero-title.svg") 50%/contain no-repeat;
   }
   .hero-section-main {
-    grid-column: 1;
-  }
-  .hero-section-text {
-    font-size: 24rem;
-    line-height: 1.0833333333;
+    grid-area: main;
   }
   .hero-section-text p:where(:not(:last-child)) {
     margin-bottom: 1em;
   }
-  @media (width < 768px) {
+  @media (width < 1025px) {
     .hero-section-text {
       font-size: 18rem;
-      line-height: 1.1597222222;
     }
   }
   .hero-section-text-info {
     margin-top: 60rem;
     font-size: 20rem;
-    line-height: 0.95;
+    line-height: 1.2;
     color: #7F7F7F;
   }
   .hero-section-text-info p:where(:not(:last-child)) {
-    margin-bottom: 10rem;
+    margin-bottom: 0.5em;
   }
-  @media (width < 768px) {
+  @media (width < 1025px) {
     .hero-section-text-info {
-      font-size: 16rem;
-      line-height: 1.0208333333;
+      font-size: 14rem;
     }
   }
   .hero-section-links {
-    position: relative;
-    grid-row: 1/span 2;
-    grid-column: 2;
-  }
-  .hero-section-links img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    grid-area: links;
   }
   .hero-section-footer {
     display: flex;

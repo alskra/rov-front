@@ -5,7 +5,7 @@
     scroll-padding-top: min(var(--header-height) + 65rem, 72px + 65px);
 
     @media (width < $bp-md) {
-      scroll-padding-top: min(var(--header-height) + 60rem, 74px + 60px);
+      scroll-padding-top: min(var(--header-height) + 60rem, 72px + 60px);
     }
   }
 

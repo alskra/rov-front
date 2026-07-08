@@ -2,11 +2,13 @@
 
 @layer base {
   :root {
-    --base-transition: 0.3s ease-in-out;
-    --body-color: #{$mine-shaft};
-    --body-bg: #{$wild-sand};
+    --base-font-size: 24rem;
+    --base-line-height: #{calc(29 / 24)};
+    --base-color: #{$mine-shaft};
+    --base-bg: #{$wild-sand};
+    --base-transition: 0.2s ease-in-out;
 
-    font-size: calc(1 / 16 * 1rem);
+    font-size: 1px;
 
     @media (width < $bp-2xl) {
       font-size: calc(1px / $bp-2xl * 100vw);
