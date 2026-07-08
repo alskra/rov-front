@@ -3,124 +3,34 @@
 
 @layer components.hero-section {
   .hero-section {
-    margin: 24rem 0 128rem;
-
-    @media (width < $bp-lg) {
-      margin-bottom: 96rem;
-    }
+    margin: 60rem 0 80rem;
+    background: url("../img/flag.svg") 50% 0 / max(100%, 1512rem) no-repeat;
 
     @media (width < $bp-md) {
-      margin-top: 0;
-      margin-bottom: 72rem;
+      margin-top: 26rem;
+      margin-bottom: 26rem;
     }
   }
 
   .hero-section-body {
+    @include shadow-default;
+
     position: relative;
     z-index: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 42rem;
-    padding: 50rem;
-    color: $white;
+    display: grid;
+    grid-template-columns: 620rem 457rem;
+    grid-template-rows: auto auto;
+    justify-content: space-between;
+    gap: 30rem 0;
+    padding: 60rem;
     border-radius: 14rem;
-    background: $blue;
+    background: $white;
 
     @media (width < $bp-md) {
-      gap: 20rem;
-      padding: 35rem 16rem 50rem;
-      margin-inline: -16rem;
-      border-radius: 0;
-    }
-  }
-
-  .hero-section-decor {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-
-    img {
-      position: absolute;
-
-      &:nth-child(1) {
-        top: -44rem;
-        right: -25rem;
-        width: 229rem;
-      }
-
-      &:nth-child(2) {
-        top: 130rem;
-        right: 156rem;
-        width: 124rem;
-      }
-
-      &:nth-child(3) {
-        top: 27rem;
-        right: 285rem;
-        width: 162rem;
-      }
-
-      &:nth-child(4) {
-        top: 100%;
-        left: 50%;
-        width: 18rem;
-        transform: translateX(-50%);
-      }
-    }
-
-    @media (width < $bp-lg) {
-      img {
-        &:nth-child(1) {
-          top: -40rem;
-          right: -46rem;
-        }
-
-        &:nth-child(2) {
-          top: 120rem;
-          right: 139rem;
-        }
-
-        &:nth-child(3) {
-          top: auto;
-          right: 28rem;
-          bottom: 26rem;
-        }
-      }
-    }
-
-    @media (width < $bp-md) {
-      img {
-        &:nth-child(1) {
-          display: none;
-        }
-
-        &:nth-child(2) {
-          top: auto;
-          right: 16rem;
-          bottom: 172rem;
-          width: 76rem;
-        }
-
-        &:nth-child(3) {
-          right: 9rem;
-          bottom: 8rem;
-          width: 96rem;
-        }
-      }
     }
   }
 
   .hero-section-header {
-    max-width: calc(720 / (720 + 536) * 100%);
-
-    @media (width < $bp-lg) {
-      max-width: calc(100% - 220rem);
-    }
-
-    @media (width < $bp-md) {
-      max-width: none;
-    }
   }
 
   .hero-section-title {
@@ -147,23 +57,12 @@
   }
 
   .hero-section-main {
-    display: grid;
-    grid-template-columns: 720fr 536fr;
-    min-height: 200rem;
-    border-radius: 10rem;
-    overflow: clip;
-
-    @media (width < $bp-lg) {
-      grid-template-columns: none;
-    }
+    grid-column: 1;
   }
 
   .hero-section-text {
-    padding: 50rem;
     font-size: 24rem;
     line-height: calc(26 / 24);
-    color: var(--body-color);
-    background: $white;
 
     p {
       @include nlc {
@@ -172,20 +71,25 @@
     }
 
     @media (width < $bp-md) {
-      padding: 20rem;
       font-size: 18rem;
       line-height: calc(167 / 8 / 18);
     }
   }
 
   .hero-section-text-info {
-    margin-top: 32rem;
+    margin-top: 60rem;
     font-size: 20rem;
     line-height: calc(19 / 20);
     color: #7F7F7F;
 
+    p {
+      @include nlc {
+        margin-bottom: 10rem;
+      }
+    }
+
     @media (width < $bp-lg) {
-      margin-top: 24rem;
+      //margin-top: 24rem;
     }
 
     @media (width < $bp-md) {
@@ -194,8 +98,10 @@
     }
   }
 
-  .hero-section-image {
+  .hero-section-links {
     position: relative;
+    grid-row: 1 / span 2;
+    grid-column: 2;
 
     img {
       position: absolute;
@@ -205,12 +111,9 @@
     }
 
     @media (width < $bp-lg) {
-      grid-row: 1;
-      aspect-ratio: 670 / 344;
     }
 
     @media (width < $bp-md) {
-      aspect-ratio: 288 / 162;
     }
   }
 

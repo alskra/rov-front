@@ -3,11 +3,10 @@
 @layer base {
   :root {
     --base-transition: 0.3s ease-in-out;
-
     --body-color: #{$mine-shaft};
     --body-bg: #{$wild-sand};
 
-    font-size: calc(1px / 16px * 1rem);
+    font-size: calc(1 / 16 * 1rem);
 
     @media (width < $bp-2xl) {
       font-size: calc(1px / $bp-2xl * 100vw);

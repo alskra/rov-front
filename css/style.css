@@ -463,111 +463,27 @@
 }
 @layer components.hero-section {
   .hero-section {
-    margin: 24rem 0 128rem;
-  }
-  @media (width < 1025px) {
-    .hero-section {
-      margin-bottom: 96rem;
-    }
+    margin: 60rem 0 80rem;
+    background: url("../img/flag.svg") 50% 0/max(100%, 1512rem) no-repeat;
   }
   @media (width < 768px) {
     .hero-section {
-      margin-top: 0;
-      margin-bottom: 72rem;
+      margin-top: 26rem;
+      margin-bottom: 26rem;
     }
   }
   .hero-section-body {
+    box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
     position: relative;
     z-index: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 42rem;
-    padding: 50rem;
-    color: #fff;
+    display: grid;
+    grid-template-columns: 620rem 457rem;
+    grid-template-rows: auto auto;
+    justify-content: space-between;
+    gap: 30rem 0;
+    padding: 60rem;
     border-radius: 14rem;
-    background: #63baff;
-  }
-  @media (width < 768px) {
-    .hero-section-body {
-      gap: 20rem;
-      padding: 35rem 16rem 50rem;
-      margin-inline: -16rem;
-      border-radius: 0;
-    }
-  }
-  .hero-section-decor {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-  }
-  .hero-section-decor img {
-    position: absolute;
-  }
-  .hero-section-decor img:nth-child(1) {
-    top: -44rem;
-    right: -25rem;
-    width: 229rem;
-  }
-  .hero-section-decor img:nth-child(2) {
-    top: 130rem;
-    right: 156rem;
-    width: 124rem;
-  }
-  .hero-section-decor img:nth-child(3) {
-    top: 27rem;
-    right: 285rem;
-    width: 162rem;
-  }
-  .hero-section-decor img:nth-child(4) {
-    top: 100%;
-    left: 50%;
-    width: 18rem;
-    transform: translateX(-50%);
-  }
-  @media (width < 1025px) {
-    .hero-section-decor img:nth-child(1) {
-      top: -40rem;
-      right: -46rem;
-    }
-    .hero-section-decor img:nth-child(2) {
-      top: 120rem;
-      right: 139rem;
-    }
-    .hero-section-decor img:nth-child(3) {
-      top: auto;
-      right: 28rem;
-      bottom: 26rem;
-    }
-  }
-  @media (width < 768px) {
-    .hero-section-decor img:nth-child(1) {
-      display: none;
-    }
-    .hero-section-decor img:nth-child(2) {
-      top: auto;
-      right: 16rem;
-      bottom: 172rem;
-      width: 76rem;
-    }
-    .hero-section-decor img:nth-child(3) {
-      right: 9rem;
-      bottom: 8rem;
-      width: 96rem;
-    }
-  }
-  .hero-section-header {
-    max-width: 57.3248407643%;
-  }
-  @media (width < 1025px) {
-    .hero-section-header {
-      max-width: calc(100% - 220rem);
-    }
-  }
-  @media (width < 768px) {
-    .hero-section-header {
-      max-width: none;
-    }
+    background: #fff;
   }
   .hero-section-title:where(img) {
     display: block;
@@ -588,44 +504,29 @@
     }
   }
   .hero-section-main {
-    display: grid;
-    grid-template-columns: 720fr 536fr;
-    min-height: 200rem;
-    border-radius: 10rem;
-    overflow: clip;
-  }
-  @media (width < 1025px) {
-    .hero-section-main {
-      grid-template-columns: none;
-    }
+    grid-column: 1;
   }
   .hero-section-text {
-    padding: 50rem;
     font-size: 24rem;
     line-height: 1.0833333333;
-    color: var(--body-color);
-    background: #fff;
   }
   .hero-section-text p:where(:not(:last-child)) {
     margin-bottom: 1em;
   }
   @media (width < 768px) {
     .hero-section-text {
-      padding: 20rem;
       font-size: 18rem;
       line-height: 1.1597222222;
     }
   }
   .hero-section-text-info {
-    margin-top: 32rem;
+    margin-top: 60rem;
     font-size: 20rem;
     line-height: 0.95;
     color: #7F7F7F;
   }
-  @media (width < 1025px) {
-    .hero-section-text-info {
-      margin-top: 24rem;
-    }
+  .hero-section-text-info p:where(:not(:last-child)) {
+    margin-bottom: 10rem;
   }
   @media (width < 768px) {
     .hero-section-text-info {
@@ -633,25 +534,16 @@
       line-height: 1.0208333333;
     }
   }
-  .hero-section-image {
+  .hero-section-links {
     position: relative;
+    grid-row: 1/span 2;
+    grid-column: 2;
   }
-  .hero-section-image img {
+  .hero-section-links img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  @media (width < 1025px) {
-    .hero-section-image {
-      grid-row: 1;
-      aspect-ratio: 670/344;
-    }
-  }
-  @media (width < 768px) {
-    .hero-section-image {
-      aspect-ratio: 288/162;
-    }
   }
   .hero-section-footer {
     display: flex;
