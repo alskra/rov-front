@@ -91,8 +91,7 @@
   .hero-section-text-info {
     margin-top: 60rem;
     font-size: 20rem;
-    line-height: calc(24 / 20);
-    color: #7F7F7F;
+    color: $gray-dark;
 
     p {
       @include nlc {
@@ -107,9 +106,50 @@
   }
 
   .hero-section-links {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 48rem;
+    justify-content: space-between;
+    align-content: space-between;
     grid-area: links;
 
     @media (width < $bp-lg) {
+      margin-top: 20rem;
+      margin-right: 20rem;
+      margin-left: 20rem;
+      gap: 30rem;
+    }
+
+    @media (width < $bp-md) {
+      grid-auto-flow: row;
+      grid-template-columns: none;
+      justify-content: center;
+    }
+  }
+
+  .hero-section-links-item {
+    display: flex;
+    flex-flow: column;
+    gap: 10rem;
+    font-size: 16rem;
+    line-height: calc(19 / 16);
+    text-align: center;
+
+    > img {
+      width: 100rem;
+      aspect-ratio: 1;
+      object-fit: contain;
+      margin-inline: auto;
+    }
+
+    @media (width < $bp-lg) {
+      font-size: 14rem;
+
+      > img {
+        width: 56rem;
+      }
     }
   }
 

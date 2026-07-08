@@ -534,8 +534,7 @@
   .hero-section-text-info {
     margin-top: 60rem;
     font-size: 20rem;
-    line-height: 1.2;
-    color: #7F7F7F;
+    color: #7f7f7f;
   }
   .hero-section-text-info p:where(:not(:last-child)) {
     margin-bottom: 0.5em;
@@ -547,7 +546,51 @@
     }
   }
   .hero-section-links {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 48rem;
+    justify-content: space-between;
+    align-content: space-between;
     grid-area: links;
+  }
+  @media (width < 1025px) {
+    .hero-section-links {
+      margin-top: 20rem;
+      margin-right: 20rem;
+      margin-left: 20rem;
+      gap: 30rem;
+    }
+  }
+  @media (width < 768px) {
+    .hero-section-links {
+      grid-auto-flow: row;
+      grid-template-columns: none;
+      justify-content: center;
+    }
+  }
+  .hero-section-links-item {
+    display: flex;
+    flex-flow: column;
+    gap: 10rem;
+    font-size: 16rem;
+    line-height: 1.1875;
+    text-align: center;
+  }
+  .hero-section-links-item > img {
+    width: 100rem;
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin-inline: auto;
+  }
+  @media (width < 1025px) {
+    .hero-section-links-item {
+      font-size: 14rem;
+    }
+    .hero-section-links-item > img {
+      width: 56rem;
+    }
   }
   .hero-section-footer {
     display: flex;
