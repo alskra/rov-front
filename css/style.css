@@ -6,7 +6,7 @@
 @layer base {
   :root {
     --base-font-size: 24rem;
-    --base-line-height: 1.2083333333;
+    --base-line-height: 1.2;
     --base-color: #383838;
     --base-bg: #f5f5f5;
     --base-transition: 0.2s ease-in-out;
@@ -490,7 +490,7 @@
     grid-template-areas: "header links" "main links";
     grid-template-columns: 620rem 457rem;
     justify-content: space-between;
-    gap: 30rem 24rem;
+    gap: 30rem;
     padding: 60rem;
     border-radius: 14rem;
     background: #fff;
@@ -499,19 +499,26 @@
     .hero-section-body {
       grid-template-areas: "header" "main" "links";
       grid-template-columns: none;
+      gap: 20rem;
+      padding: 20rem 20rem 40rem;
     }
   }
   .hero-section-header {
     grid-area: header;
   }
   .hero-section-title {
-    width: min(387rem, 100%);
+    width: 387rem;
     aspect-ratio: 387/117;
     max-width: 100%;
     font-size: 0;
     line-height: 0;
     background: #ff553e;
     mask: url("../img/hero-title.svg") 50%/contain no-repeat;
+  }
+  @media (width < 1025px) {
+    .hero-section-title {
+      width: 290.25rem;
+    }
   }
   .hero-section-main {
     grid-area: main;
@@ -535,6 +542,7 @@
   }
   @media (width < 1025px) {
     .hero-section-text-info {
+      margin-top: 40rem;
       font-size: 14rem;
     }
   }

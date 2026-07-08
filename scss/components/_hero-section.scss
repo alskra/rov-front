@@ -38,7 +38,7 @@
       "main links";
     grid-template-columns: 620rem 457rem;
     justify-content: space-between;
-    gap: 30rem 24rem;
+    gap: 30rem;
     padding: 60rem;
     border-radius: 14rem;
     background: $white;
@@ -49,6 +49,8 @@
         "main"
         "links";
       grid-template-columns: none;
+      gap: 20rem;
+      padding: 20rem 20rem 40rem;
     }
   }
 
@@ -57,13 +59,17 @@
   }
 
   .hero-section-title {
-    width: min(387rem, 100%);
+    width: 387rem;
     aspect-ratio: 387 / 117;
     max-width: 100%;
     font-size: 0;
     line-height: 0;
     background: $red;
     mask: url("../img/hero-title.svg") 50% / contain no-repeat;
+
+    @media (width < $bp-lg) {
+      width: calc(18 / 24 * 387rem);
+    }
   }
 
   .hero-section-main {
@@ -95,6 +101,7 @@
     }
 
     @media (width < $bp-lg) {
+      margin-top: 40rem;
       font-size: 14rem;
     }
   }
