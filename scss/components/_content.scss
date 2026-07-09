@@ -2,7 +2,7 @@
 @use "../functions" as *;
 @use "../mixins" as *;
 
-$content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore *))";
+$content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .content-ignore *))";
 
 @mixin spacing($top, $bottom: $top) {
   &:where(:not(:first-child), .mt) {
@@ -36,14 +36,15 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
 
   :is(h1, h2, h3, h4, h5, h6)#{$content},
   :is(.h1, .h2, .h3, .h4, .h5, .h6)#{$content} {
-    @include spacing(to-em(30, 48));
-
     & {
+      margin: 0;
       font-weight: 500;
     }
   }
 
   h1#{$content}, .h1#{$content} {
+    @include spacing(to-em(30, 48));
+
     & {
       font-size: 48rem;
       //line-height: calc(58 / 48);
@@ -60,7 +61,20 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
   }
 
   h2#{$content}, .h2#{$content} {
+    @include spacing(to-em(36, 32));
+
+    & {
+      color: inherit;
+      font-size: 32rem;
+      text-transform: uppercase;
+    }
+
+    @include media-down($bp-lg) {
+      font-size: 26rem;
+    }
+
     @include media-down($bp-md) {
+      font-size: 20rem;
     }
   }
 
@@ -252,15 +266,24 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
   }
 
   // Blocks
-  .hero#{$content} {
-    @include spacing(82rem);
+  .block-light#{$content} {
     @include shadow-default;
 
     & {
-      padding: 30rem 30rem 68rem;
+      padding: 30rem;
       border-radius: 14rem;
       background: $white;
     }
+
+    @include media-down($bp-md) {
+      & {
+        padding: 20rem;
+      }
+    }
+  }
+
+  .hero#{$content} {
+    @include spacing(82rem);
 
     @include media-up($bp-lg) {
       h1 {
@@ -274,18 +297,111 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
 
     @include media-down($bp-md) {
       @include spacing(56rem);
-
-      & {
-        padding: 20rem 20rem 24rem;
-      }
     }
   }
 
   .cols-2#{$content} {
-    @include media-up($bp-md) {
+    @include spacing(140rem);
+
+    & {
       display: grid;
+      gap: 40rem 36rem;
+    }
+
+    @include media-up($bp-lg) {
       grid-template-columns: 1fr 1fr;
-      gap: 36rem;
+    }
+
+    @include media-down($bp-md) {
+      @include spacing(60rem);
+    }
+  }
+
+  .title-badge#{$content} {
+    width: max-content;
+    padding: 6rem 30rem;
+    margin: 0;
+    font-size: var(--base-font-size);
+    font-weight: 400;
+    color: $white;
+    background: $blue;
+    border-radius: 12rem;
+    text-transform: none;
+
+    @include media-down($bp-md) {
+      padding: 8rem 20rem;
+    }
+  }
+
+  .content-badge#{$content} {
+    padding: 30rem;
+
+    @include media-down($bp-md) {
+      padding: 20rem;
+    }
+  }
+
+  .block-icon#{$content} {
+    @include spacing(112rem);
+
+    & {
+      display: flex;
+      align-items: center;
+      gap: 10rem 317rem;
+    }
+
+    img {
+      flex: none;
+      width: 142rem;
+    }
+
+    @include media-up($bp-lg) {
+      padding-block: 80rem;
+      padding-right: 60rem;
+    }
+
+    @include media-down($bp-lg) {
+      flex-flow: column;
+      align-items: unset;
+
+      img {
+        order: -1;
+        margin: 0 auto;
+      }
+    }
+
+    @include media-down($bp-md) {
+      @include spacing(60rem);
+
+      img {
+        width: 74rem;
+      }
+    }
+  }
+
+  .block-center#{$content} {
+    h2 {
+      text-align: center;
+    }
+
+    dt {
+      margin-inline: auto;
+    }
+
+    dt ~ dt {
+      margin-top: 36rem;
+    }
+
+    @include media-up($bp-lg) {
+      h2 {
+        max-width: 952rem;
+        margin-inline: auto;
+      }
+
+      dl {
+        max-width: 660rem;
+        margin-inline: auto;
+      }
     }
   }
 }
