@@ -1,0 +1,267 @@
+@use "../vars" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+$content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore *))";
+
+@mixin spacing($top, $bottom: $top) {
+  &:where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: $top;
+  }
+
+  &:where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: $bottom;
+  }
+}
+
+@layer components.content {
+  // stylelint-disable custom-property-empty-line-before
+  .content {
+    & {
+      --h-spacing: 1em;
+      --p-spacing: calc(1em * var(--base-line-height));
+
+      --link-color: #{$blue};
+      --link-decoration: none;
+      --link-hover-color: #{$blue-dark};
+      --link-hover-decoration: none;
+
+      --list-indent: #{to-em(40)};
+      --list-marker-size: #{to-em(10)};
+
+      --blockquote-font-size: #{to-em(24)};
+      --block-spacing: #{to-em(40)};
+    }
+  }
+
+  :is(h1, h2, h3, h4, h5, h6)#{$content},
+  :is(.h1, .h2, .h3, .h4, .h5, .h6)#{$content} {
+    @include spacing(var(--h-spacing));
+
+    & {
+      font-weight: 500;
+    }
+  }
+
+  h1#{$content}, .h1#{$content} {
+    @include spacing(30rem);
+
+    & {
+      font-size: 48rem;
+      //line-height: calc(58 / 48);
+    }
+
+    @include media-down($bp-lg) {
+      font-size: 36rem;
+    }
+
+    @include media-down($bp-md) {
+      @include spacing(25rem);
+
+      & {
+        font-size: 24rem;
+      }
+    }
+  }
+
+  h2#{$content}, .h2#{$content} {
+    @include media-down($bp-md) {
+    }
+  }
+
+  h3#{$content}, .h3#{$content} {
+    @include media-down($bp-md) {
+    }
+  }
+
+  h4#{$content}, .h4#{$content} {
+    @include media-down($bp-md) {
+    }
+  }
+
+  h5#{$content}, .h5#{$content} {
+    @include media-down($bp-md) {
+    }
+  }
+
+  h6#{$content}, .h6#{$content} {
+    @include media-down($bp-md) {
+    }
+  }
+
+  :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6)#{$content} + #{$content} {
+    // stylelint-disable-next-line
+    margin-top: 0 !important;
+  }
+
+  // stylelint-disable-next-line
+  p#{$content},
+  .p#{$content} {
+    @include spacing(var(--p-spacing));
+  }
+
+  .p#{$content} {
+    font: inherit;
+    color: inherit;
+  }
+
+  :any-link:not([href^="tel:"])#{$content} {
+    color: var(--link-color);
+    text-decoration: var(--link-decoration);
+    transition: color var(--base-transition);
+
+    @include media-hover {
+      &:hover {
+        color: var(--link-hover-color);
+        text-decoration: var(--link-hover-decoration);
+      }
+    }
+  }
+
+  :is(ul, ol)#{$content} {
+    @include spacing(var(--p-spacing));
+
+    & {
+      position: relative;
+      padding-left: var(--list-indent);
+      list-style: none;
+    }
+  }
+
+  :is(ul, ol) > li#{$content} {
+    @include spacing(calc(0.5 * var(--p-spacing)));
+
+    &::before {
+      position: absolute;
+      left: 0;
+      width: var(--list-indent);
+      text-align: right;
+    }
+  }
+
+  ul > li#{$content} {
+    &::before {
+      content: "\2014\00A0";
+    }
+  }
+
+  ol#{$content} {
+    counter-reset: ol;
+  }
+
+  ol > li#{$content} {
+    counter-increment: ol;
+
+    &::before {
+      content: counter(ol) ".\00A0";
+    }
+  }
+
+  dl#{$content} {
+    @include spacing(var(--p-spacing));
+  }
+
+  dt#{$content} {
+    @include spacing(40rem, 14rem);
+
+    & {
+      font-weight: 700;
+    }
+  }
+
+  blockquote#{$content} {
+    @include spacing(var(--block-spacing));
+
+    & {
+      padding-left: calc(var(--list-indent) - 4rem);
+      font-size: var(--blockquote-font-size);
+      border-left: 4rem solid var(--light);
+    }
+  }
+
+  .table-responsive {
+    display: block;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &#{$content} {
+      @include spacing(var(--block-spacing));
+    }
+
+    table#{$content} {
+      margin: 0;
+    }
+  }
+
+  table#{$content} {
+    @include spacing(var(--block-spacing));
+
+    & {
+      border-collapse: collapse;
+    }
+  }
+
+  tr:first-child :is(th, td)#{$content} {
+    padding-top: 0;
+  }
+
+  tr:last-child :is(th, td)#{$content} {
+    padding-bottom: 0;
+  }
+
+  :is(th, td)#{$content} {
+    padding: calc(0.5 * var(--p-spacing)) calc(0.5 * var(--p-spacing));
+    vertical-align: baseline;
+  }
+
+  :is(th, td):first-child#{$content} {
+    padding-left: 0;
+  }
+
+  :is(th, td):last-child#{$content} {
+    padding-right: 0;
+  }
+
+  td:first-child#{$content} {
+    color: var(--light);
+  }
+
+  :is(img:not(picture *, figure *), picture:not(figure *))#{$content} {
+    @include spacing(var(--block-spacing));
+  }
+
+  figure#{$content} {
+    @include spacing(var(--block-spacing));
+
+    & {
+      text-align: center;
+    }
+  }
+
+  figcaption#{$content} {
+    margin-top: calc(0.5 * var(--p-spacing));
+    font-size: 13rem;
+    font-style: italic;
+  }
+
+  hr#{$content} {
+    margin: var(--h-spacing) 0 var(--h-spacing);
+    border: 0;
+    border-top: 1px solid $gray;
+  }
+
+  // Blocks
+  .hero#{$content} {
+    @include shadow-default;
+
+    & {
+      padding: 30rem 30rem 68rem;
+      border-radius: 14rem;
+      background: $white;
+    }
+
+    @include media-down($bp-md) {
+      padding: 20rem 20rem 24rem;
+    }
+  }
+}

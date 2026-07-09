@@ -11,6 +11,11 @@
     margin: 0;
   }
 
+  ::selection {
+    color: $white;
+    background: $blue-dark;
+  }
+
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -59,13 +64,12 @@
     gap: 3rem;
     align-items: baseline;
     width: max-content;
-    margin: 24rem 0 0 var(--pos-left);
+    margin-left: var(--pos-left);
     font-size: 16rem;
-    font-weight: 400;
     color: #b8b8b8;
     transition: var(--base-transition);
     transition-property: visibility, opacity;
-    transform: translateX(-100%);
+    transform: translate(-100%, -100%);
 
     &::after {
       content: "";

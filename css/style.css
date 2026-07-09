@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @layer base {}
 @layer layout {}
 @layer components {}
@@ -67,6 +68,10 @@
     padding: 0;
     margin: 0;
   }
+  ::selection {
+    color: #fff;
+    background: #48a9f3;
+  }
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -108,13 +113,12 @@
     gap: 3rem;
     align-items: baseline;
     width: max-content;
-    margin: 24rem 0 0 var(--pos-left);
+    margin-left: var(--pos-left);
     font-size: 16rem;
-    font-weight: 400;
     color: #b8b8b8;
     transition: var(--base-transition);
     transition-property: visibility, opacity;
-    transform: translateX(-100%);
+    transform: translate(-100%, -100%);
   }
   .button-to-up::after {
     content: "";
@@ -218,6 +222,224 @@
   }
   .visually-hidden-focusable:not(:focus, :focus-within):not(caption) {
     position: absolute !important;
+  }
+}
+@layer components.content {
+  .content {
+    --h-spacing: 1em;
+    --p-spacing: calc(1em * var(--base-line-height));
+    --link-color: #63baff;
+    --link-decoration: none;
+    --link-hover-color: #48a9f3;
+    --link-hover-decoration: none;
+    --list-indent: 1.6666666667em;
+    --list-marker-size: 0.4166666667em;
+    --blockquote-font-size: 1em;
+    --block-spacing: 1.6666666667em;
+  }
+  :is(h1, h2, h3, h4, h5, h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt),
+  :is(.h1, .h2, .h3, .h4, .h5, .h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--h-spacing);
+  }
+  :is(h1, h2, h3, h4, h5, h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb),
+  :is(.h1, .h2, .h3, .h4, .h5, .h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--h-spacing);
+  }
+  :is(h1, h2, h3, h4, h5, h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)),
+  :is(.h1, .h2, .h3, .h4, .h5, .h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    font-weight: 500;
+  }
+  h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: 30rem;
+  }
+  h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: 30rem;
+  }
+  h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    font-size: 48rem;
+  }
+  @media (width < 1025px) {
+    h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+      font-size: 36rem;
+    }
+  }
+  @media (width < 768px) {
+    h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+      margin-top: 25rem;
+    }
+    h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+      margin-bottom: 25rem;
+    }
+    h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)), .h1:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+      font-size: 24rem;
+    }
+  }
+  :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) + :is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    margin-top: 0 !important;
+  }
+  p:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt),
+  .p:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--p-spacing);
+  }
+  p:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb),
+  .p:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--p-spacing);
+  }
+  .p:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    font: inherit;
+    color: inherit;
+  }
+  :any-link:not([href^="tel:"]):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    color: var(--link-color);
+    text-decoration: var(--link-decoration);
+    transition: color var(--base-transition);
+  }
+  @media (hover: hover) {
+    :any-link:not([href^="tel:"]):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):hover {
+      color: var(--link-hover-color);
+      text-decoration: var(--link-hover-decoration);
+    }
+  }
+  :is(ul, ol):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--p-spacing);
+  }
+  :is(ul, ol):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--p-spacing);
+  }
+  :is(ul, ol):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    position: relative;
+    padding-left: var(--list-indent);
+    list-style: none;
+  }
+  :is(ul, ol) > li:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: calc(0.5 * var(--p-spacing));
+  }
+  :is(ul, ol) > li:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: calc(0.5 * var(--p-spacing));
+  }
+  :is(ul, ol) > li:is(.content, .content *):where(:not(.content-ignore, .content-ignore *))::before {
+    position: absolute;
+    left: 0;
+    width: var(--list-indent);
+    text-align: right;
+  }
+  ul > li:is(.content, .content *):where(:not(.content-ignore, .content-ignore *))::before {
+    content: "— ";
+  }
+  ol:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    counter-reset: ol;
+  }
+  ol > li:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    counter-increment: ol;
+  }
+  ol > li:is(.content, .content *):where(:not(.content-ignore, .content-ignore *))::before {
+    content: counter(ol) ". ";
+  }
+  dl:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--p-spacing);
+  }
+  dl:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--p-spacing);
+  }
+  dt:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: 40rem;
+  }
+  dt:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: 14rem;
+  }
+  dt:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    font-weight: 700;
+  }
+  blockquote:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--block-spacing);
+  }
+  blockquote:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--block-spacing);
+  }
+  blockquote:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding-left: calc(var(--list-indent) - 4rem);
+    font-size: var(--blockquote-font-size);
+    border-left: 4rem solid var(--light);
+  }
+  .table-responsive {
+    display: block;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--block-spacing);
+  }
+  .table-responsive:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--block-spacing);
+  }
+  .table-responsive table:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    margin: 0;
+  }
+  table:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--block-spacing);
+  }
+  table:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--block-spacing);
+  }
+  table:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    border-collapse: collapse;
+  }
+  tr:first-child :is(th, td):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding-top: 0;
+  }
+  tr:last-child :is(th, td):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding-bottom: 0;
+  }
+  :is(th, td):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding: calc(0.5 * var(--p-spacing)) calc(0.5 * var(--p-spacing));
+    vertical-align: baseline;
+  }
+  :is(th, td):first-child:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding-left: 0;
+  }
+  :is(th, td):last-child:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding-right: 0;
+  }
+  td:first-child:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    color: var(--light);
+  }
+  :is(img:not(picture *, figure *), picture:not(figure *)):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--block-spacing);
+  }
+  :is(img:not(picture *, figure *), picture:not(figure *)):is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--block-spacing);
+  }
+  figure:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:first-child), .content :not(:first-child) *, .mt) {
+    margin-top: var(--block-spacing);
+  }
+  figure:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)):where(:not(:last-child), .content :not(:last-child) *, .mb) {
+    margin-bottom: var(--block-spacing);
+  }
+  figure:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    text-align: center;
+  }
+  figcaption:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    margin-top: calc(0.5 * var(--p-spacing));
+    font-size: 13rem;
+    font-style: italic;
+  }
+  hr:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    margin: var(--h-spacing) 0 var(--h-spacing);
+    border: 0;
+    border-top: 1px solid #9a9a9a;
+  }
+  .hero:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
+  }
+  .hero:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+    padding: 30rem 30rem 68rem;
+    border-radius: 14rem;
+    background: #fff;
+  }
+  @media (width < 768px) {
+    .hero:is(.content, .content *):where(:not(.content-ignore, .content-ignore *)) {
+      padding: 20rem 20rem 24rem;
+    }
   }
 }
 @layer components.header {
