@@ -53,23 +53,16 @@
     @include shadow-default;
 
     position: relative;
-    //display: grid;
-    //grid-template-columns: repeat(3, 1fr);
-    //gap: 120rem;
-    //justify-content: center;
     padding: 60rem 160.5rem 80rem;
     border-radius: 14rem;
     background: $white;
 
     @include media-down($bp-lg) {
-      //grid-template-columns: repeat(2, 1fr);
       padding-right: 60rem;
       padding-left: 60rem;
     }
 
     @include media-down($bp-md) {
-      //grid-template-columns: none;
-      //gap: 82rem;
       padding-top: 86rem;
       padding-right: 16rem;
       padding-left: 16rem;
@@ -77,20 +70,29 @@
     }
   }
 
-  .materials-column {
-    @include nlc {
-      --padding-bottom: 60rem;
+  .material-column-header {
+    --interval-y: 60rem;
 
-      padding-bottom: calc(var(--padding-bottom) - 32rem);
-      border-bottom: 1px solid $wild-sand;
-      margin-bottom: var(--padding-bottom);
+    display: flex;
+    align-items: center;
+    gap: 20rem;
+    margin-bottom: 32rem;
+
+    & ~ & {
+      padding-top: var(--interval-y);
+      border-top: 1px solid $wild-sand;
+      margin-top: var(--interval-y);
     }
 
-    //display: flex;
-    //flex-direction: column;
+    @include media-down($bp-lg) {
+      --interval-y: 40rem;
+    }
+  }
+
+  .materials-column {
+    margin-bottom: -32rem;
     column-count: 3;
     column-gap: 120rem;
-    //gap: 32rem;
 
     &:not(:has(.material-item)) {
       display: none;
@@ -98,22 +100,11 @@
 
     @include media-down($bp-lg) {
       column-count: 2;
-
-      @include nlc {
-        --padding-bottom: 40rem;
-      }
     }
 
     @include media-down($bp-md) {
       column-count: 1;
     }
-  }
-
-  .material-column-header {
-    display: flex;
-    align-items: center;
-    gap: 20rem;
-    margin-bottom: 32rem;
   }
 
   .material-icon {
