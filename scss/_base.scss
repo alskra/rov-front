@@ -49,4 +49,19 @@
     background: #eeeeee;
     margin-block: 10rem 20rem;
   }
+
+  .button-to-up {
+    --pos-left: #{calc((100% - min(100%, $bp-2xl)) / 2)};
+
+    position: sticky;
+    bottom: 20rem;
+    display: block;
+    width: max-content;
+    margin: 24rem 0 0 var(--pos-left);
+    font-size: 16rem;
+    font-weight: 400;
+    color: #b8b8b8;
+    //mix-blend-mode: multiply;
+    transform: translate(-100%, 0);
+  }
 }

@@ -100,6 +100,18 @@
     background: #eeeeee;
     margin-block: 10rem 20rem;
   }
+  .button-to-up {
+    --pos-left: calc((100% - min(100%, 1400px)) / 2);
+    position: sticky;
+    bottom: 20rem;
+    display: block;
+    width: max-content;
+    margin: 24rem 0 0 var(--pos-left);
+    font-size: 16rem;
+    font-weight: 400;
+    color: #b8b8b8;
+    transform: translate(-100%, 0);
+  }
 }
 @layer layout {
   html {
@@ -120,7 +132,7 @@
   }
   .container {
     width: 100%;
-    max-width: 1400rem;
+    max-width: 1400px;
     padding: 0 22rem;
     margin: 0 auto;
   }
