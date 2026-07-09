@@ -5,11 +5,11 @@
 $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore *))";
 
 @mixin spacing($top, $bottom: $top) {
-  &:where(:not(:first-child), .content :not(:first-child) *, .mt) {
+  &:where(:not(:first-child), .mt) {
     margin-top: $top;
   }
 
-  &:where(:not(:last-child), .content :not(:last-child) *, .mb) {
+  &:where(:not(:last-child), .mb) {
     margin-bottom: $bottom;
   }
 }
@@ -26,7 +26,7 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
       --link-hover-color: #{$blue-dark};
       --link-hover-decoration: none;
 
-      --list-indent: #{to-em(40)};
+      --list-indent: #{to-em(36)};
       --list-marker-size: #{to-em(10)};
 
       --blockquote-font-size: #{to-em(24)};
@@ -36,7 +36,7 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
 
   :is(h1, h2, h3, h4, h5, h6)#{$content},
   :is(.h1, .h2, .h3, .h4, .h5, .h6)#{$content} {
-    @include spacing(var(--h-spacing));
+    @include spacing(to-em(30, 48));
 
     & {
       font-weight: 500;
@@ -44,11 +44,10 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
   }
 
   h1#{$content}, .h1#{$content} {
-    @include spacing(30rem);
-
     & {
       font-size: 48rem;
       //line-height: calc(58 / 48);
+      text-transform: uppercase;
     }
 
     @include media-down($bp-lg) {
@@ -56,11 +55,7 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
     }
 
     @include media-down($bp-md) {
-      @include spacing(25rem);
-
-      & {
-        font-size: 24rem;
-      }
+      font-size: 24rem;
     }
   }
 
@@ -129,7 +124,7 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
   }
 
   :is(ul, ol) > li#{$content} {
-    @include spacing(calc(0.5 * var(--p-spacing)));
+    @include spacing(calc(0 * var(--p-spacing)));
 
     &::before {
       position: absolute;
@@ -141,7 +136,9 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
 
   ul > li#{$content} {
     &::before {
-      content: "\2014\00A0";
+      //content: "\2014\00A0";
+      content: "\2022";
+      text-align: center;
     }
   }
 
@@ -250,8 +247,13 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
     border-top: 1px solid $gray;
   }
 
+  u {
+    text-decoration: underline $pastel-green;
+  }
+
   // Blocks
   .hero#{$content} {
+    @include spacing(82rem);
     @include shadow-default;
 
     & {
@@ -260,8 +262,30 @@ $content: ":is(.content, .content *):where(:not(.content-ignore, .content-ignore
       background: $white;
     }
 
+    @include media-up($bp-lg) {
+      h1 {
+        max-width: 1157rem;
+      }
+
+      p {
+        max-width: 807rem;
+      }
+    }
+
     @include media-down($bp-md) {
-      padding: 20rem 20rem 24rem;
+      @include spacing(56rem);
+
+      & {
+        padding: 20rem 20rem 24rem;
+      }
+    }
+  }
+
+  .cols-2#{$content} {
+    @include media-up($bp-md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36rem;
     }
   }
 }
