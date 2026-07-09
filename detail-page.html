@@ -946,6 +946,22 @@
       </div>
     </div>
   </section>
+
+  <a class="button-to-up hidden" href="#">наверх</a>
+
+  <script type="module">
+    const button = document.querySelector('.button-to-up');
+
+    function toggleButtonToUp() {
+      button.classList.toggle('hidden', !(window.scrollY >= 100));
+    }
+
+    if (button) {
+      toggleButtonToUp();
+
+      window.addEventListener('scroll', toggleButtonToUp, { passive: true });
+    }
+  </script>
 </main>
 
 <footer class="footer">
