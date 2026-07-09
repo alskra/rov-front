@@ -235,7 +235,17 @@
     --list-indent: 1.5em;
     --list-marker-size: 0.4166666667em;
     --blockquote-font-size: 1em;
-    --block-spacing: 1.6666666667em;
+    --block-spacing: 90rem;
+  }
+  @media (width < 1025px) {
+    .content {
+      --block-spacing: 75rem;
+    }
+  }
+  @media (width < 768px) {
+    .content {
+      --block-spacing: 60rem;
+    }
   }
   :is(h1, h2, h3, h4, h5, h6):where(:is(.content *):not(.content-ignore *)),
   :is(.h1, .h2, .h3, .h4, .h5, .h6):where(:is(.content *):not(.content-ignore *)) {
@@ -441,46 +451,35 @@
   u:where(:is(.content *):not(.content-ignore *)) {
     text-decoration: underline #93E479;
   }
-  .block-light:where(:is(.content *):not(.content-ignore *)) {
+  :is([class="^block-"], [class*=" block-"]):where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
+    margin-top: var(--block-spacing);
+  }
+  :is([class="^block-"], [class*=" block-"]):where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
+    margin-bottom: var(--block-spacing);
+  }
+  .block-accent:where(:is(.content *):not(.content-ignore *)) {
     box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
   }
-  .block-light:where(:is(.content *):not(.content-ignore *)) {
+  .block-accent:where(:is(.content *):not(.content-ignore *)) {
     padding: 30rem;
     border-radius: 14rem;
     background: #fff;
   }
   @media (width < 768px) {
-    .block-light:where(:is(.content *):not(.content-ignore *)) {
+    .block-accent:where(:is(.content *):not(.content-ignore *)) {
       padding: 20rem;
     }
   }
-  .block-hero:where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
-    margin-top: 82rem;
-  }
-  .block-hero:where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
-    margin-bottom: 82rem;
-  }
   @media (width >= 1025px) {
+    .block-hero:where(:is(.content *):not(.content-ignore *)) {
+      padding-bottom: 60rem;
+    }
     .block-hero:where(:is(.content *):not(.content-ignore *)) h1 {
       max-width: 1157rem;
     }
     .block-hero:where(:is(.content *):not(.content-ignore *)) p {
       max-width: 807rem;
     }
-  }
-  @media (width < 768px) {
-    .block-hero:where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
-      margin-top: 56rem;
-    }
-    .block-hero:where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
-      margin-bottom: 56rem;
-    }
-  }
-  .block-cols-2:where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
-    margin-top: 140rem;
-  }
-  .block-cols-2:where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
-    margin-bottom: 140rem;
   }
   .block-cols-2:where(:is(.content *):not(.content-ignore *)) {
     display: grid;
@@ -490,20 +489,6 @@
     .block-cols-2:where(:is(.content *):not(.content-ignore *)) {
       grid-template-columns: 1fr 1fr;
     }
-  }
-  @media (width < 768px) {
-    .block-cols-2:where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
-      margin-top: 60rem;
-    }
-    .block-cols-2:where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
-      margin-bottom: 60rem;
-    }
-  }
-  .block-icon:where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
-    margin-top: 112rem;
-  }
-  .block-icon:where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
-    margin-bottom: 112rem;
   }
   .block-icon:where(:is(.content *):not(.content-ignore *)) {
     display: flex;
@@ -531,12 +516,6 @@
     }
   }
   @media (width < 768px) {
-    .block-icon:where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
-      margin-top: 60rem;
-    }
-    .block-icon:where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
-      margin-bottom: 60rem;
-    }
     .block-icon:where(:is(.content *):not(.content-ignore *)) img {
       width: 74rem;
     }
@@ -558,6 +537,11 @@
     .block-center:where(:is(.content *):not(.content-ignore *)) dl {
       max-width: 660rem;
       margin-inline: auto;
+    }
+  }
+  @media (width < 768px) {
+    .block-center:where(:is(.content *):not(.content-ignore *)) dt ~ dt {
+      margin-top: 20rem;
     }
   }
   .title-badge:where(:is(.content *):not(.content-ignore *)) {

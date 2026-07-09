@@ -30,7 +30,15 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
       --list-marker-size: #{to-em(10)};
 
       --blockquote-font-size: #{to-em(24)};
-      --block-spacing: #{to-em(40)};
+      --block-spacing: 90rem;
+    }
+
+    @include media-down($bp-lg) {
+      --block-spacing: 75rem;
+    }
+
+    @include media-down($bp-md) {
+      --block-spacing: 60rem;
     }
   }
 
@@ -266,7 +274,11 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
   }
 
   // Blocks
-  .block-light#{$content} {
+  :is([class="^block-"], [class*=" block-"])#{$content} {
+    @include spacing(var(--block-spacing));
+  }
+
+  .block-accent#{$content} {
     @include shadow-default;
 
     & {
@@ -283,9 +295,9 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
   }
 
   .block-hero#{$content} {
-    @include spacing(82rem);
-
     @include media-up($bp-lg) {
+      padding-bottom: 60rem;
+
       h1 {
         max-width: 1157rem;
       }
@@ -294,37 +306,21 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
         max-width: 807rem;
       }
     }
-
-    @include media-down($bp-md) {
-      @include spacing(56rem);
-    }
   }
 
   .block-cols-2#{$content} {
-    @include spacing(140rem);
-
-    & {
-      display: grid;
-      gap: 40rem 36rem;
-    }
+    display: grid;
+    gap: 40rem 36rem;
 
     @include media-up($bp-lg) {
       grid-template-columns: 1fr 1fr;
     }
-
-    @include media-down($bp-md) {
-      @include spacing(60rem);
-    }
   }
 
   .block-icon#{$content} {
-    @include spacing(112rem);
-
-    & {
-      display: flex;
-      align-items: center;
-      gap: 10rem 317rem;
-    }
+    display: flex;
+    align-items: center;
+    gap: 10rem 317rem;
 
     img {
       flex: none;
@@ -347,8 +343,6 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
     }
 
     @include media-down($bp-md) {
-      @include spacing(60rem);
-
       img {
         width: 74rem;
       }
@@ -362,10 +356,10 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
 
     dt {
       margin-inline: auto;
-    }
 
-    dt ~ dt {
-      margin-top: 36rem;
+      & ~ dt {
+        margin-top: 36rem;
+      }
     }
 
     @include media-up($bp-lg) {
@@ -377,6 +371,12 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
       dl {
         max-width: 660rem;
         margin-inline: auto;
+      }
+    }
+
+    @include media-down($bp-md) {
+      dt ~ dt {
+        margin-top: 20rem;
       }
     }
   }
