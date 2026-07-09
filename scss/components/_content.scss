@@ -2,7 +2,7 @@
 @use "../functions" as *;
 @use "../mixins" as *;
 
-$content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .content-ignore *))";
+$content: ":where(:is(.content *):not(.content-ignore *))";
 
 @mixin spacing($top, $bottom: $top) {
   &:where(:not(:first-child), .mt) {
@@ -173,7 +173,7 @@ $content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .conten
   }
 
   dt#{$content} {
-    @include spacing(40rem, 14rem);
+    @include spacing(var(--p-spacing), calc(0.5 * var(--p-spacing)));
 
     & {
       font-weight: 700;
@@ -256,12 +256,12 @@ $content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .conten
   }
 
   hr#{$content} {
-    margin: var(--h-spacing) 0 var(--h-spacing);
+    margin: var(--h-spacing) 0;
     border: 0;
     border-top: 1px solid $gray;
   }
 
-  u {
+  u#{$content} {
     text-decoration: underline $pastel-green;
   }
 
@@ -282,7 +282,7 @@ $content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .conten
     }
   }
 
-  .hero#{$content} {
+  .block-hero#{$content} {
     @include spacing(82rem);
 
     @include media-up($bp-lg) {
@@ -300,7 +300,7 @@ $content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .conten
     }
   }
 
-  .cols-2#{$content} {
+  .block-cols-2#{$content} {
     @include spacing(140rem);
 
     & {
@@ -314,30 +314,6 @@ $content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .conten
 
     @include media-down($bp-md) {
       @include spacing(60rem);
-    }
-  }
-
-  .title-badge#{$content} {
-    width: max-content;
-    padding: 6rem 30rem;
-    margin: 0;
-    font-size: var(--base-font-size);
-    font-weight: 400;
-    color: $white;
-    background: $blue;
-    border-radius: 12rem;
-    text-transform: none;
-
-    @include media-down($bp-md) {
-      padding: 8rem 20rem;
-    }
-  }
-
-  .content-badge#{$content} {
-    padding: 30rem;
-
-    @include media-down($bp-md) {
-      padding: 20rem;
     }
   }
 
@@ -402,6 +378,31 @@ $content: ":where(:is(.content, .content *)):where(:not(.content-ignore, .conten
         max-width: 660rem;
         margin-inline: auto;
       }
+    }
+  }
+
+  // Elements
+  .title-badge#{$content} {
+    width: max-content;
+    padding: 6rem 30rem;
+    margin: 0;
+    font-size: var(--base-font-size);
+    font-weight: 400;
+    color: $white;
+    background: $blue;
+    border-radius: 12rem;
+    text-transform: none;
+
+    @include media-down($bp-md) {
+      padding: 8rem 20rem;
+    }
+  }
+
+  .content-badge#{$content} {
+    padding: 30rem;
+
+    @include media-down($bp-md) {
+      padding: 20rem;
     }
   }
 }
