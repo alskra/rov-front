@@ -15,7 +15,13 @@
     }
 
     @media (width < $bp-lg) {
+      --base-font-size: 20rem;
+
       font-size: 1px;
+    }
+
+    @media (width < $bp-md) {
+      --base-font-size: 16rem;
     }
   }
 }
