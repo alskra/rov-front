@@ -274,7 +274,7 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
   }
 
   // Blocks
-  :is([class="^block-"], [class*=" block-"])#{$content} {
+  :is([class^="block-"], [class*=" block-"])#{$content} {
     @include spacing(var(--block-spacing));
   }
 

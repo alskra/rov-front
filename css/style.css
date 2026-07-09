@@ -451,10 +451,10 @@
   u:where(:is(.content *):not(.content-ignore *)) {
     text-decoration: underline #93E479;
   }
-  :is([class="^block-"], [class*=" block-"]):where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
+  :is([class^=block-], [class*=" block-"]):where(:is(.content *):not(.content-ignore *)):where(:not(:first-child), .mt) {
     margin-top: var(--block-spacing);
   }
-  :is([class="^block-"], [class*=" block-"]):where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
+  :is([class^=block-], [class*=" block-"]):where(:is(.content *):not(.content-ignore *)):where(:not(:last-child), .mb) {
     margin-bottom: var(--block-spacing);
   }
   .block-accent:where(:is(.content *):not(.content-ignore *)) {
