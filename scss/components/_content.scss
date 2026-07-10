@@ -355,6 +355,7 @@ $ignore: ":where(:not(.content-ignore *))";
       position: relative;
 
       > :nth-child(1) {
+        width: 47rem;
         margin: 0;
       }
 
@@ -363,7 +364,6 @@ $ignore: ":where(:not(.content-ignore *))";
           position: absolute;
           top: 0;
           right: 20rem;
-          width: 47rem;
         }
 
         > :nth-child(2) {
@@ -378,8 +378,51 @@ $ignore: ":where(:not(.content-ignore *))";
         padding-top: 0;
 
         > :nth-child(1) {
-          width: 32rem;
           margin-inline: auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        > :nth-child(1) {
+          width: 32rem;
+        }
+      }
+    }
+
+    .block-icon-3 {
+      position: relative;
+
+      > :nth-child(1) {
+        width: 100rem;
+        margin: 0;
+      }
+
+      @include media-up($bp-lg) {
+        > :nth-child(1) {
+          position: absolute;
+          top: 27rem;
+          right: 20rem;
+        }
+
+        > :nth-child(2) {
+          max-width: 810rem;
+        }
+      }
+
+      @include media-down($bp-lg) {
+        display: flex;
+        flex-flow: column;
+        gap: 20rem;
+        padding-top: 15rem;
+
+        > :nth-child(1) {
+          margin-inline: auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        > :nth-child(1) {
+          width: 73rem;
         }
       }
     }
@@ -417,6 +460,13 @@ $ignore: ":where(:not(.content-ignore *))";
     }
 
     // Elements
+    .info {
+      --p-spacing: 10rem;
+
+      font-size: to-em(20);
+      color: $gray-dark;
+    }
+
     .title-badge {
       width: max-content;
       padding: 6rem 30rem;

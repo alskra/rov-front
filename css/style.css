@@ -528,6 +528,7 @@
     position: relative;
   }
   .content .block-icon-2 > :nth-child(1) {
+    width: 47rem;
     margin: 0;
   }
   @media (width >= 1025px) {
@@ -535,7 +536,6 @@
       position: absolute;
       top: 0;
       right: 20rem;
-      width: 47rem;
     }
     .content .block-icon-2 > :nth-child(2) {
       max-width: 950rem;
@@ -549,8 +549,45 @@
       padding-top: 0;
     }
     .content .block-icon-2 > :nth-child(1) {
-      width: 32rem;
       margin-inline: auto;
+    }
+  }
+  @media (width < 768px) {
+    .content .block-icon-2 > :nth-child(1) {
+      width: 32rem;
+    }
+  }
+  .content .block-icon-3 {
+    position: relative;
+  }
+  .content .block-icon-3 > :nth-child(1) {
+    width: 100rem;
+    margin: 0;
+  }
+  @media (width >= 1025px) {
+    .content .block-icon-3 > :nth-child(1) {
+      position: absolute;
+      top: 27rem;
+      right: 20rem;
+    }
+    .content .block-icon-3 > :nth-child(2) {
+      max-width: 810rem;
+    }
+  }
+  @media (width < 1025px) {
+    .content .block-icon-3 {
+      display: flex;
+      flex-flow: column;
+      gap: 20rem;
+      padding-top: 15rem;
+    }
+    .content .block-icon-3 > :nth-child(1) {
+      margin-inline: auto;
+    }
+  }
+  @media (width < 768px) {
+    .content .block-icon-3 > :nth-child(1) {
+      width: 73rem;
     }
   }
   .content .block-center h2:where(:not(.content-ignore *)) {
@@ -576,6 +613,11 @@
     .content .block-center dt ~ dt:where(:not(.content-ignore *)) {
       margin-top: 20rem;
     }
+  }
+  .content .info {
+    --p-spacing: 10rem;
+    font-size: 0.8333333333em;
+    color: #7f7f7f;
   }
   .content .title-badge {
     width: max-content;
