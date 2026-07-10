@@ -69,8 +69,8 @@ $ignore: ":where(:not(.content-ignore *))";
       @include spacing(to-em(36, 32));
 
       & {
-        color: inherit;
         font-size: 32rem;
+        color: inherit;
         text-transform: uppercase;
       }
 
@@ -456,6 +456,12 @@ $ignore: ":where(:not(.content-ignore *))";
         dt ~ dt#{$ignore} {
           margin-top: 20rem;
         }
+      }
+    }
+
+    .block-docs {
+      .title-badge {
+        @include spacing(60rem);
       }
     }
 

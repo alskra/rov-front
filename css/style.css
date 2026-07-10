@@ -279,8 +279,8 @@
     margin-bottom: 1.125em;
   }
   .content h2:where(:not(.content-ignore *)), .content .h2 {
-    color: inherit;
     font-size: 32rem;
+    color: inherit;
     text-transform: uppercase;
   }
   @media (width < 1025px) {
@@ -613,6 +613,12 @@
     .content .block-center dt ~ dt:where(:not(.content-ignore *)) {
       margin-top: 20rem;
     }
+  }
+  .content .block-docs .title-badge:where(:not(:first-child), .mt) {
+    margin-top: 60rem;
+  }
+  .content .block-docs .title-badge:where(:not(:last-child), .mb) {
+    margin-bottom: 60rem;
   }
   .content .info {
     --p-spacing: 10rem;
@@ -1431,7 +1437,7 @@
     gap: 10rem;
     align-items: center;
     font-size: 20rem;
-    line-height: 1.25;
+    line-height: 1.2;
     color: #63baff;
     text-decoration: none;
     text-transform: lowercase;
@@ -1657,6 +1663,44 @@
   .promo-img {
     display: block;
     width: 100%;
+  }
+}
+@layer components.materials-section {
+  .docs {
+    display: flex;
+    flex-flow: column;
+    gap: 32rem;
+    list-style: none;
+  }
+  .docs li {
+    display: flex;
+    gap: 20rem;
+    align-items: flex-start;
+  }
+  .docs .material-link + .material-link {
+    margin: 0;
+  }
+  @media (width < 768px) {
+    .docs .material-link {
+      font-size: 16rem;
+    }
+  }
+  .docs-icon {
+    flex: none;
+    width: 51rem;
+  }
+  .docs-main {
+    display: flex;
+    flex-flow: column;
+    gap: 10rem;
+  }
+  .docs-name {
+    margin-top: -0.25em;
+  }
+  .docs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20rem;
   }
 }
 
