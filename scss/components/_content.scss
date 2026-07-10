@@ -2,7 +2,7 @@
 @use "../functions" as *;
 @use "../mixins" as *;
 
-$content: ":where(:is(.content *):not(.content-ignore *))";
+$ignore: ":where(:not(.content-ignore *))";
 
 @mixin spacing($top, $bottom: $top) {
   &:where(:not(:first-child), .mt) {
@@ -17,21 +17,19 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
 @layer components.content {
   // stylelint-disable custom-property-empty-line-before
   .content {
-    & {
-      --h-spacing: 1em;
-      --p-spacing: calc(1em * var(--base-line-height));
+    --h-spacing: 1em;
+    --p-spacing: calc(1em * var(--base-line-height));
 
-      --link-color: #{$blue};
-      --link-decoration: none;
-      --link-hover-color: #{$blue-dark};
-      --link-hover-decoration: none;
+    --link-color: #{$blue};
+    --link-decoration: none;
+    --link-hover-color: #{$blue-dark};
+    --link-hover-decoration: none;
 
-      --list-indent: #{to-em(36)};
-      --list-marker-size: #{to-em(10)};
+    --list-indent: #{to-em(36)};
+    --list-marker-size: #{to-em(10)};
 
-      --blockquote-font-size: #{to-em(24)};
-      --block-spacing: 90rem;
-    }
+    --blockquote-font-size: #{to-em(24)};
+    --block-spacing: 90rem;
 
     @include media-down($bp-lg) {
       --block-spacing: 75rem;
@@ -40,369 +38,367 @@ $content: ":where(:is(.content *):not(.content-ignore *))";
     @include media-down($bp-md) {
       --block-spacing: 60rem;
     }
-  }
 
-  :is(h1, h2, h3, h4, h5, h6)#{$content},
-  :is(.h1, .h2, .h3, .h4, .h5, .h6)#{$content} {
-    & {
-      margin: 0;
-      font-weight: 500;
-    }
-  }
-
-  h1#{$content}, .h1#{$content} {
-    @include spacing(to-em(30, 48));
-
-    & {
-      font-size: 48rem;
-      //line-height: calc(58 / 48);
-      text-transform: uppercase;
-    }
-
-    @include media-down($bp-lg) {
-      font-size: 36rem;
-    }
-
-    @include media-down($bp-md) {
-      font-size: 24rem;
-    }
-  }
-
-  h2#{$content}, .h2#{$content} {
-    @include spacing(to-em(36, 32));
-
-    & {
-      color: inherit;
-      font-size: 32rem;
-      text-transform: uppercase;
-    }
-
-    @include media-down($bp-lg) {
-      font-size: 26rem;
-    }
-
-    @include media-down($bp-md) {
-      font-size: 20rem;
-    }
-  }
-
-  h3#{$content}, .h3#{$content} {
-    @include media-down($bp-md) {
-    }
-  }
-
-  h4#{$content}, .h4#{$content} {
-    @include media-down($bp-md) {
-    }
-  }
-
-  h5#{$content}, .h5#{$content} {
-    @include media-down($bp-md) {
-    }
-  }
-
-  h6#{$content}, .h6#{$content} {
-    @include media-down($bp-md) {
-    }
-  }
-
-  :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6)#{$content} + #{$content} {
-    // stylelint-disable-next-line
-    margin-top: 0 !important;
-  }
-
-  // stylelint-disable-next-line
-  p#{$content},
-  .p#{$content} {
-    @include spacing(var(--p-spacing));
-  }
-
-  .p#{$content} {
-    font: inherit;
-    color: inherit;
-  }
-
-  :any-link:not([href^="tel:"])#{$content} {
-    color: var(--link-color);
-    text-decoration: var(--link-decoration);
-    transition: color var(--base-transition);
-
-    @include media-hover {
-      &:hover {
-        color: var(--link-hover-color);
-        text-decoration: var(--link-hover-decoration);
+    :is(h1, h2, h3, h4, h5, h6)#{$ignore},
+    :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+      & {
+        margin: 0;
+        font-weight: 500;
       }
     }
-  }
 
-  :is(ul, ol)#{$content} {
-    @include spacing(var(--p-spacing));
+    h1#{$ignore}, .h1 {
+      @include spacing(to-em(30, 48));
 
-    & {
-      position: relative;
-      padding-left: var(--list-indent);
-      list-style: none;
+      & {
+        font-size: 48rem;
+        //line-height: calc(58 / 48);
+        text-transform: uppercase;
+      }
+
+      @include media-down($bp-lg) {
+        font-size: 36rem;
+      }
+
+      @include media-down($bp-md) {
+        font-size: 24rem;
+      }
     }
-  }
 
-  :is(ul, ol) > li#{$content} {
-    @include spacing(calc(0 * var(--p-spacing)));
+    h2#{$ignore}, .h2 {
+      @include spacing(to-em(36, 32));
 
-    &::before {
-      position: absolute;
-      left: 0;
-      width: var(--list-indent);
-      text-align: right;
+      & {
+        color: inherit;
+        font-size: 32rem;
+        text-transform: uppercase;
+      }
+
+      @include media-down($bp-lg) {
+        font-size: 26rem;
+      }
+
+      @include media-down($bp-md) {
+        font-size: 20rem;
+      }
     }
-  }
 
-  ul > li#{$content} {
-    &::before {
-      //content: "\2014\00A0";
-      content: "\2022";
-      text-align: center;
+    h3#{$ignore}, .h3 {
+      @include media-down($bp-md) {
+      }
     }
-  }
 
-  ol#{$content} {
-    counter-reset: ol;
-  }
-
-  ol > li#{$content} {
-    counter-increment: ol;
-
-    &::before {
-      content: counter(ol) ".\00A0";
+    h4#{$ignore}, .h4 {
+      @include media-down($bp-md) {
+      }
     }
-  }
 
-  dl#{$content} {
-    @include spacing(var(--p-spacing));
-  }
-
-  dt#{$content} {
-    @include spacing(var(--p-spacing), calc(0.5 * var(--p-spacing)));
-
-    & {
-      font-weight: 700;
+    h5#{$ignore}, .h5 {
+      @include media-down($bp-md) {
+      }
     }
-  }
 
-  blockquote#{$content} {
-    @include spacing(var(--block-spacing));
-
-    & {
-      padding-left: calc(var(--list-indent) - 4rem);
-      font-size: var(--blockquote-font-size);
-      border-left: 4rem solid var(--light);
+    h6#{$ignore}, .h6 {
+      @include media-down($bp-md) {
+      }
     }
-  }
 
-  .table-responsive {
-    display: block;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) + #{$ignore} {
+      // stylelint-disable-next-line
+      margin-top: 0 !important;
+    }
 
-    &#{$content} {
+    // stylelint-disable-next-line
+    p#{$ignore},
+    .p {
+      @include spacing(var(--p-spacing));
+    }
+
+    .p {
+      font: inherit;
+      color: inherit;
+    }
+
+    :any-link:not([href^="tel:"])#{$ignore} {
+      color: var(--link-color);
+      text-decoration: var(--link-decoration);
+      transition: color var(--base-transition);
+
+      @include media-hover {
+        &:hover {
+          color: var(--link-hover-color);
+          text-decoration: var(--link-hover-decoration);
+        }
+      }
+    }
+
+    :is(ul, ol)#{$ignore} {
+      @include spacing(var(--p-spacing));
+
+      & {
+        position: relative;
+        padding-left: var(--list-indent);
+        list-style: none;
+      }
+    }
+
+    :is(ul, ol) > li#{$ignore} {
+      @include spacing(calc(0 * var(--p-spacing)));
+
+      &::before {
+        position: absolute;
+        left: 0;
+        width: var(--list-indent);
+        text-align: right;
+      }
+    }
+
+    ul > li#{$ignore} {
+      &::before {
+        //content: "\2014\00A0";
+        content: "\2022";
+        text-align: center;
+      }
+    }
+
+    ol#{$ignore} {
+      counter-reset: ol;
+    }
+
+    ol > li#{$ignore} {
+      counter-increment: ol;
+
+      &::before {
+        content: counter(ol) ".\00A0";
+      }
+    }
+
+    dl#{$ignore} {
+      @include spacing(var(--p-spacing));
+    }
+
+    dt#{$ignore} {
+      @include spacing(var(--p-spacing), calc(0.5 * var(--p-spacing)));
+
+      & {
+        font-weight: 500;
+      }
+    }
+
+    blockquote#{$ignore} {
+      @include spacing(var(--block-spacing));
+
+      & {
+        padding-left: calc(var(--list-indent) - 4rem);
+        font-size: var(--blockquote-font-size);
+        border-left: 4rem solid $gray;
+      }
+    }
+
+    .table-responsive {
+      @include spacing(var(--block-spacing));
+
+      & {
+        display: block;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table#{$ignore} {
+        margin: 0;
+      }
+    }
+
+    table#{$ignore} {
+      @include spacing(var(--block-spacing));
+
+      & {
+        border-collapse: collapse;
+      }
+    }
+
+    tr:first-child :is(th, td)#{$ignore} {
+      padding-top: 0;
+    }
+
+    tr:last-child :is(th, td)#{$ignore} {
+      padding-bottom: 0;
+    }
+
+    :is(th, td)#{$ignore} {
+      padding: calc(0.5 * var(--p-spacing)) calc(0.5 * var(--p-spacing));
+      vertical-align: baseline;
+    }
+
+    :is(th, td):first-child#{$ignore} {
+      padding-left: 0;
+    }
+
+    :is(th, td):last-child#{$ignore} {
+      padding-right: 0;
+    }
+
+    td:first-child#{$ignore} {
+      color: var(--light);
+    }
+
+    :is(img:not(picture *, figure *), picture:not(figure *))#{$ignore} {
       @include spacing(var(--block-spacing));
     }
 
-    table#{$content} {
-      margin: 0;
-    }
-  }
+    figure#{$ignore} {
+      @include spacing(var(--block-spacing));
 
-  table#{$content} {
-    @include spacing(var(--block-spacing));
-
-    & {
-      border-collapse: collapse;
-    }
-  }
-
-  tr:first-child :is(th, td)#{$content} {
-    padding-top: 0;
-  }
-
-  tr:last-child :is(th, td)#{$content} {
-    padding-bottom: 0;
-  }
-
-  :is(th, td)#{$content} {
-    padding: calc(0.5 * var(--p-spacing)) calc(0.5 * var(--p-spacing));
-    vertical-align: baseline;
-  }
-
-  :is(th, td):first-child#{$content} {
-    padding-left: 0;
-  }
-
-  :is(th, td):last-child#{$content} {
-    padding-right: 0;
-  }
-
-  td:first-child#{$content} {
-    color: var(--light);
-  }
-
-  :is(img:not(picture *, figure *), picture:not(figure *))#{$content} {
-    @include spacing(var(--block-spacing));
-  }
-
-  figure#{$content} {
-    @include spacing(var(--block-spacing));
-
-    & {
-      text-align: center;
-    }
-  }
-
-  figcaption#{$content} {
-    margin-top: calc(0.5 * var(--p-spacing));
-    font-size: 13rem;
-    font-style: italic;
-  }
-
-  hr#{$content} {
-    margin: var(--h-spacing) 0;
-    border: 0;
-    border-top: 1px solid $gray;
-  }
-
-  u#{$content} {
-    text-decoration: underline $pastel-green;
-  }
-
-  // Blocks
-  :is([class^="block-"], [class*=" block-"])#{$content} {
-    @include spacing(var(--block-spacing));
-  }
-
-  .block-accent#{$content} {
-    @include shadow-default;
-
-    & {
-      padding: 30rem;
-      border-radius: 14rem;
-      background: $white;
-    }
-
-    @include media-down($bp-md) {
       & {
+        text-align: center;
+      }
+    }
+
+    figcaption#{$ignore} {
+      margin-top: calc(0.5 * var(--p-spacing));
+      font-size: 13rem;
+      font-style: italic;
+    }
+
+    hr#{$ignore} {
+      margin: var(--h-spacing) 0;
+      border: 0;
+      border-top: 1px solid $gray;
+    }
+
+    u#{$ignore} {
+      text-decoration: underline $pastel-green;
+    }
+
+    // Blocks
+    :is([class^="block-"], [class*=" block-"]) {
+      @include spacing(var(--block-spacing));
+    }
+
+    .block-accent {
+      @include shadow-default;
+
+      & {
+        padding: 30rem;
+        border-radius: 14rem;
+        background: $white;
+      }
+
+      @include media-down($bp-md) {
         padding: 20rem;
       }
     }
-  }
 
-  .block-hero#{$content} {
-    @include media-up($bp-lg) {
-      padding-bottom: 60rem;
+    .block-hero {
+      @include media-up($bp-lg) {
+        padding-bottom: 60rem;
 
-      h1 {
-        max-width: 1157rem;
-      }
+        h1#{$ignore} {
+          max-width: 1157rem;
+        }
 
-      p {
-        max-width: 807rem;
-      }
-    }
-  }
-
-  .block-cols-2#{$content} {
-    display: grid;
-    gap: 40rem 36rem;
-
-    @include media-up($bp-lg) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .block-icon#{$content} {
-    display: flex;
-    align-items: center;
-    gap: 10rem 317rem;
-
-    img {
-      flex: none;
-      width: 142rem;
-    }
-
-    @include media-up($bp-lg) {
-      padding-block: 80rem;
-      padding-right: 60rem;
-    }
-
-    @include media-down($bp-lg) {
-      flex-flow: column;
-      align-items: unset;
-
-      img {
-        order: -1;
-        margin: 0 auto;
+        p#{$ignore} {
+          max-width: 807rem;
+        }
       }
     }
 
-    @include media-down($bp-md) {
-      img {
-        width: 74rem;
+    .block-2-cols {
+      display: grid;
+      gap: 40rem 36rem;
+
+      @include media-up($bp-lg) {
+        grid-template-columns: 1fr 1fr;
       }
     }
-  }
 
-  .block-center#{$content} {
-    h2 {
-      text-align: center;
+    .block-icon {
+      display: flex;
+      align-items: center;
+      gap: 10rem 317rem;
+
+      img#{$ignore} {
+        flex: none;
+        width: 142rem;
+      }
+
+      @include media-up($bp-lg) {
+        padding-block: 80rem;
+        padding-right: 60rem;
+      }
+
+      @include media-down($bp-lg) {
+        flex-flow: column;
+        align-items: unset;
+
+        img#{$ignore} {
+          order: -1;
+          margin: 0 auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        img#{$ignore} {
+          width: 74rem;
+        }
+      }
     }
 
-    dt {
-      margin-inline: auto;
+    .block-center {
+      h2#{$ignore} {
+        text-align: center;
+      }
 
-      & ~ dt {
+      dt#{$ignore} {
+        margin-inline: auto;
+      }
+
+      dt ~ dt#{$ignore} {
         margin-top: 36rem;
       }
-    }
 
-    @include media-up($bp-lg) {
-      h2 {
-        max-width: 952rem;
-        margin-inline: auto;
+      @include media-up($bp-lg) {
+        h2#{$ignore} {
+          max-width: 952rem;
+          margin-inline: auto;
+        }
+
+        dl#{$ignore} {
+          max-width: 660rem;
+          margin-inline: auto;
+        }
       }
 
-      dl {
-        max-width: 660rem;
-        margin-inline: auto;
+      @include media-down($bp-md) {
+        dt ~ dt#{$ignore} {
+          margin-top: 20rem;
+        }
       }
     }
 
-    @include media-down($bp-md) {
-      dt ~ dt {
-        margin-top: 20rem;
+    // Elements
+    .title-badge {
+      width: max-content;
+      padding: 6rem 30rem;
+      margin: 0;
+      font-size: var(--base-font-size);
+      font-weight: 400;
+      color: $white;
+      background: $blue;
+      border-radius: 12rem;
+      text-transform: none;
+
+      @include media-down($bp-md) {
+        padding: 8rem 20rem;
       }
     }
-  }
 
-  // Elements
-  .title-badge#{$content} {
-    width: max-content;
-    padding: 6rem 30rem;
-    margin: 0;
-    font-size: var(--base-font-size);
-    font-weight: 400;
-    color: $white;
-    background: $blue;
-    border-radius: 12rem;
-    text-transform: none;
+    .content-badge {
+      padding: 30rem;
 
-    @include media-down($bp-md) {
-      padding: 8rem 20rem;
-    }
-  }
-
-  .content-badge#{$content} {
-    padding: 30rem;
-
-    @include media-down($bp-md) {
-      padding: 20rem;
+      @include media-down($bp-md) {
+        padding: 20rem;
+      }
     }
   }
 }
