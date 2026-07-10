@@ -1,0 +1,48 @@
+@use "../vars" as *;
+@use "../mixins" as *;
+
+@layer components.materials-section {
+  .docs {
+    display: flex;
+    flex-flow: column;
+    gap: 32rem;
+    list-style: none;
+
+    li {
+      display: flex;
+      gap: 20rem;
+      align-items: flex-start;
+    }
+
+    .material-link + .material-link {
+      margin: 0;
+    }
+
+    @include media-down($bp-md) {
+      .material-link {
+        font-size: 16rem;
+      }
+    }
+  }
+
+  .docs-icon {
+    flex: none;
+    width: 51rem;
+  }
+
+  .docs-main {
+    display: flex;
+    flex-flow: column;
+    gap: 10rem;
+  }
+
+  .docs-name {
+    margin-top: -0.25em;
+  }
+
+  .docs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20rem;
+  }
+}

@@ -39,44 +39,20 @@
 
   .filter-section-header {
     display: flex;
+    padding: 9rem 0;
     gap: 24rem;
     align-items: center;
     justify-content: space-between;
   }
 
-  .filter-section-title {
-    &:where(img) {
-      display: block;
-      height: 97rem;
-    }
-
-    @include media-down($bp-md) {
-      &:where(img) {
-        height: 76rem;
-      }
-    }
+  .filter-section-title,
+  .filter-section-year {
+    font-size: 20rem;
+    font-weight: 400;
+    text-transform: lowercase;
   }
 
-  .filter-section-year {
-    --height: 42rem;
-    --line-height: 1.25;
-    --padding-y: calc((var(--height) - 2px - var(--line-height) * 1em) / 2);
-    --padding-x: 20rem;
-
-    flex: none;
-    padding: var(--padding-y) var(--padding-x);
-    font-size: 20rem;
-    line-height: var(--line-height);
-    color: $blue;
-    border: 1px solid $blue;
-    border-radius: 12rem;
-
-    @include media-down($bp-md) {
-      --height: 31rem;
-      --padding-x: 16rem;
-
-      font-size: 16rem;
-      border-radius: 8rem;
-    }
+  .filter-section-title {
+    margin: 0;
   }
 }

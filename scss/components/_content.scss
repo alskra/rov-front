@@ -1,0 +1,500 @@
+@use "../vars" as *;
+@use "../functions" as *;
+@use "../mixins" as *;
+
+$ignore: ":where(:not(.content-ignore *))";
+
+@mixin spacing($top, $bottom: $top) {
+  &:where(:not(:first-child), .mt) {
+    margin-top: $top;
+  }
+
+  &:where(:not(:last-child), .mb) {
+    margin-bottom: $bottom;
+  }
+}
+
+@layer components.content {
+  // stylelint-disable custom-property-empty-line-before
+  .content {
+    --h-spacing: 1em;
+    --p-spacing: calc(1em * var(--base-line-height));
+
+    --link-color: #{$blue};
+    --link-decoration: none;
+    --link-hover-color: #{$blue-dark};
+    --link-hover-decoration: none;
+
+    --list-indent: #{to-em(36)};
+    --list-marker-size: #{to-em(10)};
+
+    --blockquote-font-size: #{to-em(24)};
+    --block-spacing: 90rem;
+
+    @include media-down($bp-lg) {
+      --block-spacing: 75rem;
+    }
+
+    @include media-down($bp-md) {
+      --block-spacing: 60rem;
+    }
+
+    :is(h1, h2, h3, h4, h5, h6)#{$ignore},
+    :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+      & {
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+
+    h1#{$ignore}, .h1 {
+      @include spacing(to-em(30, 48));
+
+      & {
+        font-size: 48rem;
+        //line-height: calc(58 / 48);
+        text-transform: uppercase;
+      }
+
+      @include media-down($bp-lg) {
+        font-size: 36rem;
+      }
+
+      @include media-down($bp-md) {
+        font-size: 24rem;
+      }
+    }
+
+    h2#{$ignore}, .h2 {
+      @include spacing(to-em(36, 32));
+
+      & {
+        font-size: 32rem;
+        color: inherit;
+        text-transform: uppercase;
+      }
+
+      @include media-down($bp-lg) {
+        font-size: 26rem;
+      }
+
+      @include media-down($bp-md) {
+        font-size: 20rem;
+      }
+    }
+
+    h3#{$ignore}, .h3 {
+      @include media-down($bp-md) {
+      }
+    }
+
+    h4#{$ignore}, .h4 {
+      @include media-down($bp-md) {
+      }
+    }
+
+    h5#{$ignore}, .h5 {
+      @include media-down($bp-md) {
+      }
+    }
+
+    h6#{$ignore}, .h6 {
+      @include media-down($bp-md) {
+      }
+    }
+
+    :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) + #{$ignore} {
+      // stylelint-disable-next-line
+      margin-top: 0 !important;
+    }
+
+    // stylelint-disable-next-line
+    p#{$ignore},
+    .p {
+      @include spacing(var(--p-spacing));
+    }
+
+    .p {
+      font: inherit;
+      color: inherit;
+    }
+
+    :any-link:not([href^="tel:"])#{$ignore} {
+      color: var(--link-color);
+      text-decoration: var(--link-decoration);
+      transition: color var(--base-transition);
+
+      @include media-hover {
+        &:hover {
+          color: var(--link-hover-color);
+          text-decoration: var(--link-hover-decoration);
+        }
+      }
+    }
+
+    :is(ul, ol)#{$ignore} {
+      @include spacing(var(--p-spacing));
+
+      & {
+        position: relative;
+        padding-left: var(--list-indent);
+        list-style: none;
+      }
+    }
+
+    :is(ul, ol) > li#{$ignore} {
+      @include spacing(calc(0 * var(--p-spacing)));
+
+      &::before {
+        position: absolute;
+        left: 0;
+        width: var(--list-indent);
+        text-align: right;
+      }
+    }
+
+    ul > li#{$ignore} {
+      &::before {
+        //content: "\2014\00A0";
+        content: "\2022";
+        text-align: center;
+      }
+    }
+
+    ol#{$ignore} {
+      counter-reset: ol;
+    }
+
+    ol > li#{$ignore} {
+      counter-increment: ol;
+
+      &::before {
+        content: counter(ol) ".\00A0";
+      }
+    }
+
+    dl#{$ignore} {
+      @include spacing(var(--p-spacing));
+    }
+
+    dt#{$ignore} {
+      @include spacing(var(--p-spacing), calc(0.5 * var(--p-spacing)));
+
+      & {
+        font-weight: 500;
+      }
+    }
+
+    blockquote#{$ignore} {
+      @include spacing(var(--block-spacing));
+
+      & {
+        padding-left: calc(var(--list-indent) - 4rem);
+        font-size: var(--blockquote-font-size);
+        border-left: 4rem solid $gray;
+      }
+    }
+
+    .table-responsive {
+      @include spacing(var(--block-spacing));
+
+      & {
+        display: block;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table#{$ignore} {
+        margin: 0;
+      }
+    }
+
+    table#{$ignore} {
+      @include spacing(var(--block-spacing));
+
+      & {
+        border-collapse: collapse;
+      }
+    }
+
+    tr:first-child :is(th, td)#{$ignore} {
+      padding-top: 0;
+    }
+
+    tr:last-child :is(th, td)#{$ignore} {
+      padding-bottom: 0;
+    }
+
+    :is(th, td)#{$ignore} {
+      padding: calc(0.5 * var(--p-spacing)) calc(0.5 * var(--p-spacing));
+      vertical-align: baseline;
+    }
+
+    :is(th, td):first-child#{$ignore} {
+      padding-left: 0;
+    }
+
+    :is(th, td):last-child#{$ignore} {
+      padding-right: 0;
+    }
+
+    td:first-child#{$ignore} {
+      color: var(--light);
+    }
+
+    :is(img:not(picture *, figure *), picture:not(figure *))#{$ignore} {
+      @include spacing(var(--block-spacing));
+    }
+
+    figure#{$ignore} {
+      @include spacing(var(--block-spacing));
+
+      & {
+        text-align: center;
+      }
+    }
+
+    figcaption#{$ignore} {
+      margin-top: calc(0.5 * var(--p-spacing));
+      font-size: 13rem;
+      font-style: italic;
+    }
+
+    hr#{$ignore} {
+      margin: var(--h-spacing) 0;
+      border: 0;
+      border-top: 1px solid $gray;
+    }
+
+    u#{$ignore} {
+      text-decoration: underline $pastel-green;
+    }
+
+    // Blocks
+    :is([class^="block-"], [class*=" block-"]) {
+      @include spacing(var(--block-spacing));
+    }
+
+    .block-accent {
+      @include shadow-default;
+
+      & {
+        padding: 30rem 30rem 40rem;
+        border-radius: 14rem;
+        background: $white;
+      }
+
+      @include media-down($bp-md) {
+        padding: 20rem 20rem 24rem;
+      }
+    }
+
+    .block-hero {
+      @include media-up($bp-lg) {
+        h1#{$ignore} {
+          max-width: 1157rem;
+        }
+
+        p#{$ignore},
+        :is(ul, ol)#{$ignore} {
+          max-width: 807rem;
+        }
+      }
+    }
+
+    .block-2-cols {
+      display: grid;
+      gap: 40rem 36rem;
+
+      @include media-up($bp-lg) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .block-icon {
+      display: flex;
+      align-items: center;
+      gap: 10rem 317rem;
+
+      > :nth-child(1) {
+        margin: 0;
+        flex: none;
+        width: 142rem;
+      }
+
+      > :nth-child(2) {
+        flex: 1;
+      }
+
+      @include media-up($bp-lg) {
+        padding-block: 80rem;
+        padding-right: 60rem;
+
+        > :nth-child(1) {
+          order: 1;
+        }
+      }
+
+      @include media-down($bp-lg) {
+        flex-flow: column;
+        align-items: unset;
+
+        > :nth-child(1) {
+          margin: 0 auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        > :nth-child(1) {
+          width: 74rem;
+        }
+      }
+    }
+
+    .block-icon-2 {
+      position: relative;
+
+      > :nth-child(1) {
+        width: 47rem;
+        margin: 0;
+      }
+
+      @include media-up($bp-lg) {
+        > :nth-child(1) {
+          position: absolute;
+          top: 0;
+          right: 20rem;
+        }
+
+        > :nth-child(2) {
+          max-width: 950rem;
+        }
+      }
+
+      @include media-down($bp-lg) {
+        display: flex;
+        flex-flow: column;
+        gap: 20rem;
+        padding-top: 0;
+
+        > :nth-child(1) {
+          margin-inline: auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        > :nth-child(1) {
+          width: 32rem;
+        }
+      }
+    }
+
+    .block-icon-3 {
+      position: relative;
+
+      > :nth-child(1) {
+        width: 100rem;
+        margin: 0;
+      }
+
+      @include media-up($bp-lg) {
+        > :nth-child(1) {
+          position: absolute;
+          top: 27rem;
+          right: 20rem;
+        }
+
+        > :nth-child(2) {
+          max-width: 810rem;
+        }
+      }
+
+      @include media-down($bp-lg) {
+        display: flex;
+        flex-flow: column;
+        gap: 20rem;
+        padding-top: 15rem;
+
+        > :nth-child(1) {
+          margin-inline: auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        > :nth-child(1) {
+          width: 73rem;
+        }
+      }
+    }
+
+    .block-center {
+      h2#{$ignore} {
+        text-align: center;
+      }
+
+      dt#{$ignore} {
+        margin-inline: auto;
+      }
+
+      dt ~ dt#{$ignore} {
+        margin-top: 36rem;
+      }
+
+      @include media-up($bp-lg) {
+        h2#{$ignore} {
+          max-width: 952rem;
+          margin-inline: auto;
+        }
+
+        dl#{$ignore} {
+          max-width: 660rem;
+          margin-inline: auto;
+        }
+      }
+
+      @include media-down($bp-md) {
+        dt ~ dt#{$ignore} {
+          margin-top: 20rem;
+        }
+      }
+    }
+
+    .block-docs {
+      .title-badge {
+        @include spacing(60rem);
+      }
+    }
+
+    // Elements
+    .info {
+      --p-spacing: 10rem;
+
+      font-size: to-em(20);
+      color: $gray-dark;
+    }
+
+    .title-badge {
+      width: max-content;
+      padding: 6rem 30rem;
+      margin: 0;
+      font-size: var(--base-font-size);
+      font-weight: 400;
+      color: $white;
+      background: $blue;
+      border-radius: 12rem;
+      text-transform: none;
+
+      @include media-down($bp-md) {
+        padding: 8rem 20rem;
+      }
+    }
+
+    .content-badge {
+      padding: 30rem;
+
+      @include media-down($bp-md) {
+        padding: 20rem;
+      }
+    }
+  }
+}

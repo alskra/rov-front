@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Разговоры о важном — Официальный сайт</title>
 
-  <link rel="stylesheet" href="css/style.css?v=2.4">
+  <link rel="stylesheet" href="css/style.css?v=2.5">
 
   <meta name="description" content="Материалы для учителей. Разговоры о важном. Официальный сайт."/>
   <meta property="og:title" content="Разговоры о важном — Официальный сайт">
@@ -26,19 +26,21 @@
   <meta name="theme-color" content="#515cb0">
 
   <!-- Yandex.Metrika counter -->
-  <script type="text/javascript"> (function (m, e, t, r, i, k, a) {
-    m[i] = m[i] || function () {
-      (m[i].a = m[i].a || []).push(arguments)
-    };
-    m[i].l = 1 * new Date();
-    for (var j = 0; j < document.scripts.length; j++) {
-      if (document.scripts[j].src === r) {
-        return;
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments)
+      };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) {
+          return;
+        }
       }
-    }
-    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-  })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-  ym(99106491, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true}); </script>
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(99106491, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true});
+  </script>
   <noscript>
     <div><img src="https://mc.yandex.ru/watch/99106491" style="position:absolute; left:-9999px;" alt=""/></div>
   </noscript>
@@ -58,16 +60,8 @@
   <section class="hero-section">
     <div class="container">
       <div class="hero-section-body">
-        <div class="hero-section-decor">
-          <img src="img/globe.png" alt="">
-          <img src="img/pencil.png" alt="">
-          <img src="img/computer.png" alt="">
-          <img src="img/arrow-down.svg" alt="">
-        </div>
-
         <header class="hero-section-header">
-          <h1 class="hero-section-title visually-hidden">Разговоры о важном</h1>
-          <img class="hero-section-title" src="img/hero-title.svg" alt="Разговоры о важном">
+          <h1 class="hero-section-title">Разговоры о важном</h1>
         </header>
 
         <div class="hero-section-main">
@@ -76,32 +70,47 @@
             </p>
 
             <div class="hero-section-text-info">
+              <p>*</p>
               <p>Комплект методических материалов для педагогов носит рекомендательный характер.</p>
             </div>
           </div>
-
-          <div class="hero-section-image">
-            <img src="img/main-2.jpg" alt="Разговоры о важном">
-          </div>
         </div>
 
-        <footer class="hero-section-footer">
-          <span class="hero-section-tag">историческая память</span>
-          <span class="hero-section-tag">единство народов России</span>
-          <span class="hero-section-tag">преемственность поколений</span>
-          <span class="hero-section-tag">крепкая семья</span>
-        </footer>
+        <div class="hero-section-links">
+          <a class="hero-section-links-item">
+            <img src="img/forum.svg" alt="">
+            <span>Всероссийский форум «Вместе о важном»</span>
+          </a>
+
+          <a class="hero-section-links-item">
+            <img src="img/artek.svg" alt="">
+            <span>«Разговоры о важном» в МДЦ «Артек»</span>
+          </a>
+
+          <a class="hero-section-links-item">
+            <img src="img/courses.svg" alt="">
+            <span>Курсы повышения квалификации</span>
+          </a>
+
+          <a class="hero-section-links-item">
+            <img src="img/premia.svg" alt="">
+            <span>Всероссийская премия «Разговоры о важном»</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!--<section class="promo-banner">
+  <section class="promo-banner">
       <div class="container">
-          <a href="https://xn--80aafadkmdh3bilibaecsdg5uzc.xn--p1ai" class="promo-link" target="_blank" rel="noopener noreferrer">
-              <img src="img/pr.jpg" alt="ВСЕРОССИЙСКАЯ ПРЕМИЯ «РАЗГОВОРЫ О ВАЖНОМ»" class="promo-img">
+          <a href="" class="promo-link" target="_blank" rel="noopener noreferrer">
+              <picture>
+                <source media="(width < 768px)" srcset="img/banners/partner-cycle-rov@1536w.webp">
+                <img class="promo-img" src="img/banners/partner-cycle-rov@2800w.webp" alt="Стань партнёром цикла внеурочных занятий «Разговоры о важном»">
+              </picture>
           </a>
       </div>
-  </section>-->
+  </section>
 
   <section class="hero-internal container">
     <div class="hero-text-internal">
@@ -116,8 +125,7 @@
 
   <section class="container filter-section" data-year="2025-2026">
     <header class="filter-section-header">
-      <h2 class="filter-section-title visually-hidden">Ноябрь</h2>
-      <img class="filter-section-title" src="img/months/11.svg" alt="Ноябрь">
+      <h2 class="filter-section-title">Ноябрь</h2>
       <time class="filter-section-year">2025</time>
     </header>
 
@@ -147,8 +155,7 @@
 
   <section class="container filter-section" data-year="2025-2026">
     <header class="filter-section-header">
-      <h2 class="filter-section-title visually-hidden">Октябрь</h2>
-      <img class="filter-section-title" src="img/months/10.svg" alt="Октябрь">
+      <h2 class="filter-section-title">Октябрь</h2>
       <time class="filter-section-year">2025</time>
     </header>
 
@@ -183,8 +190,7 @@
 
   <section class="container filter-section" data-year="2025-2026">
     <header class="filter-section-header">
-      <h2 class="filter-section-title visually-hidden">Сентябрь</h2>
-      <img class="filter-section-title" src="img/months/9.svg" alt="Сентябрь">
+      <h2 class="filter-section-title">Сентябрь</h2>
       <time class="filter-section-year">2025</time>
     </header>
 
@@ -225,8 +231,7 @@
 
   <section class="container filter-section" data-year="2024-2025">
     <header class="filter-section-header">
-      <h2 class="filter-section-title visually-hidden">Май</h2>
-      <img class="filter-section-title" src="img/months/5.svg" alt="Май">
+      <h2 class="filter-section-title">Май</h2>
       <time class="filter-section-year">2025</time>
     </header>
 
@@ -256,8 +261,7 @@
 
   <section class="container filter-section" data-year="2023-2024">
     <header class="filter-section-header">
-      <h2 class="filter-section-title visually-hidden">Май</h2>
-      <img class="filter-section-title" src="img/months/5.svg" alt="Май">
+      <h2 class="filter-section-title">Май</h2>
       <time class="filter-section-year">2024</time>
     </header>
 
@@ -287,8 +291,7 @@
 
   <section class="container filter-section" data-year="2022-2023">
     <header class="filter-section-header">
-      <h2 class="filter-section-title visually-hidden">Май</h2>
-      <img class="filter-section-title" src="img/months/5.svg" alt="Май">
+      <h2 class="filter-section-title">Май</h2>
       <time class="filter-section-year">2023</time>
     </header>
 
@@ -315,6 +318,21 @@
 
     </div>
   </section>
+
+  <a class="button-to-up hidden" href="#">наверх</a>
+
+  <script type="module">
+    const button = document.querySelector('.button-to-up');
+
+    function toggleButtonToUp() {
+      button.classList.toggle('hidden', !(window.scrollY >= 100));
+    }
+
+    if (button) {
+      toggleButtonToUp();
+      window.addEventListener('scroll', toggleButtonToUp, { passive: true });
+    }
+  </script>
 </main>
 
 <footer class="footer">
@@ -392,7 +410,6 @@
         });
       });
     });
-
 
     tabs[0].click();
   });

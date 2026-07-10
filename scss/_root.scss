@@ -1,0 +1,27 @@
+@use "vars" as *;
+
+@layer base {
+  :root {
+    --base-font-size: 24rem;
+    --base-line-height: 1.2;
+    --base-color: #{$mine-shaft};
+    --base-bg: #{$wild-sand};
+    --base-transition: 0.2s ease-in-out;
+
+    font-size: 1px;
+
+    @media (width < $bp-2xl) {
+      font-size: calc(1px / $bp-2xl * 100vw);
+    }
+
+    @media (width < $bp-lg) {
+      --base-font-size: 20rem;
+
+      font-size: 1px;
+    }
+
+    @media (width < $bp-md) {
+      --base-font-size: 16rem;
+    }
+  }
+}

@@ -2,22 +2,18 @@
 
 @layer components.header {
   :root {
-    --header-height: 92rem;
-
-    @media (width < $bp-md) {
-      --header-height: 74rem;
-    }
+    --header-height: 72rem;
   }
 
   .header {
-    @include shadow-blue;
+    @include shadow-default;
 
     position: sticky;
     top: 0;
     z-index: 100;
     height: var(--header-height);
     padding: 12rem 0;
-    background-color: $white;
+    background: var(--base-bg);
 
     .container {
       display: flex;

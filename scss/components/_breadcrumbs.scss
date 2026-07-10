@@ -4,7 +4,7 @@
 @layer components.breadcrumbs {
   .breadcrumbs {
     position: sticky;
-    top: calc(var(--header-height, 92rem) - 30rem);
+    top: calc(var(--header-height) - 30rem);
     z-index: 99;
     padding-top: 50rem;
     padding-bottom: 20rem;
@@ -12,7 +12,7 @@
     font-size: 20rem;
     line-height: 1.25;
     color: $gray;
-    background: $white;
+    background: var(--base-bg);
 
     ul {
       display: flex;
@@ -66,7 +66,7 @@
     }
 
     @include media-down($bp-md) {
-      top: var(--header-height, 74rem);
+      top: var(--header-height);
       padding-top: 20rem;
       margin-bottom: 20rem;
       font-size: 16rem;

@@ -1,0 +1,22 @@
+@use "../vars" as *;
+
+@layer components.promo {
+  .promo-banner {
+    margin-bottom: 80rem;
+
+    @media (width < $bp-lg) {
+      margin-bottom: 40rem;
+    }
+  }
+
+  .promo-link {
+    display: block;
+    border-radius: 10rem;
+    overflow: clip;
+  }
+
+  .promo-img {
+    display: block;
+    width: 100%;
+  }
+}
