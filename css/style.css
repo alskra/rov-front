@@ -620,6 +620,14 @@
   .content .block-docs .title-badge:where(:not(:last-child), .mb) {
     margin-bottom: 60rem;
   }
+  @media (width < 768px) {
+    .content .block-docs .title-badge:where(:not(:first-child), .mt) {
+      margin-top: 30rem;
+    }
+    .content .block-docs .title-badge:where(:not(:last-child), .mb) {
+      margin-bottom: 30rem;
+    }
+  }
   .content .info {
     --p-spacing: 10rem;
     font-size: 0.8333333333em;

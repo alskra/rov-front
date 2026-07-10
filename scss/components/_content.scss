@@ -463,6 +463,12 @@ $ignore: ":where(:not(.content-ignore *))";
       .title-badge {
         @include spacing(60rem);
       }
+
+      @include media-down($bp-md) {
+        .title-badge {
+          @include spacing(30rem);
+        }
+      }
     }
 
     // Elements
