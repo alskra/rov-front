@@ -279,25 +279,24 @@ $ignore: ":where(:not(.content-ignore *))";
       @include shadow-default;
 
       & {
-        padding: 30rem;
+        padding: 30rem 30rem 40rem;
         border-radius: 14rem;
         background: $white;
       }
 
       @include media-down($bp-md) {
-        padding: 20rem;
+        padding: 20rem 20rem 24rem;
       }
     }
 
     .block-hero {
       @include media-up($bp-lg) {
-        padding-bottom: 60rem;
-
         h1#{$ignore} {
           max-width: 1157rem;
         }
 
-        p#{$ignore} {
+        p#{$ignore},
+        :is(ul, ol)#{$ignore} {
           max-width: 807rem;
         }
       }
@@ -317,29 +316,70 @@ $ignore: ":where(:not(.content-ignore *))";
       align-items: center;
       gap: 10rem 317rem;
 
-      img#{$ignore} {
+      > :nth-child(1) {
+        margin: 0;
         flex: none;
         width: 142rem;
+      }
+
+      > :nth-child(2) {
+        flex: 1;
       }
 
       @include media-up($bp-lg) {
         padding-block: 80rem;
         padding-right: 60rem;
+
+        > :nth-child(1) {
+          order: 1;
+        }
       }
 
       @include media-down($bp-lg) {
         flex-flow: column;
         align-items: unset;
 
-        img#{$ignore} {
-          order: -1;
+        > :nth-child(1) {
           margin: 0 auto;
         }
       }
 
       @include media-down($bp-md) {
-        img#{$ignore} {
+        > :nth-child(1) {
           width: 74rem;
+        }
+      }
+    }
+
+    .block-icon-2 {
+      position: relative;
+
+      > :nth-child(1) {
+        margin: 0;
+      }
+
+      @include media-up($bp-lg) {
+        > :nth-child(1) {
+          position: absolute;
+          top: 0;
+          right: 20rem;
+          width: 47rem;
+        }
+
+        > :nth-child(2) {
+          max-width: 950rem;
+        }
+      }
+
+      @include media-down($bp-lg) {
+        display: flex;
+        flex-flow: column;
+        gap: 20rem;
+        padding-top: 0;
+
+        > :nth-child(1) {
+          width: 32rem;
+          margin-inline: auto;
         }
       }
     }

@@ -461,23 +461,21 @@
     box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
   }
   .content .block-accent {
-    padding: 30rem;
+    padding: 30rem 30rem 40rem;
     border-radius: 14rem;
     background: #fff;
   }
   @media (width < 768px) {
     .content .block-accent {
-      padding: 20rem;
+      padding: 20rem 20rem 24rem;
     }
   }
   @media (width >= 1025px) {
-    .content .block-hero {
-      padding-bottom: 60rem;
-    }
     .content .block-hero h1:where(:not(.content-ignore *)) {
       max-width: 1157rem;
     }
-    .content .block-hero p:where(:not(.content-ignore *)) {
+    .content .block-hero p:where(:not(.content-ignore *)),
+    .content .block-hero :is(ul, ol):where(:not(.content-ignore *)) {
       max-width: 807rem;
     }
   }
@@ -495,14 +493,21 @@
     align-items: center;
     gap: 10rem 317rem;
   }
-  .content .block-icon img:where(:not(.content-ignore *)) {
+  .content .block-icon > :nth-child(1) {
+    margin: 0;
     flex: none;
     width: 142rem;
+  }
+  .content .block-icon > :nth-child(2) {
+    flex: 1;
   }
   @media (width >= 1025px) {
     .content .block-icon {
       padding-block: 80rem;
       padding-right: 60rem;
+    }
+    .content .block-icon > :nth-child(1) {
+      order: 1;
     }
   }
   @media (width < 1025px) {
@@ -510,14 +515,42 @@
       flex-flow: column;
       align-items: unset;
     }
-    .content .block-icon img:where(:not(.content-ignore *)) {
-      order: -1;
+    .content .block-icon > :nth-child(1) {
       margin: 0 auto;
     }
   }
   @media (width < 768px) {
-    .content .block-icon img:where(:not(.content-ignore *)) {
+    .content .block-icon > :nth-child(1) {
       width: 74rem;
+    }
+  }
+  .content .block-icon-2 {
+    position: relative;
+  }
+  .content .block-icon-2 > :nth-child(1) {
+    margin: 0;
+  }
+  @media (width >= 1025px) {
+    .content .block-icon-2 > :nth-child(1) {
+      position: absolute;
+      top: 0;
+      right: 20rem;
+      width: 47rem;
+    }
+    .content .block-icon-2 > :nth-child(2) {
+      max-width: 950rem;
+    }
+  }
+  @media (width < 1025px) {
+    .content .block-icon-2 {
+      display: flex;
+      flex-flow: column;
+      gap: 20rem;
+      padding-top: 0;
+    }
+    .content .block-icon-2 > :nth-child(1) {
+      width: 32rem;
+      margin-inline: auto;
     }
   }
   .content .block-center h2:where(:not(.content-ignore *)) {
