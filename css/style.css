@@ -1294,7 +1294,7 @@
   .materials-content {
     box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
     position: relative;
-    padding: 60rem 160.5rem 80rem;
+    padding: 60rem 108rem 80rem;
     border-radius: 14rem;
     background: #fff;
   }
@@ -1332,7 +1332,7 @@
   .materials-column {
     margin-bottom: -32rem;
     column-count: 3;
-    column-gap: 120rem;
+    column-gap: 60rem;
   }
   .materials-column:not(:has(.material-item)) {
     display: none;
@@ -1383,6 +1383,9 @@
   }
   .material-item p:where(:not(:last-child)) {
     margin-bottom: 10rem;
+  }
+  .material-item p:has(+ p) {
+    margin-bottom: 0;
   }
   @media (width < 768px) {
     .material-item > strong {
