@@ -53,7 +53,7 @@
     @include shadow-default;
 
     position: relative;
-    padding: 60rem 160.5rem 80rem;
+    padding: 60rem 108rem 80rem;
     border-radius: 14rem;
     background: $white;
 
@@ -92,7 +92,7 @@
   .materials-column {
     margin-bottom: -32rem;
     column-count: 3;
-    column-gap: 120rem;
+    column-gap: 60rem;
 
     &:not(:has(.material-item)) {
       display: none;
@@ -148,6 +148,10 @@
 
       @include nlc {
         margin-bottom: 10rem;
+      }
+
+      &:has(+ p) {
+        margin-bottom: 0;
       }
     }
 
