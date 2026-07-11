@@ -1,6 +1,14 @@
 @use "vars" as *;
 
 @layer layout {
+  :root {
+    --container-padding: 22rem;
+
+    @media (width < $bp-md) {
+      --container-padding: 16rem;
+    }
+  }
+
   html {
     scroll-padding-top: min(var(--header-height) + 65rem, 72px + 65px);
 
@@ -22,13 +30,8 @@
   .container {
     width: 100%;
     max-width: $bp-2xl;
-    padding: 0 22rem;
+    padding: 0 var(--container-padding);
     margin: 0 auto;
-
-    @media (width < $bp-md) {
-      padding-right: 16rem;
-      padding-left: 16rem;
-    }
   }
 
   .flex {
