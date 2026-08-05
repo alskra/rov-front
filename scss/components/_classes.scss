@@ -1,0 +1,54 @@
+@use "../vars" as *;
+@use "../mixins" as *;
+
+@layer components.classes {
+  .classes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25rem;
+
+    @include media-down($bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-down($bp-md) {
+      grid-template-columns: none;
+      gap: 40rem;
+    }
+  }
+
+  .classes-item {
+    display: flex;
+    flex-flow: column;
+    gap: 4rem;
+    border-radius: 10rem;
+    background: $white;
+    overflow: clip;
+  }
+
+  .classes-item-img {
+    aspect-ratio: 429 / 241;
+    object-fit: cover;
+  }
+
+  .classes-item-bottom {
+    display: flex;
+    gap: 12rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16rem;
+  }
+
+  .classes-item-title {
+    padding: 2rem 20rem;
+    font-size: var(--base-font-size);
+    font-weight: 500;
+    color: $white;
+    background: $hollywood-cerise;
+    border-radius: 20rem;
+  }
+
+  .classes-item-icon {
+    color: $hollywood-cerise;
+  }
+}

@@ -29,7 +29,7 @@
       line-height: 14rem;
       color: $white;
       border-radius: 12rem 12rem 0 0;
-      background: $blue;
+      background: $hollywood-cerise;
     }
 
     img {
@@ -46,14 +46,14 @@
       padding: 12rem 12rem 20rem;
       flex: 1;
       font-size: 20rem;
-      font-weight: 400;
+      font-weight: 500;
       border-radius: 0 0 12rem 12rem;
     }
 
     @include media-hover {
       &:hover {
         &::before {
-          box-shadow: 0 -1px $blue inset;
+          box-shadow: 0 -1px $hollywood-cerise inset;
         }
       }
     }

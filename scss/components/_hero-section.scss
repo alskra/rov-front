@@ -198,7 +198,7 @@
 
     &:has(.hero-title-internal) {
       display: grid;
-      grid-template-columns: 535fr 736fr;
+      grid-template-columns: 535fr 746fr;
       gap: 75rem;
       margin-bottom: 158rem;
 
@@ -282,7 +282,7 @@
   .hero-title-internal {
     margin-bottom: 50rem;
     font-size: 32rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: calc(38 / 32);
 
     @media (width < $bp-lg) {
@@ -326,12 +326,12 @@
     max-width: 100%;
     font-size: 20rem;
     line-height: var(--line-height);
-    color: $blue;
+    color: $hollywood-cerise;
     text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    border: 1px solid $blue;
+    border: 1px solid $hollywood-cerise;
     border-radius: 32rem;
     transition: var(--base-transition);
     transition-property: color, background-color;
@@ -339,13 +339,13 @@
     @include media-hover {
       &:hover {
         color: $white;
-        background-color: $blue;
+        background-color: $hollywood-cerise;
       }
     }
 
     &.active {
       color: $white;
-      background-color: $blue;
+      background-color: $hollywood-cerise;
     }
 
     @include media-down($bp-md) {

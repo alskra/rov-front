@@ -25,14 +25,14 @@
       margin-top: 0;
       margin-bottom: -36rem;
       font-size: 20rem;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 14rem;
       color: $white;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       border-radius: 12rem;
-      background: $blue;
+      background: $hollywood-cerise;
     }
 
     @include media-down($bp-md) {
@@ -123,7 +123,7 @@
     margin: 0;
     font-size: 24rem;
     font-weight: 500;
-    color: $blue;
+    color: $hollywood-cerise;
 
     @include media-down($bp-md) {
       font-size: 18rem;
@@ -138,7 +138,7 @@
       display: block;
       font-size: 20rem;
       line-height: 1.25;
-      font-weight: 400;
+      font-weight: 500;
 
       @include nlc {
         margin-bottom: 10rem;
@@ -222,13 +222,13 @@
     padding: var(--padding-y) var(--padding-x);
     font-size: 20rem;
     line-height: 1.25;
-    color: $blue;
+    color: $hollywood-cerise;
     text-decoration: none;
     text-transform: lowercase;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border: 1px solid $blue;
+    border: 1px solid $hollywood-cerise;
     border-radius: 32rem;
     user-select: none;
     transition: var(--base-transition);
@@ -246,7 +246,7 @@
     @include media-hover {
       &:hover {
         color: $white;
-        background-color: $blue;
+        background-color: $hollywood-cerise;
 
         img {
           filter: brightness(0) invert(1);
