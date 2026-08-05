@@ -178,9 +178,9 @@
   .content {
     --h-spacing: 1em;
     --p-spacing: calc(1em * var(--base-line-height));
-    --link-color: #63BAFF;
+    --link-color: #EB058C;
     --link-decoration: none;
-    --link-hover-color: #48A9F3;
+    --link-hover-color: rgb(209.5, 5, 125.0326086957);
     --link-hover-decoration: none;
     --list-indent: 1.5em;
     --list-marker-size: 0.4166666667em;
@@ -590,7 +590,7 @@
     font-size: var(--base-font-size);
     font-weight: 500;
     color: #FFF;
-    background: #63BAFF;
+    background: #EB058C;
     border-radius: 12rem;
     text-transform: none;
   }
