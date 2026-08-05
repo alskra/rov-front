@@ -47,9 +47,10 @@
 
   .filter-section-title,
   .filter-section-year {
-    font-size: 20rem;
-    font-weight: 400;
+    font-size: 24rem;
+    font-weight: 500;
     text-transform: lowercase;
+    color: var(--base-color);
   }
 
   .filter-section-title {
