@@ -882,7 +882,7 @@
     flex: none;
   }
   .breadcrumbs a {
-    color: #63BAFF;
+    color: #EB058C;
   }
   @media (hover: hover) {
     .breadcrumbs a:hover {
@@ -1526,7 +1526,7 @@
     right: var(--container-padding);
     width: 48rem;
     aspect-ratio: 1;
-    background: #63BAFF;
+    background: #EB058C;
     color: white;
     display: flex;
     justify-content: center;
@@ -1542,7 +1542,6 @@
   }
   @media (hover: hover) {
     .floating-envelope:hover {
-      background: #48A9F3;
       transform: scale(1.1);
     }
   }
@@ -1623,7 +1622,7 @@
       width: 48rem;
       aspect-ratio: 1;
       margin: 0;
-      background: #63BAFF;
+      background: #EB058C;
       border-radius: 12rem;
       align-items: center;
       justify-content: center;
