@@ -80,6 +80,7 @@
     margin: 0;
     font-family: "PT Root UI", Arial, sans-serif;
     font-size: var(--base-font-size);
+    font-weight: 500;
     line-height: var(--base-line-height);
     color: var(--base-color);
     overflow: clip;
@@ -587,7 +588,7 @@
     padding: 6rem 30rem;
     margin: 0;
     font-size: var(--base-font-size);
-    font-weight: 400;
+    font-weight: 500;
     color: #FFF;
     background: #63BAFF;
     border-radius: 12rem;
@@ -767,7 +768,7 @@
     padding: 12rem 12rem 20rem;
     flex: 1;
     font-size: 20rem;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: 0 0 12rem 12rem;
   }
   @media (hover: hover) {
@@ -804,7 +805,7 @@
     margin-top: 160rem;
   }
   .filter-section:not(.is-active) {
-    display: none;
+    display: none !important;
   }
   @media (768px <= width < 1025px) {
     .filter-section {
@@ -1154,7 +1155,7 @@
   .hero-title-internal {
     margin-bottom: 50rem;
     font-size: 32rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.1875;
   }
   @media (width < 1025px) {
@@ -1270,7 +1271,7 @@
     margin-top: 0;
     margin-bottom: -36rem;
     font-size: 20rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 14rem;
     color: #FFF;
     overflow: hidden;
@@ -1377,7 +1378,7 @@
     display: block;
     font-size: 20rem;
     line-height: 1.25;
-    font-weight: 400;
+    font-weight: 500;
   }
   .material-item > strong:where(:not(:last-child)) {
     margin-bottom: 10rem;
@@ -1722,6 +1723,54 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20rem;
+  }
+}
+@layer components.classes {
+  .classes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25rem;
+  }
+  @media (width < 1025px) {
+    .classes {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (width < 768px) {
+    .classes {
+      grid-template-columns: none;
+      gap: 40rem;
+    }
+  }
+  .classes-item {
+    display: flex;
+    flex-flow: column;
+    gap: 4rem;
+    border-radius: 10rem;
+    background: #FFF;
+    overflow: clip;
+  }
+  .classes-item-img {
+    aspect-ratio: 429/241;
+    object-fit: cover;
+  }
+  .classes-item-bottom {
+    display: flex;
+    gap: 12rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16rem;
+  }
+  .classes-item-title {
+    padding: 2rem 20rem;
+    font-size: var(--base-font-size);
+    font-weight: 500;
+    color: #FFF;
+    background: #EB058C;
+    border-radius: 20rem;
+  }
+  .classes-item-icon {
+    color: #EB058C;
   }
 }
 
