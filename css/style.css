@@ -147,6 +147,9 @@
   }
 }
 @layer helpers {
+  [hidden] {
+    display: none !important;
+  }
   .visually-hidden {
     width: 1px !important;
     height: 1px !important;
@@ -981,12 +984,12 @@
     }
   }
   .hero-section-text-info {
+    display: flex;
+    gap: 0.3em;
     margin-top: 60rem;
     font-size: 20rem;
+    font-style: italic;
     color: #7F7F7F;
-  }
-  .hero-section-text-info p:where(:not(:last-child)) {
-    margin-bottom: 0.5em;
   }
   @media (width < 1025px) {
     .hero-section-text-info {
@@ -1023,7 +1026,7 @@
     display: flex;
     flex-flow: column;
     gap: 10rem;
-    font-size: 16rem;
+    font-size: 18rem;
     line-height: 1.1875;
     text-align: center;
   }
@@ -1035,7 +1038,7 @@
   }
   @media (width < 1025px) {
     .hero-section-links-item {
-      font-size: 14rem;
+      font-size: 16rem;
     }
     .hero-section-links-item > img {
       width: 56rem;
@@ -1081,6 +1084,14 @@
   }
   .hero-internal {
     margin-bottom: 76rem;
+  }
+  .materials-section + .hero-internal.theme-group-heading {
+    margin-top: 100rem;
+  }
+  @media (width < 768px) {
+    .materials-section + .hero-internal.theme-group-heading {
+      margin-top: 60rem;
+    }
   }
   .hero-internal:has(.hero-title-internal) {
     display: grid;
@@ -1723,6 +1734,38 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20rem;
+  }
+}
+@layer components.docs-banner {
+  .docs-banner {
+    box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
+    padding: 30rem 40rem;
+    border-radius: 14rem;
+    background: #FFF;
+  }
+  @media (width < 768px) {
+    .docs-banner {
+      padding: 20rem;
+    }
+  }
+  .docs-banner-title {
+    width: max-content;
+    padding: 6rem 30rem;
+    margin: 0 0 30rem;
+    font-size: var(--base-font-size);
+    font-weight: 500;
+    color: #FFF;
+    border-radius: 12rem;
+    background: #EB058C;
+  }
+  @media (width < 768px) {
+    .docs-banner-title {
+      padding: 8rem 20rem;
+      margin-bottom: 20rem;
+    }
+  }
+  .docs-banner-section.is-active + .filter-section.is-active {
+    margin-top: 76rem;
   }
 }
 @layer components.classes {

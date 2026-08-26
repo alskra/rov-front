@@ -1,0 +1,36 @@
+@use "../vars" as *;
+@use "../mixins" as *;
+
+@layer components.docs-banner {
+  .docs-banner {
+    @include shadow-default;
+
+    padding: 30rem 40rem;
+    border-radius: 14rem;
+    background: $white;
+
+    @include media-down($bp-md) {
+      padding: 20rem;
+    }
+  }
+
+  .docs-banner-title {
+    width: max-content;
+    padding: 6rem 30rem;
+    margin: 0 0 30rem;
+    font-size: var(--base-font-size);
+    font-weight: 500;
+    color: $white;
+    border-radius: 12rem;
+    background: $hollywood-cerise;
+
+    @include media-down($bp-md) {
+      padding: 8rem 20rem;
+      margin-bottom: 20rem;
+    }
+  }
+
+  .docs-banner-section.is-active + .filter-section.is-active {
+    margin-top: 76rem;
+  }
+}
