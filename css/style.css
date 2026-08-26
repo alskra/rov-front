@@ -1815,6 +1815,43 @@
   .classes-item-icon {
     color: #EB058C;
   }
+  .classes-theme-list {
+    display: none;
+  }
+  .classes-theme-list:target {
+    display: block;
+  }
+  .classes-theme-list-title {
+    display: inline-block;
+    margin-bottom: 20rem;
+  }
+  .month-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30rem;
+  }
+  .month-group .flex.justify-between {
+    gap: 25rem;
+    justify-content: flex-start;
+  }
+  .month-group + .month-group {
+    margin-top: 160rem;
+  }
+  @media (768px <= width < 1025px) {
+    .month-group {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
+  }
+  @media (width < 768px) {
+    .month-group .flex.justify-between {
+      flex-direction: column-reverse;
+      gap: 40rem;
+    }
+    .month-group + .month-group {
+      margin-top: 100rem;
+    }
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
