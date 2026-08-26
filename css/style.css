@@ -732,7 +732,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-basis: calc((100% - 75rem) / 4);
+    flex-basis: calc((100% - 50rem) / 3);
     margin-top: 36rem;
     border-radius: 14rem;
     background: #FFF;
