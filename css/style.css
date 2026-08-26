@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/* style version 3.12 — [hidden]{display:none!important} глобально: раньше
+   авторский display:grid на .hero-internal:has(.hero-title-internal) мог
+   перебивать [hidden] у элементов с этим классом (например #main-hero). */
+/* style version 3.14 — добавлен .docs-banner (блок «Важные документы» между
+   вкладками года и календарём для текущего уч. года). */
 @layer base {}
 @layer layout {}
 @layer components {}
@@ -147,6 +152,9 @@
   }
 }
 @layer helpers {
+  [hidden] {
+    display: none !important;
+  }
   .visually-hidden {
     width: 1px !important;
     height: 1px !important;
@@ -840,6 +848,91 @@
     margin: 0;
   }
 }
+@layer components.classes {
+  .classes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25rem;
+  }
+  @media (width < 1025px) {
+    .classes {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (width < 768px) {
+    .classes {
+      grid-template-columns: none;
+      gap: 40rem;
+    }
+  }
+  .classes-item {
+    display: flex;
+    flex-flow: column;
+    gap: 4rem;
+    border-radius: 10rem;
+    background: #FFF;
+    overflow: clip;
+  }
+  .classes-item-img {
+    aspect-ratio: 429/241;
+    object-fit: cover;
+  }
+  .classes-item-bottom {
+    display: flex;
+    gap: 12rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16rem;
+  }
+  .classes-item-title {
+    padding: 2rem 20rem;
+    font-size: var(--base-font-size);
+    font-weight: 500;
+    color: #FFF;
+    background: #EB058C;
+    border-radius: 20rem;
+  }
+  .classes-item-icon {
+    color: #EB058C;
+  }
+  .classes-theme-list {
+    display: none;
+  }
+  .classes-theme-list:target {
+    display: block;
+  }
+  .classes-theme-list-title {
+    display: inline-block;
+    margin-bottom: 20rem;
+  }
+  .month-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30rem;
+  }
+  .month-group .flex.justify-between {
+    gap: 25rem;
+    justify-content: flex-start;
+  }
+  .month-group + .month-group {
+    margin-top: 160rem;
+  }
+  @media (768px <= width < 1025px) {
+    .month-group {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
+  }
+  @media (width < 768px) {
+    .month-group .flex.justify-between {
+      flex-direction: column-reverse;
+      gap: 40rem;
+    }
+    .month-group + .month-group {
+      margin-top: 100rem;
+    }
+  }
+}
 @layer components.breadcrumbs {
   .breadcrumbs {
     position: sticky;
@@ -981,12 +1074,12 @@
     }
   }
   .hero-section-text-info {
+    display: flex;
+    gap: 0.3em;
     margin-top: 60rem;
     font-size: 20rem;
+    font-style: italic;
     color: #7F7F7F;
-  }
-  .hero-section-text-info p:where(:not(:last-child)) {
-    margin-bottom: 0.5em;
   }
   @media (width < 1025px) {
     .hero-section-text-info {
@@ -1023,7 +1116,7 @@
     display: flex;
     flex-flow: column;
     gap: 10rem;
-    font-size: 16rem;
+    font-size: 18rem;
     line-height: 1.1875;
     text-align: center;
   }
@@ -1035,7 +1128,7 @@
   }
   @media (width < 1025px) {
     .hero-section-links-item {
-      font-size: 14rem;
+      font-size: 16rem;
     }
     .hero-section-links-item > img {
       width: 56rem;
@@ -1091,10 +1184,18 @@
   .hero-internal:has(.hero-title-internal) .hero-links-internal {
     gap: 10rem;
   }
+  .materials-section + .hero-internal.theme-group-heading {
+    margin-top: 100rem;
+  }
   @media (768px <= width < 1025px) {
     .hero-internal:not(:has(.hero-title-internal)) {
       padding-right: 72rem;
       padding-left: 72rem;
+    }
+  }
+  @media (width < 768px) {
+    .materials-section + .hero-internal.theme-group-heading {
+      margin-top: 60rem;
     }
   }
   @media (width < 1025px) {
@@ -1725,52 +1826,34 @@
     gap: 20rem;
   }
 }
-@layer components.classes {
-  .classes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25rem;
-  }
-  @media (width < 1025px) {
-    .classes {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (width < 768px) {
-    .classes {
-      grid-template-columns: none;
-      gap: 40rem;
-    }
-  }
-  .classes-item {
-    display: flex;
-    flex-flow: column;
-    gap: 4rem;
-    border-radius: 10rem;
+@layer components.docs-banner {
+  .docs-banner {
+    padding: 30rem 40rem;
     background: #FFF;
-    overflow: clip;
+    border-radius: 14rem;
+    box-shadow: 0 1rem 13.8rem rgba(182, 182, 182, 0.25);
   }
-  .classes-item-img {
-    aspect-ratio: 429/241;
-    object-fit: cover;
-  }
-  .classes-item-bottom {
-    display: flex;
-    gap: 12rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16rem;
-  }
-  .classes-item-title {
-    padding: 2rem 20rem;
+  .docs-banner-title {
+    width: max-content;
+    padding: 6rem 30rem;
+    margin: 0 0 30rem;
     font-size: var(--base-font-size);
     font-weight: 500;
     color: #FFF;
     background: #EB058C;
-    border-radius: 20rem;
+    border-radius: 12rem;
   }
-  .classes-item-icon {
-    color: #EB058C;
+  @media (width < 768px) {
+    .docs-banner {
+      padding: 20rem;
+    }
+    .docs-banner-title {
+      padding: 8rem 20rem;
+      margin-bottom: 20rem;
+    }
+  }
+  .docs-banner-section.is-active + .filter-section.is-active {
+    margin-top: 76rem;
   }
 }
 
