@@ -89,15 +89,12 @@
   }
 
   .hero-section-text-info {
+    display: flex;
+    gap: 0.3em;
     margin-top: 60rem;
     font-size: 20rem;
+    font-style: italic;
     color: $gray-dark;
-
-    p {
-      @include nlc {
-        margin-bottom: 0.5em;
-      }
-    }
 
     @media (width < $bp-lg) {
       margin-top: 40rem;
@@ -133,7 +130,7 @@
     display: flex;
     flex-flow: column;
     gap: 10rem;
-    font-size: 16rem;
+    font-size: 18rem;
     line-height: calc(19 / 16);
     text-align: center;
 
@@ -145,7 +142,7 @@
     }
 
     @media (width < $bp-lg) {
-      font-size: 14rem;
+      font-size: 16rem;
 
       > img {
         width: 56rem;
@@ -195,6 +192,14 @@
   // `hero-internal`
   .hero-internal {
     margin-bottom: 76rem;
+
+    .materials-section + &.theme-group-heading {
+      margin-top: 100rem;
+
+      @include media-down($bp-md) {
+        margin-top: 60rem;
+      }
+    }
 
     &:has(.hero-title-internal) {
       display: grid;

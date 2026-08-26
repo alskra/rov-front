@@ -51,4 +51,49 @@
   .classes-item-icon {
     color: $hollywood-cerise;
   }
+
+  // Per-class theme list, toggled via CSS :target — no JS.
+  .classes-theme-list {
+    display: none;
+
+    &:target {
+      display: block;
+    }
+  }
+
+  .classes-theme-list-title {
+    display: inline-block;
+    margin-bottom: 20rem;
+  }
+
+  .month-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30rem;
+
+    .flex.justify-between {
+      gap: 25rem;
+      justify-content: flex-start;
+    }
+
+    & + & {
+      margin-top: 160rem;
+    }
+
+    @include media-between($bp-md, $bp-lg) {
+      padding-right: 72rem;
+      padding-left: 72rem;
+    }
+
+    @include media-down($bp-md) {
+      .flex.justify-between {
+        flex-direction: column-reverse;
+        gap: 40rem;
+      }
+
+      & + & {
+        margin-top: 100rem;
+      }
+    }
+  }
 }
