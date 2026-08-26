@@ -37,12 +37,12 @@
 
       width: 100%;
       aspect-ratio: 320 / 193;
-      margin-bottom: 8rem;
       object-fit: cover;
       border-radius: inherit;
     }
 
     :is(h2, h3) {
+      display: none;
       padding: 12rem 12rem 20rem;
       flex: 1;
       font-size: 20rem;
